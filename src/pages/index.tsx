@@ -7,7 +7,7 @@ export default function TopPage() {
     <>
       <Header />
       <Main>
-        <Card name='あ' />
+        <Card name="あ" />
       </Main>
     </>
   )

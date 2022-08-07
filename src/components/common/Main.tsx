@@ -1,8 +1,7 @@
 import { ReactNode } from 'react'
 import styles from './Main.module.scss'
-import html2canvas from 'html2canvas'
 import { captureToBase64 } from '@/libs/capture/main'
-import {useRef} from 'react'
+import { useRef } from 'react'
 
 type Props = {
   children: ReactNode
