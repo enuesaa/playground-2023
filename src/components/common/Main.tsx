@@ -8,26 +8,18 @@ type Props = {
 }
 export default function Main({ children }: Props) {
   const captureTarget = useRef<HTMLElement>(null)
+  const imgPlaceTarget = useRef<HTMLImageElement>(null)
 
-  const capture = () => {
-    const target = captureTarget.current
-    if (target === null) {
+  const capture = async () => {
+    if (captureTarget.current === null) {
       return
     }
-    html2canvas(target).then((canvas) => {
-      const uri = canvas.toDataURL('img/png')
-      const downloadLink = document.createElement('a')
-
-      if (typeof downloadLink.download === 'string') {
-        downloadLink.href = uri;
-        downloadLink.download = 'sample.png'
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-      } else {
-        window.open(uri);
-      }
-    })
+    const canvas = await html2canvas(captureTarget.current)
+    const imgBase64 = canvas.toDataURL('img/png')
+    if (imgPlaceTarget.current === null) {
+      return
+    }
+    imgPlaceTarget.current.src = imgBase64
   }
 
   return (
@@ -36,6 +28,7 @@ export default function Main({ children }: Props) {
         {children}
       </section>
       <button onClick={capture}>capture</button>
+      <img ref={imgPlaceTarget} />
     </>
   )
 }
