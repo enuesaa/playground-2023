@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import styles from './Main.module.scss'
 import html2canvas from 'html2canvas'
+import { captureToBase64 } from '@/libs/capture/main'
 import {useRef} from 'react'
 
 type Props = {
@@ -11,15 +12,10 @@ export default function Main({ children }: Props) {
   const imgPlaceTarget = useRef<HTMLImageElement>(null)
 
   const capture = async () => {
-    if (captureTarget.current === null) {
+    if (captureTarget.current === null || imgPlaceTarget.current === null) {
       return
     }
-    const canvas = await html2canvas(captureTarget.current)
-    const imgBase64 = canvas.toDataURL('img/png')
-    if (imgPlaceTarget.current === null) {
-      return
-    }
-    imgPlaceTarget.current.src = imgBase64
+    imgPlaceTarget.current.src = await captureToBase64(captureTarget.current)
   }
 
   return (
