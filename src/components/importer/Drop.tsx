@@ -2,7 +2,7 @@ import styeles from './Drop.module.scss'
 import { useState, DragEventHandler } from 'react'
 import { readFile } from '@/libs/filereader/main'
 
-export default function Drop() {
+export function Drop() {
   const [markdown, setMarkdown] = useState<string | null>(null)
   const onDrop: DragEventHandler = async (e) => {
     e.preventDefault()

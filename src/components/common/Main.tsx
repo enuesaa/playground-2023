@@ -6,7 +6,7 @@ import { useRef } from 'react'
 type Props = {
   children: ReactNode
 }
-export default function Main({ children }: Props) {
+export function Main({ children }: Props) {
   const captureTarget = useRef<HTMLElement>(null)
   const imgPlaceTarget = useRef<HTMLImageElement>(null)
 
