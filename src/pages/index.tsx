@@ -1,6 +1,7 @@
 import Header from '@/components/common/Header'
 import Main from '@/components/common/Main'
 import Card from '@/components/common/Card'
+import Drop from '@/components/importer/Drop'
 
 export default function TopPage() {
   return (
@@ -13,6 +14,7 @@ export default function TopPage() {
           <li>slide生成</li>
           <li>slidecapture</li>
         </ul>
+        <Drop />
       </Main>
     </>
   )
