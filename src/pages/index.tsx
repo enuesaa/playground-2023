@@ -9,8 +9,7 @@ export default function TopPage() {
       <Header />
       <Main>
         <Card name="あ" />
-        <ul style={{listStyleType: 'decimal'}}>
-          <li>ファイルを開く</li>
+        <ul>
           <li>slide生成</li>
           <li>slidecapture</li>
         </ul>
