@@ -19,7 +19,7 @@ export function Drop() {
         onDragOver={(e) => {
           e.preventDefault()
         }}
-      ></div>
+      >drop here!</div>
       <textarea
         value={markdown ?? ''}
         onChange={(e) => {
