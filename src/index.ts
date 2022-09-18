@@ -1,2 +1,2 @@
 
-process.stdout.write("a\n")
+export const sampleFnc = () => 'a';
