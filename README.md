@@ -1,2 +1,1 @@
-# furoshiki-string-validator
-string format checker
+# furoshiki-matcher
