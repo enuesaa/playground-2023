@@ -9,7 +9,7 @@
 ~~~ts
 import { Matcher } from 'furoshiki-matcher'
 
-export const matcher = new Matcher({
+const matcher = new Matcher({
   definitions: {
     default: () => {},
     aaa: () => {},
