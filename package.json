@@ -2,6 +2,9 @@
   "name": "tailwindow-cli",
   "version": "0.1.0",
   "license": "UNLICENSED",
+  "bin": {
+    "tailwindow": "./bin/tailwindow.js"
+  },
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\""
   },
