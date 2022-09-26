@@ -1,12 +1,11 @@
-
-type Definition = {};
-type Definitions = Record<string, Definition>;
-type MatchHandler = () => boolean;
+type Definition = {}
+type Definitions = Record<string, Definition>
+type MatchHandler = () => boolean
 export class Matcher {
-  definitions: Definitions;
-  matchHandler: MatchHandler;
+  definitions: Definitions
+  matchHandler: MatchHandler
 
-  constructor({ definitions, matchHandler }: Partial<{definitions: Definitions, matchHandler: MatchHandler}>) {
+  constructor({ definitions, matchHandler }: Partial<{ definitions: Definitions; matchHandler: MatchHandler }>) {
     this.definitions = definitions ?? {}
     this.matchHandler = matchHandler ?? (() => true)
   }
@@ -29,12 +28,12 @@ export class Matcher {
 
 const matcher = new Matcher({
   definitions: {
-    default: {aa: 'bb'},
-    aaa: {aa: 'cc'},
-    bbb: {aa: 'dd'},
+    default: { aa: 'bb' },
+    aaa: { aa: 'cc' },
+    bbb: { aa: 'dd' },
   },
   matchHandler: () => true,
 })
 
-const result = matcher.match('aaa');
+const result = matcher.match('aaa')
 console.log(result)
