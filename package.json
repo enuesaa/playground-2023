@@ -6,10 +6,12 @@
     "tailwindow": "./bin/tailwindow.js"
   },
   "scripts": {
+    "start": "node ./bin/tailwindow.js",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
-    "commander": "^9.4.0"
+    "commander": "^9.4.0",
+    "tsx": "^3.9.0"
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
