@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
+    "@types/tailwindcss": "^3.1.0",
     "prettier": "^2.7.1"
   }
 }
