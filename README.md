@@ -17,7 +17,7 @@ $ jsonformat --input sample.json
 }
 ~~~
 
-### format yaml
+### convert json to yaml
 ~~~sh
 $ jsonformat --input sample.json --format yaml
 a: b
