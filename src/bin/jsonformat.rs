@@ -19,7 +19,7 @@ fn main() {
     if args.format == "json" {
         let json_string = read(&args.input);
         let formatted = json2json(&json_string);
-        println!("{}", formatted);
+        print!("{}", formatted);
     } else if args.format == "yaml" {
         let json_string = read(&args.input);
         let formatted = json2yaml(&json_string);

@@ -11,5 +11,6 @@ pub fn json2yaml(json_string: &str) -> String {
 pub fn json2json(json_string: &str) -> String {
     let value: Value = serde_json::from_str(json_string).unwrap();
     // https://stackoverflow.com/questions/42722169/generate-pretty-indented-json-with-serde
-    serde_json::to_string_pretty(&value).unwrap()
+    let converted = serde_json::to_string_pretty(&value).unwrap();
+    format!("{}\n", converted)
 }
