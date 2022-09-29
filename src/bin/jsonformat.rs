@@ -1,7 +1,9 @@
 use clap::Parser;
 
+use serde_jsonformat_cli::util::read;
+use serde_jsonformat_cli::{json2json, json2yaml};
+
 #[derive(Debug, Parser)]
-// #[clap(disable_help_flag = true)]
 struct Args {
     /// format like `json` or `yaml`
     #[clap(short = 'f', long = "format", default_value_t = String::from("json"))]
@@ -15,9 +17,12 @@ struct Args {
 fn main() {
     let args = Args::parse();
     if args.format == "json" {
-        println!("format json");
-    }
-    if args.format == "yaml" {
-        println!("format yaml");
+        let json_string = read(&args.input);
+        let formatted = json2json(&json_string);
+        println!("{}", formatted);
+    } else if args.format == "yaml" {
+        let json_string = read(&args.input);
+        let formatted = json2yaml(&json_string);
+        print!("{}", formatted);
     }
 }
