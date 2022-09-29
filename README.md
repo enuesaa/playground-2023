@@ -13,7 +13,7 @@ Internally, this uses `serde_json::to_string_pretty`.
 ~~~sh
 $ jsonformat --input sample.json
 {
-  "a": "b",
+  "a": "b"
 }
 ~~~
 
