@@ -1,3 +1,5 @@
+**DEVELOPING**
+
 # gh-last-commit
 gh plugin to show last commit in repository.
 
