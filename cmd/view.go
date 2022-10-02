@@ -40,13 +40,12 @@ func ghView(owner string, name string) {
 		"api", "graphql",
 		"-F", fmt.Sprintf("owner=%s", owner),
 		"-F", fmt.Sprintf("name=%s", name),
-		"-F", fmt.Sprintf("first=%s", "10"),
-		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!, $first: Int) {
+		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!) {
 			repository(name: $name, owner: $owner) {
 				defaultBranchRef {
 					target {
 						... on Commit {
-							history(first: $first) {
+							history(first: 1) {
 								nodes {
 									message
 									id

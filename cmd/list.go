@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/cli/go-gh"
 	"github.com/spf13/cobra"
 )
 
@@ -18,4 +19,41 @@ func init() {
 	rootCmd.AddCommand(listCmd)
 }
 
-func ghlist() {}
+func ghlist() {
+	args := []string{
+		"api", "graphql",
+		"-F", fmt.Sprintf("owner=%s", "enuesaa"),
+		"-F", fmt.Sprintf("first=%s", "5"),
+		"-f", fmt.Sprintf("query=%s", `query($owner: String!, $first: Int) {
+			repositoryOwner(login: $owner) {
+				repositories(first: $first, orderBy: {field: PUSHED_AT, direction: DESC}) {
+					nodes {
+						name
+						defaultBranchRef {
+							target {
+								... on Commit {
+									history(first: 1) {
+										nodes {
+											message
+											author {
+												name
+											}
+											committedDate
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}`),
+	}
+
+	stdOut, _, err := gh.Exec(args...)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	printJson(stdOut.String())
+}
