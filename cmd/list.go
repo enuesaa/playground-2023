@@ -3,7 +3,6 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/cli/go-gh"
 	"github.com/spf13/cobra"
 )
 
@@ -19,12 +18,4 @@ func init() {
 	rootCmd.AddCommand(listCmd)
 }
 
-func ghlist() {
-	args := []string{"repo", "list"}
-	stdOut, _, err := gh.Exec(args...)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println(stdOut.String())
-}
+func ghlist() {}
