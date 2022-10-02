@@ -7,7 +7,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use: "go-last-commit",
+	Use: "last-commit",
 }
 
 func Execute() {

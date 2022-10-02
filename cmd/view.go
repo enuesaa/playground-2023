@@ -8,7 +8,7 @@ import (
 )
 
 var viewCmd = &cobra.Command{
-	Use: "list",
+	Use: "view",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("view command")
 		ghView()
