@@ -23,22 +23,24 @@ func ghlist() {
 	args := []string{
 		"api", "graphql",
 		"-F", fmt.Sprintf("owner=%s", "enuesaa"),
-		"-F", fmt.Sprintf("first=%s", "5"),
+		"-F", fmt.Sprintf("first=%s", "1"),
 		"-f", fmt.Sprintf("query=%s", `query($owner: String!, $first: Int) {
 			repositoryOwner(login: $owner) {
 				repositories(first: $first, orderBy: {field: PUSHED_AT, direction: DESC}) {
 					nodes {
 						name
-						defaultBranchRef {
-							target {
-								... on Commit {
-									history(first: 1) {
-										nodes {
-											message
-											author {
-												name
+						refs(first: 2, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}, refPrefix: "refs/heads/") {
+							nodes {
+								target {
+									... on Commit {
+										history(first: 1) {
+											nodes {
+												message
+												author {
+													name
+												}
+												committedDate
 											}
-											committedDate
 										}
 									}
 								}

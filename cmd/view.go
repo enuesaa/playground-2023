@@ -42,21 +42,34 @@ func ghView(owner string, name string) {
 		"-F", fmt.Sprintf("name=%s", name),
 		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!) {
 			repository(name: $name, owner: $owner) {
-				defaultBranchRef {
-					target {
-						... on Commit {
-							history(first: 1) {
-								nodes {
-									message
-									id
-									author {
-										name
+				name
+				pushedAt
+				openGraphImageUrl
+				refs(first: 10, refPrefix: "refs/heads/") {
+					nodes {
+						name
+						prefix
+						target {
+							... on Commit {
+								history(first: 1) {
+									nodes {
+										message
+										author {
+											name
+										}
+										committedDate
 									}
-									committedDate
 								}
 							}
 						}
 					}
+          totalCount
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
 				}
 			}
 		}`),
