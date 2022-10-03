@@ -53,8 +53,7 @@ func ghView(owner string, name string) {
 			repository(name: $name, owner: $owner) {
 				name
 				pushedAt
-				openGraphImageUrl
-				refs(first: 10, refPrefix: "refs/heads/") {
+				refs(first: 100, refPrefix: "refs/heads/") {
 					nodes {
 						name
 						prefix
@@ -74,10 +73,7 @@ func ghView(owner string, name string) {
 					}
           totalCount
           pageInfo {
-            endCursor
             hasNextPage
-            hasPreviousPage
-            startCursor
           }
 				}
 			}
@@ -89,7 +85,13 @@ func ghView(owner string, name string) {
 		fmt.Println(err)
 		return
 	}
-	printJson(stdOut.String())
+	print(stdOut.String())
+}
+
+func print(str string) {
+	var obj map[string]interface{}
+	json.Unmarshal([]byte(str), &obj)
+	fmt.Println(obj["data"])
 }
 
 func printJson(str string) {
