@@ -9,12 +9,12 @@ import (
 	"github.com/TylerBrock/colorjson"
 	"github.com/cli/go-gh"
 	"github.com/spf13/cobra"
+	"github.com/tidwall/gjson"
 )
 
 var rootCmd = &cobra.Command{
 	Use: "last-commit <repository>",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("view command")
 		if len(args) != 1 {
 			fmt.Println("need: repository")
 			os.Exit(1)
@@ -89,9 +89,10 @@ func ghView(owner string, name string) {
 }
 
 func print(str string) {
-	var obj map[string]interface{}
-	json.Unmarshal([]byte(str), &obj)
-	fmt.Println(obj["data"])
+	commitMessage := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.message")
+	authorName := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.author.name")
+	committedDate := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.committedDate")
+	fmt.Printf("%s %s %s\n", committedDate, authorName, commitMessage)
 }
 
 func printJson(str string) {
