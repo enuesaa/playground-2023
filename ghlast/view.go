@@ -44,6 +44,9 @@ func View(owner string, name string, branch string) (string, error) {
 		return "", errors.New("")
 	}
 	str := stdOut.String()
-	fmt.Println(gjson.Get(str, "data.repository"))
+	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
+	authorName := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.name")
+	committedDate := gjson.Get(str, "data.repository.ref.target.history.nodes.0.committedDate")
+	fmt.Printf("%s %s %s\n", committedDate, authorName, commitMessage)
 	return stdOut.String(), nil
 }

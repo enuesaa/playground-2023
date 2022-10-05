@@ -10,6 +10,12 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+type Commit struct {
+	Message    string
+	AuthorName string
+	Date       string
+}
+
 var rootCmd = &cobra.Command{
 	Use:  "last-commit <repository>",
 	Args: cobra.ExactArgs(1),
