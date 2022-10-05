@@ -2,10 +2,9 @@ package cmd
 
 import (
 	"fmt"
+	"gh-last-commit/ghbranch"
 	"os"
 	"strings"
-
-	"gh-last-commit/ghbranch"
 
 	"github.com/spf13/cobra"
 	"github.com/tidwall/gjson"
@@ -19,10 +18,15 @@ var rootCmd = &cobra.Command{
 			os.Exit(1)
 		}
 		branch, _ := cmd.Flags().GetString("branch")
-		fmt.Println(branch)
 		owner, name := parseRepositoryOwnerAndName(args[0])
-		if result, error := ghbranch.List(owner, name, branch); error == nil {
-			print(result)
+		if branch == "" {
+			if result, error := ghbranch.List(owner, name); error == nil {
+				print(result)
+			}
+		} else {
+			if result, error := ghbranch.View(owner, name, branch); error == nil {
+				print(result)
+			}
 		}
 	},
 }
@@ -31,7 +35,7 @@ func Execute() {
 	// disable default commands
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.SetHelpCommand(&cobra.Command{Hidden: true})
-	rootCmd.Flags().StringP("branch", "", "main", "branch name")
+	rootCmd.Flags().StringP("branch", "", "", "branch name")
 
 	err := rootCmd.Execute()
 	if err != nil {

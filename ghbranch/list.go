@@ -7,7 +7,7 @@ import (
 	"github.com/cli/go-gh"
 )
 
-func List(owner string, name string, branch string) (string, error) {
+func List(owner string, name string) (string, error) {
 	args := []string{
 		"api", "graphql",
 		"-F", fmt.Sprintf("owner=%s", owner),
