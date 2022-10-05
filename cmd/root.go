@@ -1,12 +1,10 @@
 package cmd
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"strings"
 
-	"github.com/TylerBrock/colorjson"
 	"github.com/cli/go-gh"
 	"github.com/spf13/cobra"
 	"github.com/tidwall/gjson"
@@ -93,14 +91,4 @@ func print(str string) {
 	authorName := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.author.name")
 	committedDate := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.committedDate")
 	fmt.Printf("%s %s %s\n", committedDate, authorName, commitMessage)
-}
-
-func printJson(str string) {
-	var obj map[string]interface{}
-	json.Unmarshal([]byte(str), &obj)
-
-	f := colorjson.NewFormatter()
-	f.Indent = 2
-	s, _ := f.Marshal(obj)
-	fmt.Println(string(s))
 }
