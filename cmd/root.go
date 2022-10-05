@@ -11,12 +11,9 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use: "last-commit <repository>",
+	Use:  "last-commit <repository>",
+	Args: cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		if len(args) != 1 {
-			fmt.Println("need: repository")
-			os.Exit(1)
-		}
 		branch, _ := cmd.Flags().GetString("branch")
 		owner, name := parseRepositoryOwnerAndName(args[0])
 		if branch == "" {
