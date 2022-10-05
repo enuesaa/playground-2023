@@ -5,7 +5,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/cli/go-gh"
+	"gh-last-commit/ghbranch"
+
 	"github.com/spf13/cobra"
 	"github.com/tidwall/gjson"
 )
@@ -20,7 +21,9 @@ var rootCmd = &cobra.Command{
 		branch, _ := cmd.Flags().GetString("branch")
 		fmt.Println(branch)
 		owner, name := parseRepositoryOwnerAndName(args[0])
-		ghView(owner, name, branch)
+		if result, error := ghbranch.List(owner, name, branch); error == nil {
+			print(result)
+		}
 	},
 }
 
@@ -43,50 +46,6 @@ func parseRepositoryOwnerAndName(str string) (string, string) {
 		os.Exit(1)
 	}
 	return result[0], result[1]
-}
-
-func ghView(owner string, name string, branch string) {
-	args := []string{
-		"api", "graphql",
-		"-F", fmt.Sprintf("owner=%s", owner),
-		"-F", fmt.Sprintf("name=%s", name),
-		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!) {
-			repository(name: $name, owner: $owner) {
-				name
-				pushedAt
-				refs(first: 100, refPrefix: "refs/heads/") {
-					nodes {
-						name
-						prefix
-						target {
-							... on Commit {
-								history(first: 1) {
-									nodes {
-										message
-										author {
-											name
-										}
-										committedDate
-									}
-								}
-							}
-						}
-					}
-          totalCount
-          pageInfo {
-            hasNextPage
-          }
-				}
-			}
-		}`),
-	}
-
-	stdOut, _, err := gh.Exec(args...)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	print(stdOut.String())
 }
 
 func print(str string) {
