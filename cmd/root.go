@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"gh-last-commit/ghbranch"
+	"gh-last-commit/ghlast"
 	"os"
 	"strings"
 
@@ -17,11 +17,11 @@ var rootCmd = &cobra.Command{
 		branch, _ := cmd.Flags().GetString("branch")
 		owner, name := parseRepositoryOwnerAndName(args[0])
 		if branch == "" {
-			if result, error := ghbranch.List(owner, name); error == nil {
+			if result, error := ghlast.List(owner, name); error == nil {
 				print(result)
 			}
 		} else {
-			if result, error := ghbranch.View(owner, name, branch); error == nil {
+			if result, error := ghlast.View(owner, name, branch); error == nil {
 				print(result)
 			}
 		}

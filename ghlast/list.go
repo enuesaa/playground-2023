@@ -1,4 +1,4 @@
-package ghbranch
+package ghlast
 
 import (
 	"errors"

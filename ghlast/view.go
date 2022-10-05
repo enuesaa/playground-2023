@@ -1,10 +1,11 @@
-package ghbranch
+package ghlast
 
 import (
 	"errors"
 	"fmt"
 
 	"github.com/cli/go-gh"
+	"github.com/tidwall/gjson"
 )
 
 func View(owner string, name string, branch string) (string, error) {
@@ -12,32 +13,27 @@ func View(owner string, name string, branch string) (string, error) {
 		"api", "graphql",
 		"-F", fmt.Sprintf("owner=%s", owner),
 		"-F", fmt.Sprintf("name=%s", name),
-		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!) {
+		"-F", fmt.Sprintf("qualifiedName=%s", branch),
+		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!, $qualifiedName: String!) {
 			repository(name: $name, owner: $owner) {
 				name
 				pushedAt
-				refs(first: 100, refPrefix: "refs/heads/") {
-					nodes {
-						name
-						prefix
-						target {
-							... on Commit {
-								history(first: 1) {
-									nodes {
-										message
-										author {
-											name
-										}
-										committedDate
+				ref(qualifiedName: $qualifiedName) {
+					name
+					prefix
+					target {
+						... on Commit {
+							history(first: 1) {
+								nodes {
+									message
+									author {
+										name
 									}
+									committedDate
 								}
 							}
 						}
 					}
-          totalCount
-          pageInfo {
-            hasNextPage
-          }
 				}
 			}
 		}`),
@@ -47,5 +43,7 @@ func View(owner string, name string, branch string) (string, error) {
 	if err != nil {
 		return "", errors.New("")
 	}
+	str := stdOut.String()
+	fmt.Println(gjson.Get(str, "data.repository"))
 	return stdOut.String(), nil
 }
