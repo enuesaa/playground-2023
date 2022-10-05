@@ -17,8 +17,10 @@ var rootCmd = &cobra.Command{
 			fmt.Println("need: repository")
 			os.Exit(1)
 		}
+		branch, _ := cmd.Flags().GetString("branch")
+		fmt.Println(branch)
 		owner, name := parseRepositoryOwnerAndName(args[0])
-		ghView(owner, name)
+		ghView(owner, name, branch)
 	},
 }
 
@@ -26,6 +28,7 @@ func Execute() {
 	// disable default commands
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.SetHelpCommand(&cobra.Command{Hidden: true})
+	rootCmd.Flags().StringP("branch", "", "main", "branch name")
 
 	err := rootCmd.Execute()
 	if err != nil {
@@ -42,7 +45,7 @@ func parseRepositoryOwnerAndName(str string) (string, string) {
 	return result[0], result[1]
 }
 
-func ghView(owner string, name string) {
+func ghView(owner string, name string, branch string) {
 	args := []string{
 		"api", "graphql",
 		"-F", fmt.Sprintf("owner=%s", owner),
