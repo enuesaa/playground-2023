@@ -3,6 +3,10 @@
 # gh-last-commit
 gh plugin to show last commit in repository.
 
+## Installation
+~~~sh
+$ gh extension install enuesaa/gh-last-commit
+~~~
 ## Usage
 ~~~sh
 $ gh last-commmit <username/repository>
