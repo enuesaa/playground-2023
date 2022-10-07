@@ -39,7 +39,7 @@ func View(owner string, name string, branch string) {
 
 	stdOut, _, err := gh.Exec(args...)
 	if err != nil {
-		fmt.Printf("Branch name '%s' not exists.\n", branch)
+		fmt.Printf("Branch not exists: %s\n", branch)
 		os.Exit(1)
 	}
 
