@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"strconv"
+	"strings"
 
 	"github.com/cli/go-gh"
 	"github.com/tidwall/gjson"
@@ -25,7 +27,6 @@ func List(owner string, name string) {
 										message
 										author {
 											name
-											email
 										}
 										committedDate
 									}
@@ -48,8 +49,12 @@ func List(owner string, name string) {
 	}
 
 	str := stdOut.String()
-	commitMessage := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.message")
-	authorName := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.author.name")
-	committedDate := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.committedDate")
-	fmt.Printf("%s\t%s\t%s\n", committedDate, authorName, commitMessage)
+	refs := gjson.Get(str, "data.repository.refs.nodes").Array()
+	for i := 0; i < len(refs); i++ {
+		node := gjson.Get(str, fmt.Sprintf("data.repository.refs.nodes.%s", strconv.Itoa(i))).String()
+		authorName := gjson.Get(node, "target.history.nodes.0.author.name")
+		committedDate := gjson.Get(node, "target.history.nodes.0.committedDate")
+		commitMessage := strings.Split(gjson.Get(node, "target.history.nodes.0.message").String(), "\n")[0]
+		fmt.Printf("%s\t%s\t%s\n", committedDate, authorName, commitMessage)
+	}
 }

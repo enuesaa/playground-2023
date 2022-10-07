@@ -26,7 +26,6 @@ func View(owner string, name string, branch string) {
 									message
 									author {
 										name
-										email
 									}
 									committedDate
 								}
