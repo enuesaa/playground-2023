@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/cli/go-gh"
 	"github.com/tidwall/gjson"
@@ -39,10 +40,16 @@ func View(owner string, name string, branch string) {
 
 	stdOut, _, err := gh.Exec(args...)
 	if err != nil {
-		return
+		fmt.Printf("Branch name '%s' not exists.\n", branch)
+		os.Exit(1)
 	}
 
 	str := stdOut.String()
+	ref := gjson.Get(str, "data.repository.ref").Value()
+	if ref == nil {
+		fmt.Printf("Branch name '%s' not exists.\n", branch)
+		os.Exit(1)
+	}
 	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
 	authorName := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.name")
 	authorEmail := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.email")
