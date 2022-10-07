@@ -16,10 +16,8 @@ func View(owner string, name string, branch string) {
 		"-f", fmt.Sprintf("query=%s", `query($name: String!, $owner: String!, $qualifiedName: String!) {
 			repository(name: $name, owner: $owner) {
 				name
-				pushedAt
 				ref(qualifiedName: $qualifiedName) {
 					name
-					prefix
 					target {
 						... on Commit {
 							history(first: 1) {
@@ -27,6 +25,7 @@ func View(owner string, name string, branch string) {
 									message
 									author {
 										name
+										email
 									}
 									committedDate
 								}
@@ -46,6 +45,7 @@ func View(owner string, name string, branch string) {
 	str := stdOut.String()
 	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
 	authorName := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.name")
+	authorEmail := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.email")
 	committedDate := gjson.Get(str, "data.repository.ref.target.history.nodes.0.committedDate")
-	fmt.Printf("%s %s %s\n", committedDate, authorName, commitMessage)
+	fmt.Printf("%s\t%s <%s>\t%s\n", committedDate, authorName, authorEmail, commitMessage)
 }
