@@ -1,14 +1,13 @@
-package ghlast
+package cmd
 
 import (
-	"errors"
 	"fmt"
 
 	"github.com/cli/go-gh"
 	"github.com/tidwall/gjson"
 )
 
-func View(owner string, name string, branch string) (string, error) {
+func View(owner string, name string, branch string) {
 	args := []string{
 		"api", "graphql",
 		"-F", fmt.Sprintf("owner=%s", owner),
@@ -41,12 +40,12 @@ func View(owner string, name string, branch string) (string, error) {
 
 	stdOut, _, err := gh.Exec(args...)
 	if err != nil {
-		return "", errors.New("")
+		return
 	}
+
 	str := stdOut.String()
 	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
 	authorName := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.name")
 	committedDate := gjson.Get(str, "data.repository.ref.target.history.nodes.0.committedDate")
 	fmt.Printf("%s %s %s\n", committedDate, authorName, commitMessage)
-	return stdOut.String(), nil
 }

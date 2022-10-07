@@ -2,12 +2,10 @@ package cmd
 
 import (
 	"fmt"
-	"gh-last-commit/ghlast"
 	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/tidwall/gjson"
 )
 
 type Commit struct {
@@ -23,27 +21,26 @@ var rootCmd = &cobra.Command{
 		branch, _ := cmd.Flags().GetString("branch")
 		owner, name := parseRepositoryOwnerAndName(args[0])
 		if branch == "" {
-			if result, error := ghlast.List(owner, name); error == nil {
-				print(result)
-			}
+			List(owner, name)
 		} else {
-			if result, error := ghlast.View(owner, name, branch); error == nil {
-				print(result)
-			}
+			View(owner, name, branch)
 		}
 	},
 }
 
 func Execute() {
-	// disable default commands
-	rootCmd.CompletionOptions.DisableDefaultCmd = true
-	rootCmd.SetHelpCommand(&cobra.Command{Hidden: true})
+	diableCobraDefaultCommands()
 	rootCmd.Flags().StringP("branch", "", "", "branch name")
 
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
 	}
+}
+
+func diableCobraDefaultCommands() {
+	rootCmd.CompletionOptions.DisableDefaultCmd = true
+	rootCmd.SetHelpCommand(&cobra.Command{Hidden: true})
 }
 
 func parseRepositoryOwnerAndName(str string) (string, string) {
@@ -53,11 +50,4 @@ func parseRepositoryOwnerAndName(str string) (string, string) {
 		os.Exit(1)
 	}
 	return result[0], result[1]
-}
-
-func print(str string) {
-	commitMessage := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.message")
-	authorName := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.author.name")
-	committedDate := gjson.Get(str, "data.repository.refs.nodes.0.target.history.nodes.0.committedDate")
-	fmt.Printf("%s %s %s\n", committedDate, authorName, commitMessage)
 }
