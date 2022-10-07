@@ -49,8 +49,8 @@ func View(owner string, name string, branch string) {
 		fmt.Printf("Branch name '%s' not exists.\n", branch)
 		os.Exit(1)
 	}
+	branchName := gjson.Get(str, "data.repository.ref.name")
 	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
-	authorName := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.name")
 	committedDate := gjson.Get(str, "data.repository.ref.target.history.nodes.0.committedDate")
-	fmt.Printf("%s\t%s\t%s\n", committedDate, authorName, commitMessage)
+	fmt.Printf("%s\t%-30s\t%s\n", committedDate, branchName, commitMessage)
 }

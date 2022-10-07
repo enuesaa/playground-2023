@@ -52,9 +52,9 @@ func List(owner string, name string) {
 	refs := gjson.Get(str, "data.repository.refs.nodes").Array()
 	for i := 0; i < len(refs); i++ {
 		node := gjson.Get(str, fmt.Sprintf("data.repository.refs.nodes.%s", strconv.Itoa(i))).String()
-		authorName := gjson.Get(node, "target.history.nodes.0.author.name")
+		branchName := gjson.Get(node, "name")
 		committedDate := gjson.Get(node, "target.history.nodes.0.committedDate")
 		commitMessage := strings.Split(gjson.Get(node, "target.history.nodes.0.message").String(), "\n")[0]
-		fmt.Printf("%s\t%s\t%s\n", committedDate, authorName, commitMessage)
+		fmt.Printf("%s\t%-30s\t%s\n", committedDate, branchName, commitMessage)
 	}
 }
