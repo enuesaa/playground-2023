@@ -52,7 +52,6 @@ func View(owner string, name string, branch string) {
 	}
 	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
 	authorName := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.name")
-	authorEmail := gjson.Get(str, "data.repository.ref.target.history.nodes.0.author.email")
 	committedDate := gjson.Get(str, "data.repository.ref.target.history.nodes.0.committedDate")
-	fmt.Printf("%s\t%s <%s>\t%s\n", committedDate, authorName, authorEmail, commitMessage)
+	fmt.Printf("%s\t%s\t%s\n", committedDate, authorName, commitMessage)
 }
