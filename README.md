@@ -10,11 +10,11 @@ $ gh extension install enuesaa/gh-last-commit
 ## Usage
 ~~~sh
 $ gh last-commmit <username/repository>
-2022-03-13T18:29:09Z	main    fix: gitgnore
-2022-02-26T11:27:29Z	develop feat: add something
-2021-01-09T01:52:32Z	aaa     docs: update readme
+8 months ago	main    fix: gitgnore
+2 months ago	develop feat: add something
+a year ago    aaa     docs: update readme
 ~~~
 ~~~sh
 $ gh last-commmit <username/repository> --branch main
-2022-03-13T18:29:09Z	main	fix: gitgnore
+8 months ago	main	fix: gitgnore
 ~~~
