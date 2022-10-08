@@ -3,8 +3,10 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/cli/go-gh"
+	"github.com/mergestat/timediff"
 	"github.com/tidwall/gjson"
 )
 
@@ -49,8 +51,12 @@ func View(owner string, name string, branch string) {
 		fmt.Printf("Branch name '%s' not exists.\n", branch)
 		os.Exit(1)
 	}
+	layout := "2006-01-02T15:04:05Z"
+
 	branchName := gjson.Get(str, "data.repository.ref.name")
 	commitMessage := gjson.Get(str, "data.repository.ref.target.history.nodes.0.message")
 	committedDate := gjson.Get(str, "data.repository.ref.target.history.nodes.0.committedDate")
-	fmt.Printf("%s\t%-30s\t%s\n", committedDate, branchName, commitMessage)
+	committedDateParsed, _ := time.Parse(layout, committedDate.String())
+	commitedDateHumanReadable := timediff.TimeDiff(committedDateParsed)
+	fmt.Printf("%s\t%-30s\t%s\n", commitedDateHumanReadable, branchName, commitMessage)
 }

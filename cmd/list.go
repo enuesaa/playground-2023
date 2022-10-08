@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/cli/go-gh"
+	"github.com/mergestat/timediff"
 	"github.com/tidwall/gjson"
 )
 
@@ -47,6 +49,7 @@ func List(owner string, name string) {
 	if err != nil {
 		return
 	}
+	layout := "2006-01-02T15:04:05Z"
 
 	str := stdOut.String()
 	refs := gjson.Get(str, "data.repository.refs.nodes").Array()
@@ -54,7 +57,9 @@ func List(owner string, name string) {
 		node := gjson.Get(str, fmt.Sprintf("data.repository.refs.nodes.%s", strconv.Itoa(i))).String()
 		branchName := gjson.Get(node, "name")
 		committedDate := gjson.Get(node, "target.history.nodes.0.committedDate")
+		committedDateParsed, _ := time.Parse(layout, committedDate.String())
+		commitedDateHumanReadable := timediff.TimeDiff(committedDateParsed)
 		commitMessage := strings.Split(gjson.Get(node, "target.history.nodes.0.message").String(), "\n")[0]
-		fmt.Printf("%s\t%-30s\t%s\n", committedDate, branchName, commitMessage)
+		fmt.Printf("%s\t%-30s\t%s\n", commitedDateHumanReadable, branchName, commitMessage)
 	}
 }
