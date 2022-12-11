@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
     "html2canvas": "^1.4.1",
     "modern-css-reset": "^1.4.0",
     "next": "12.2.4",
