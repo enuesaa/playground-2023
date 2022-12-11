@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import styles from './Main.module.scss'
+import styles from './Main.module.css'
 import { captureToBase64 } from '@/libs/capture/main'
 import { useRef } from 'react'
 

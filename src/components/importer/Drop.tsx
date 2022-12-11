@@ -1,4 +1,4 @@
-import styeles from './Drop.module.scss'
+import styeles from './Drop.module.css'
 import { useState, useRef, DragEventHandler, ChangeEventHandler, MouseEventHandler  } from 'react'
 import { readFile } from '@/libs/filereader/main'
 
