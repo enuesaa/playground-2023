@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styles from './Main.module.css'
-import { captureToBase64 } from '@/libs/capture/main'
+import { captureToBase64 } from '@/lib/capture/main'
 import { useRef } from 'react'
 
 type Props = {

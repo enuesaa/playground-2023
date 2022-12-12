@@ -1,6 +1,6 @@
 import styeles from './Drop.module.css'
 import { useState, useRef, DragEventHandler, ChangeEventHandler, MouseEventHandler  } from 'react'
-import { readFile } from '@/libs/filereader/main'
+import { readFile } from '@/lib/filereader/main'
 
 export function Drop() {
   const inputRef = useRef<HTMLInputElement>(null)
