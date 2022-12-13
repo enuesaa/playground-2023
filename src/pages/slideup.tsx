@@ -3,14 +3,14 @@ import { Main } from '@/components/common/Main'
 import { Card } from '@/components/common/Card'
 import { Drop } from '@/components/importer/Drop'
 
-export default function StylingoutPage() {
+export default function TopPage() {
   return (
     <>
       <Header />
       <Main>
-        <Card name='stylingout' />
+        <Card name='slideup' />
         <ul>
-          <li>stylingout</li>
+          <li>slide生成</li>
         </ul>
         <Drop />
       </Main>
