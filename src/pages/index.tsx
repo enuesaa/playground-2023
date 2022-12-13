@@ -10,12 +10,12 @@ export default function TopPage() {
         <ul>
           <li>
             <Link href={'/slideup'}>
-              <a>slideup</a>
+              slideup
             </Link>
           </li>
           <li>
             <Link href={'/stylingout'}>
-              <a>stylingout</a>
+              stylingout
             </Link>
           </li>
         </ul>

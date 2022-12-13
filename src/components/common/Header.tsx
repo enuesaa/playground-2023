@@ -6,9 +6,7 @@ export function Header() {
     <>
       <header className={styles.top}>
         <Link href={{ pathname: `/` }}>
-          <a>
-            <div className={styles.title}>myslide</div>
-          </a>
+          <div className={styles.title}>myslide</div>
         </Link>
       </header>
     </>
