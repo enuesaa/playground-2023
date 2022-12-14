@@ -1,5 +1,5 @@
 import styeles from './Drop.module.css'
-import { useState, useRef, DragEventHandler, ChangeEventHandler, MouseEventHandler  } from 'react'
+import { useState, useRef, DragEventHandler, ChangeEventHandler, MouseEventHandler } from 'react'
 import { readFile } from '@/lib/filereader/main'
 
 export function Drop() {
@@ -15,7 +15,9 @@ export function Drop() {
   }
   const onClick: MouseEventHandler = (e) => {
     e.preventDefault()
-    if (inputRef.current === null) {return}
+    if (inputRef.current === null) {
+      return
+    }
     inputRef.current.click()
   }
   const onChange: ChangeEventHandler = async (e: any) => {
@@ -35,7 +37,7 @@ export function Drop() {
       >
         drop here!
       </div>
-      <input type='file' ref={inputRef} onChange={onChange} style={{display: 'none'}} />
+      <input type='file' ref={inputRef} onChange={onChange} style={{ display: 'none' }} />
       <textarea
         value={markdown ?? ''}
         onChange={(e) => {

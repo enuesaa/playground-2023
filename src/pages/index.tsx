@@ -9,14 +9,10 @@ export default function TopPage() {
       <Main>
         <ul>
           <li>
-            <Link href={'/slideup'}>
-              slideup
-            </Link>
+            <Link href={'/slideup'}>slideup</Link>
           </li>
           <li>
-            <Link href={'/stylingout'}>
-              stylingout
-            </Link>
+            <Link href={'/stylingout'}>stylingout</Link>
           </li>
         </ul>
       </Main>
