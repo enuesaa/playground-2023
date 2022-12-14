@@ -1,12 +1,22 @@
 import { ReactNode } from 'react'
-import styles from './Main.module.css'
 import { captureToBase64 } from '@/lib/capture/main'
 import { useRef } from 'react'
+import { css } from '@emotion/react'
 
 type Props = {
   children: ReactNode
 }
 export function Main({ children }: Props) {
+  const styles = {
+    main: css({
+      width: '90%',
+      margin: '0 auto',
+      background: '#111111',
+      height: '100vh',
+      padding: '10px 0',
+    })
+  }
+
   const captureTarget = useRef<HTMLElement>(null)
   const imgPlaceTarget = useRef<HTMLImageElement>(null)
 
@@ -19,7 +29,7 @@ export function Main({ children }: Props) {
 
   return (
     <>
-      <section className={styles.main} ref={captureTarget}>
+      <section css={styles.main} ref={captureTarget}>
         {children}
       </section>
       <button onClick={capture}>capture</button>
