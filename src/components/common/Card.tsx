@@ -18,9 +18,5 @@ export function Card({ name }: Props) {
       textAlign: 'center',
     }),
   }
-  return (
-    <div css={styles.main}>
-      {name}
-    </div>
-  )
+  return <div css={styles.main}>{name}</div>
 }

@@ -14,7 +14,7 @@ export function Main({ children }: Props) {
       background: '#111111',
       height: '100vh',
       padding: '10px 0',
-    })
+    }),
   }
 
   const captureTarget = useRef<HTMLElement>(null)
