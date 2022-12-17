@@ -1,18 +1,13 @@
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-import { Card } from '@/components/common/Card'
-import { Drop } from '@/components/slideup/Drop'
+import { Title } from '@/components/common/Title'
 
 export default function TopPage() {
   return (
     <>
       <Header />
       <Main>
-        <Card name='packedcss' />
-        <ul>
-          <li>packedcss</li>
-        </ul>
-        <Drop />
+        <Title name='cabinet' />
       </Main>
     </>
   )
