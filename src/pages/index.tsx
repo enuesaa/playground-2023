@@ -1,6 +1,5 @@
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-import Link from 'next/link'
 import { LinkCard } from '@/components/common/LinkCard'
 
 import { promises as fs } from 'node:fs'
