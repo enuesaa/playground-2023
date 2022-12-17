@@ -33,7 +33,7 @@ export function Header() {
     <>
       <header css={styles.top}>
         <Link href={{ pathname: `/` }}>
-          <div css={styles.title}>myslide</div>
+          <div css={styles.title}>devdev-app</div>
         </Link>
       </header>
     </>
