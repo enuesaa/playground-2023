@@ -1,18 +1,13 @@
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-import { Card } from '@/components/common/Card'
-import { Drop } from '@/components/slideup/Drop'
+import { Title } from '@/components/common/Title'
 
 export default function StylingoutPage() {
   return (
     <>
       <Header />
       <Main>
-        <Card name='stylingout' />
-        <ul>
-          <li>stylingout</li>
-        </ul>
-        <Drop />
+        <Title name='stylingout' />
       </Main>
     </>
   )

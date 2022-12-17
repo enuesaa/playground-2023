@@ -1,18 +1,13 @@
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-import { Card } from '@/components/common/Card'
-import { Drop } from '@/components/slideup/Drop'
+import { Title } from '@/components/common/Title'
 
 export default function TopPage() {
   return (
     <>
       <Header />
       <Main>
-        <Card name='wasm-waves' />
-        <ul>
-          <li>wasm-waves</li>
-        </ul>
-        <Drop />
+        <Title name='wasm-waves' />
       </Main>
     </>
   )
