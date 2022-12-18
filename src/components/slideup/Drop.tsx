@@ -1,8 +1,18 @@
 import { useState, useRef, DragEventHandler, ChangeEventHandler, MouseEventHandler } from 'react'
-import { readFile } from '@/lib/filereader/main'
 import { css } from '@emotion/react'
 
-export function Drop() {
+const readFile = async (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsText(file)
+    reader.onload = function () {
+      const res = typeof reader.result === 'string' ? reader.result : ''
+      resolve(res)
+    }
+  })
+}
+
+export const Drop = () => {
   const styles = {
     droparea: css({
       width: '100%',

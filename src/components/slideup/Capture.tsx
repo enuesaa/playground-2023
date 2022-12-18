@@ -1,12 +1,17 @@
 import { ReactNode } from 'react'
-import { captureToBase64 } from '@/lib/capture/main'
 import { useRef } from 'react'
 import { css } from '@emotion/react'
+import html2canvas from 'html2canvas'
+
+const captureToBase64 = async (target: HTMLElement): Promise<string> => {
+  const canvas = await html2canvas(target)
+  return canvas.toDataURL('img/png')
+}
 
 type Props = {
   children: ReactNode
 }
-export function Capture({ children }: Props) {
+export const Capture = ({ children }: Props) => {
   const styles = {
     main: css({
       width: '90%',
