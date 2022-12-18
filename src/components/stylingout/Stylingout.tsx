@@ -54,7 +54,7 @@ export const StructCanvas = () => {
         <section css={styles.structCanvas}>
           <div css={styles.mainStruct}>main</div>
         </section>
-        <ResourcePane updateMainStructStyle={updateMainStructStyle} />
+        <ResourcePane mainStructStyle={mainStructStyle} updateMainStructStyle={updateMainStructStyle} />
       </section>
       <textarea css={styles.styleMonitor} value={JSON.stringify(mainStructStyle)} />
     </section>
