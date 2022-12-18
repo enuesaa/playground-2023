@@ -5,9 +5,15 @@ import { Title } from '@/components/common/Title'
 export default function TopPage() {
   /**
    * {
-   *   "components": [
-   *      { "body": "a", "relation": "neighbor" }
-   *   ]
+   *   "resources": [
+   *      { "text": "aa", "actions": { "click": "addTodo" } },
+   *   ],
+   *   "actions": {
+   *      "addTodo": {
+   *          "method": "post",
+   *          "path": "/api/todos",
+   *      }
+   *   },
    * }
    */
 
