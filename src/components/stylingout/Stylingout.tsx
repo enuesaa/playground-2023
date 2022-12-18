@@ -12,7 +12,7 @@ export type StructStyle = {
   position: string | null;
   left: string | null;
 }
-export const StructCanvas = () => {
+export const Stylingout = () => {
   const [mainStructStyle, setMainStructStyle] = useState<StructStyle>({
     border: 'solid 1px #000',
     color: '#111111',
