@@ -5,18 +5,18 @@ import { ResourcePane } from '@/components/stylingout/ResourcePane'
 export type StructStyle = {
   border: string;
   color: string;
+  fontSize: string;
+  background: string;
 }
 export const StructCanvas = () => {
   const [mainStructStyle, setMainStructStyle] = useState<StructStyle>({
     border: 'solid 1px #000',
-    color: '#fafafa',
+    color: '#111111',
+    fontSize: '16px',
+    background: '#fafafa',
   })
   const updateMainStructStyle = (style: Partial<StructStyle>) => {
-    setMainStructStyle({
-      border: 'solid 1px #000',
-      color: '#fafafa',
-      ...style
-    })
+    setMainStructStyle({ ...mainStructStyle, ...style })
   }
 
   const styles = {

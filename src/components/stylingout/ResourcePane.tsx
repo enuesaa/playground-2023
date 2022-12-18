@@ -7,12 +7,22 @@ type Props = {
 export const ResourcePane = ({ updateMainStructStyle }: Props) => {
   const handleChangeBorder: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
-    updateMainStructStyle({ border: 'solid 5px #fafafa' })
+    updateMainStructStyle({ border: 'solid 5px #6633cc' })
+  }
+  const handleChangeFontSize: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault()
+    updateMainStructStyle({ fontSize: '25px' })
+  }
+  const handleChangeBackground: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault()
+    updateMainStructStyle({ background: '#ff9933' })
   }
 
   return (
     <section>
-      <button onClick={handleChangeBorder}>change</button>
+      <button onClick={handleChangeBorder}>border</button>
+      <button onClick={handleChangeFontSize}>fontSize</button>
+      <button onClick={handleChangeBackground}>background</button>
     </section>
   )
 }
