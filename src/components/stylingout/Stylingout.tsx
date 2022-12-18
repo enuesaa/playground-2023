@@ -20,12 +20,21 @@ export const StructCanvas = () => {
   }
 
   const styles = {
-    main: css(mainStructStyle)
+    main: css({
+      display: 'flex',
+      minHeight: '100vh',
+    }),
+    structCanvas: css({
+      flex: '3 0 auto',
+    }),
+    mainStruct: css(mainStructStyle)
   }
 
   return (
-    <section>
-      <div css={styles.main}>main</div>
+    <section css={styles.main}>
+      <section css={styles.structCanvas}>
+        <div css={styles.mainStruct}>main</div>
+      </section>
       <ResourcePane updateMainStructStyle={updateMainStructStyle} />
     </section>
   )
