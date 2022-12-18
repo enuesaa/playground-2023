@@ -7,6 +7,10 @@ export type StructStyle = {
   color: string;
   fontSize: string;
   background: string;
+  textAlign: string;
+  display: string;
+  position: string | null;
+  left: string | null;
 }
 export const StructCanvas = () => {
   const [mainStructStyle, setMainStructStyle] = useState<StructStyle>({
@@ -14,28 +18,45 @@ export const StructCanvas = () => {
     color: '#111111',
     fontSize: '16px',
     background: '#fafafa',
+    textAlign: 'left',
+    display: 'block',
+    position: null,
+    left: null,
   })
   const updateMainStructStyle = (style: Partial<StructStyle>) => {
     setMainStructStyle({ ...mainStructStyle, ...style })
   }
 
   const styles = {
-    main: css({
+    canvas: css({
       display: 'flex',
-      minHeight: '100vh',
     }),
     structCanvas: css({
       flex: '3 0 auto',
     }),
-    mainStruct: css(mainStructStyle)
+    // @ts-ignore should subset of emotion type.
+    mainStruct: css(mainStructStyle),
+    styleMonitor: css({
+      width: '100%',
+      padding: '10px',
+      margin: '10px',
+      background: 'rgba(0,0,0,0)',
+      color: '#fafafa',
+      minHeight: '100px',
+      outline: 'none',
+      border: 'none',
+    }),
   }
 
   return (
-    <section css={styles.main}>
-      <section css={styles.structCanvas}>
-        <div css={styles.mainStruct}>main</div>
+    <section>
+      <section css={styles.canvas}>
+        <section css={styles.structCanvas}>
+          <div css={styles.mainStruct}>main</div>
+        </section>
+        <ResourcePane updateMainStructStyle={updateMainStructStyle} />
       </section>
-      <ResourcePane updateMainStructStyle={updateMainStructStyle} />
+      <textarea css={styles.styleMonitor} value={JSON.stringify(mainStructStyle)} />
     </section>
   )
 }
