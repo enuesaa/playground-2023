@@ -13,7 +13,7 @@ export default function TopPage({ projectNames }: Props) {
     <>
       <Header />
       <Main>
-        {projectNames.map(p => (
+        {projectNames.map((p) => (
           <LinkCard href={`/projects/${p}`} name={p} />
         ))}
       </Main>
@@ -24,7 +24,7 @@ export default function TopPage({ projectNames }: Props) {
 export const getStaticProps = async () => {
   const dir = path.join(process.cwd(), 'src/pages/projects')
   const filenames = await fs.readdir(dir)
-  const projectNames = filenames.map(n => n.replace('.tsx', ''))
+  const projectNames = filenames.map((n) => n.replace('.tsx', ''))
 
   return {
     props: {

@@ -14,9 +14,5 @@ export function Main({ children }: Props) {
     }),
   }
 
-  return (
-    <section css={styles.main}>
-      {children}
-    </section>
-  )
+  return <section css={styles.main}>{children}</section>
 }

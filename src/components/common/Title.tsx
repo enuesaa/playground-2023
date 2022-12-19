@@ -14,9 +14,5 @@ export const Title = ({ name }: Props) => {
     }),
   }
 
-  return (
-    <h2 css={styles.h2}>
-      {name}
-    </h2>
-  )
+  return <h2 css={styles.h2}>{name}</h2>
 }

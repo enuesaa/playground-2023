@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 
 type Props = {
-  mainStructStyle: StructStyle;
+  mainStructStyle: StructStyle
   updateMainStructStyle: (style: Partial<StructStyle>) => void
 }
 export const ResourcePane = ({ mainStructStyle, updateMainStructStyle }: Props) => {
@@ -37,7 +37,7 @@ export const ResourcePane = ({ mainStructStyle, updateMainStructStyle }: Props) 
   const handleMinusFontSize: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
     const current = parseInt(mainStructStyle.fontSize.replace('px', ''), 10)
-    updateMainStructStyle({ fontSize: `${current + 1}px` });
+    updateMainStructStyle({ fontSize: `${current + 1}px` })
     updateMainStructStyle({ fontSize: `${current - 1}px` })
   }
   const handleChangeBackground: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -51,8 +51,12 @@ export const ResourcePane = ({ mainStructStyle, updateMainStructStyle }: Props) 
       <ul>
         <li>
           fontSize
-          <button onClick={handlePlusFontSize}><FaPlus /></button>
-          <button onClick={handleMinusFontSize}><FaMinus /></button>
+          <button onClick={handlePlusFontSize}>
+            <FaPlus />
+          </button>
+          <button onClick={handleMinusFontSize}>
+            <FaMinus />
+          </button>
         </li>
       </ul>
       <button onClick={handleChangeBackground}>background</button>

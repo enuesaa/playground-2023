@@ -3,14 +3,14 @@ import { useState } from 'react'
 import { ResourcePane } from '@/components/stylingout/ResourcePane'
 
 export type StructStyle = {
-  border: string;
-  color: string;
-  fontSize: string;
-  background: string;
-  textAlign: string;
-  display: string;
-  position: string | null;
-  left: string | null;
+  border: string
+  color: string
+  fontSize: string
+  background: string
+  textAlign: string
+  display: string
+  position: string | null
+  left: string | null
 }
 export const Stylingout = () => {
   const [mainStructStyle, setMainStructStyle] = useState<StructStyle>({
