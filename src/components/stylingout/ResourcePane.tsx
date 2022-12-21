@@ -48,17 +48,12 @@ export const ResourcePane = ({ mainStructStyle, updateMainStructStyle }: Props) 
   return (
     <section css={styles.resourcePane}>
       <button onClick={handleChangeBorder}>border</button>
-      <ul>
-        <li>
-          fontSize
-          <button onClick={handlePlusFontSize}>
-            <FaPlus />
-          </button>
-          <button onClick={handleMinusFontSize}>
-            <FaMinus />
-          </button>
-        </li>
-      </ul>
+      <button onClick={handlePlusFontSize}>
+        <FaPlus />
+      </button>
+      <button onClick={handleMinusFontSize}>
+        <FaMinus />
+      </button>
       <button onClick={handleChangeBackground}>background</button>
     </section>
   )
