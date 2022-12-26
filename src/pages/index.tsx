@@ -14,7 +14,7 @@ export default function TopPage({ projectNames }: Props) {
       <Header />
       <Main>
         {projectNames.map((p) => (
-          <LinkCard href={`/projects/${p}`} name={p} />
+          <LinkCard href={`/projects/${p}`} name={p} key={p} />
         ))}
       </Main>
     </>
