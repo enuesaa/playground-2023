@@ -4,7 +4,6 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "emitter": "tsx ./scripts/emitter.ts",
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
