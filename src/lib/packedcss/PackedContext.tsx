@@ -26,6 +26,7 @@ const serialize = (className: string, styleObject: StyleObject) => {
 
 type PackedContextProps = {
   children: ReactNode,
+  packedbase: any
 }
 export const PackedContext = ({ children }: PackedContextProps) => {
   const [styleNodeState, setStyleNodeState] = useState<StyleNodeState>({})

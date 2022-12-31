@@ -3,6 +3,7 @@ import { Main } from '@/components/common/Main'
 import { Title } from '@/components/common/Title'
 import { Card } from '@/components/packedcss/Card'
 import { PackedContext } from '@/lib/packedcss/PackedContext'
+import { packedbase } from '@/styles/packedbase'
 
 export default function Packedcss() {
   return (
@@ -10,7 +11,7 @@ export default function Packedcss() {
       <Header />
       <Main>
         <Title name='packedcss' />
-        <PackedContext>
+        <PackedContext packedbase={packedbase}>
           <Card />
         </PackedContext>
       </Main>
