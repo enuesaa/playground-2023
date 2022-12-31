@@ -2,6 +2,7 @@ import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
 import { Title } from '@/components/common/Title'
 import { Card } from '@/components/packedcss/Card'
+import { PackedContext } from '@/lib/packedcss/PackedContext'
 
 export default function Packedcss() {
   return (
@@ -9,7 +10,9 @@ export default function Packedcss() {
       <Header />
       <Main>
         <Title name='packedcss' />
-        <Card />
+        <PackedContext>
+          <Card />
+        </PackedContext>
       </Main>
     </>
   )

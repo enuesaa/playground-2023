@@ -1,4 +1,3 @@
-/** @jsxImportSource  @/lib/packedcss */
 import { usePacked } from '@/lib/packedcss/usePacked'
 
 export const Card = () => {
@@ -7,10 +6,12 @@ export const Card = () => {
   // const customCard = packed.card.with({
   //   borderRadius: '5px',
   // })
-  const customCard = packed.card
+
+  // return class id
+  const customCard = packed.card()
   
   return (
-    <div css={customCard}>
+    <div className={customCard}>
       card
     </div>
   )

@@ -1,14 +1,23 @@
+import { useContext } from 'react'
+import { PackedStyleHandlerContext } from './PackedContext'
+import { nanoid } from 'nanoid'
+
 type Packed = {
-  card: any,
+  card: () => string,
 }
 export const usePacked = (): Packed => {
-  return {
-    card: {
-      className: 'a',
-      style: {
-        background: '#ff6633',
-        borderRadius: '5px' 
-      }
-    }
+  const packedStyleHandler = useContext(PackedStyleHandlerContext)
+
+  const id = nanoid()
+  // packedStyleHandler(id, {})
+
+  const card = () => {
+    const classId = nanoid()
+    packedStyleHandler('a', {
+      'bhj': { background: '#ff6633' },
+    })
+    return 'bhj'
   }
+
+  return { card }
 }
