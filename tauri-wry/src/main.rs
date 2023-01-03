@@ -1,5 +1,6 @@
 use wry::{
   application::{
+    dpi::{LogicalSize},
     event::{Event, StartCause, WindowEvent},
     event_loop::{ControlFlow, EventLoop},
     window::WindowBuilder,
@@ -10,6 +11,7 @@ use wry::{
 fn main() -> wry::Result<()> {
   let event_loop = EventLoop::new();
   let window = WindowBuilder::new()
+    .with_inner_size(LogicalSize::new(393, 600))
     .build(&event_loop)?;
   
   let user_agent_string = "Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Mobile/15E148 Safari/604.1";
