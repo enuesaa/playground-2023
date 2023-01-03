@@ -1,19 +1,18 @@
-fn main() -> wry::Result<()> {
-  use wry::{
-    application::{
-      event::{Event, StartCause, WindowEvent},
-      event_loop::{ControlFlow, EventLoop},
-      window::WindowBuilder,
-    },
-    webview::WebViewBuilder,
-  };
+use wry::{
+  application::{
+    event::{Event, StartCause, WindowEvent},
+    event_loop::{ControlFlow, EventLoop},
+    window::WindowBuilder,
+  },
+  webview::WebViewBuilder,
+};
 
+fn main() -> wry::Result<()> {
   let event_loop = EventLoop::new();
   let window = WindowBuilder::new()
-    .with_title("Hello World")
     .build(&event_loop)?;
   let _webview = WebViewBuilder::new(window)?
-    .with_url("https://tauri.studio")?
+    .with_url("https://yahoo.co.jp")?
     .build()?;
 
   event_loop.run(move |event, _, control_flow| {
