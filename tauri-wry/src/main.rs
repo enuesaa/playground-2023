@@ -11,6 +11,7 @@ use wry::{
 fn main() -> wry::Result<()> {
   let event_loop = EventLoop::new();
   let window = WindowBuilder::new()
+    .with_title("wry")
     .with_inner_size(LogicalSize::new(700, 1000))
     .build(&event_loop)?;
   
