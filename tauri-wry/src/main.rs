@@ -19,6 +19,10 @@ fn main() -> wry::Result<()> {
   
   let webview = WebViewBuilder::new(window)?
     .with_user_agent(&user_agent_string)
+    .with_navigation_handler(move |uri| {
+      println!("{:?}", uri);
+      true
+    })
     .with_url("https://yahoo.co.jp")?
     .build()?;
   
@@ -34,6 +38,9 @@ fn main() -> wry::Result<()> {
         event: WindowEvent::CloseRequested,
         ..
       } => *control_flow = ControlFlow::Exit,
+      // Event::NewEvents(StartCause::WaitCancelled{..}) => (),
+      // Event::MainEventsCleared => (),
+      // Event::RedrawEventsCleared => (),
       _ => (),
     }
   });
