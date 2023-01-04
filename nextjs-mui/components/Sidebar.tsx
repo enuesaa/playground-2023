@@ -1,17 +1,16 @@
 import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
+import { FaRegFileAlt } from 'react-icons/fa'
 
 export const Sidebar = () => {
   /* @see https://mui.com/material-ui/react-drawer/ */
 
   return (
-    <Drawer anchor='left' open={true} variant="persistent">
+    <Drawer anchor='left' open variant='persistent'>
       <List>
-        {['Inbox', 'Starred'].map((text, index) => (
+        {['Inbox', 'Starred'].map(text => (
           <ListItem key={text}>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemButton sx={{fontSize: '25px'}}>
+              {/* <ListItemIcon sx={{justifyContent: 'center'}}><FaRegFileAlt /></ListItemIcon> */}
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
