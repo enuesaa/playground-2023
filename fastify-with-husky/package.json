@@ -141,9 +141,16 @@
     "tap": "^16.1.0"
   },
   "scripts": {
+    "prepare": "cd .. && husky install fastify-with-husky/.husky",
     "test": "tap \"test/**/*.test.js\"",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
