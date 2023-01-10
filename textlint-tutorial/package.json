@@ -1,0 +1,10 @@
+{
+  "name": "textlint-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "textlint": "^12.5.1",
+    "textlint-rule-no-todo": "^2.0.1"
+  }
+}
