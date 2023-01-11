@@ -1,7 +1,7 @@
 # reg-cli
 ## Commands
 ~~~bash
-yarn reg-cli -F reg.json
+yarn reg-cli ./actual ./expected ./diff -R ./report.html --matchingThreshold 0.3
 ~~~
 
 ## Memo

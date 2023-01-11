@@ -1,9 +1,14 @@
 {
   "name": "reg-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "license": "MIT",
+  "scripts": {
+    "start": "node serve.js"
+  },
   "dependencies": {
-    "reg-cli": "^0.17.7"
+    "finalhandler": "^1.2.0",
+    "reg-cli": "^0.17.7",
+    "serve-static": "^1.15.0"
   }
 }
