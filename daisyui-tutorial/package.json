@@ -1,5 +1,5 @@
 {
-  "name": "my-nextjs-template",
+  "name": "daisyui-tutorial",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -10,7 +10,6 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
     "daisyui": "^2.47.0",
     "next": "13.1.2",
     "postcss": "^8.4.21",
