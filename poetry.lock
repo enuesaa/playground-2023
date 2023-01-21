@@ -210,6 +210,18 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "mecab-python3"
+version = "1.0.6"
+description = "Python wrapper for the MeCab morphological analyzer for Japanese"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+unidic = ["unidic"]
+unidic-lite = ["unidic-lite"]
+
+[[package]]
 name = "mslex"
 version = "0.3.0"
 description = "shlex for windows"
@@ -548,7 +560,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "f8ef7a351939eb686ff52c289e5af9bd8fb369abacad3134645cbcd6304c49f5"
+content-hash = "181b90e8555eb87eb3add52603ae87b95d469a89f831f208cde0f65f85873786"
 
 [metadata.files]
 absl-py = []
@@ -571,6 +583,7 @@ keras = []
 libclang = []
 markdown = []
 markupsafe = []
+mecab-python3 = []
 mslex = []
 mypy-extensions = []
 numpy = []
