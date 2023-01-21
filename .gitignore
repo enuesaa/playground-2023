@@ -5,3 +5,6 @@ __pycache__
 
 # editor
 .vscode
+
+# for test
+/app/doc2vec.py

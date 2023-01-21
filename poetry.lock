@@ -90,12 +90,58 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "fst-pso"
+version = "1.8.1"
+description = "Fuzzy Self-Tuning PSO global optimization library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+miniful = "*"
+numpy = "*"
+
+[[package]]
+name = "fuzzytm"
+version = "2.0.5"
+description = "A Python package for Fuzzy Topic Models"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = "*"
+pandas = "*"
+pyfume = "*"
+scipy = "*"
+
+[[package]]
 name = "gast"
 version = "0.4.0"
 description = "Python AST that abstracts the underlying Python version"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "gensim"
+version = "4.3.0"
+description = "Python framework for fast Vector Space Modelling"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+FuzzyTM = ">=0.4.0"
+numpy = ">=1.18.5"
+scipy = ">=1.7.0"
+smart-open = ">=1.8.1"
+
+[package.extras]
+distributed = ["Pyro4 (>=4.27)"]
+docs = ["pytest", "pytest-cov", "mock", "cython", "testfixtures", "pot", "nmslib", "Pyro4 (>=4.27)", "visdom (>0.1.8.7)", "sphinx (==5.1.1)", "sphinx-gallery (==0.11.1)", "sphinxcontrib.programoutput (==0.17)", "sphinxcontrib-napoleon (==0.7)", "matplotlib", "memory-profiler", "annoy", "pyro4", "nltk", "statsmodels", "pandas"]
+test = ["pytest", "pytest-cov", "mock", "cython", "testfixtures", "pot", "nmslib", "visdom (>0.1.8.7)"]
+test-win = ["pytest", "pytest-cov", "mock", "cython", "testfixtures", "pot", "nmslib"]
 
 [[package]]
 name = "google-auth"
@@ -222,6 +268,18 @@ unidic = ["unidic"]
 unidic-lite = ["unidic-lite"]
 
 [[package]]
+name = "miniful"
+version = "0.0.6"
+description = "Minimal Fuzzy Library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = ">=1.12.0"
+scipy = ">=1.0.0"
+
+[[package]]
 name = "mslex"
 version = "0.3.0"
 description = "shlex for windows"
@@ -282,6 +340,22 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "pandas"
+version = "1.5.3"
+description = "Powerful data structures for data analysis, time series, and statistics"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = {version = ">=1.21.0", markers = "python_version >= \"3.10\""}
+python-dateutil = ">=2.8.1"
+pytz = ">=2020.1"
+
+[package.extras]
+test = ["hypothesis (>=5.5.3)", "pytest (>=6.0)", "pytest-xdist (>=1.31)"]
+
+[[package]]
 name = "pathspec"
 version = "0.10.3"
 description = "Utility library for gitignore style pattern matching of file paths."
@@ -340,6 +414,39 @@ python-versions = "*"
 pyasn1 = ">=0.4.6,<0.5.0"
 
 [[package]]
+name = "pyfume"
+version = "0.2.25"
+description = "A Python package for fuzzy model estimation"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+fst-pso = "*"
+numpy = "*"
+scipy = "*"
+simpful = "*"
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.2"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "pytz"
+version = "2022.7.1"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "requests"
 version = "2.28.2"
 description = "Python HTTP for Humans."
@@ -384,12 +491,59 @@ python-versions = ">=3.6,<4"
 pyasn1 = ">=0.1.3"
 
 [[package]]
+name = "scipy"
+version = "1.10.0"
+description = "Fundamental algorithms for scientific computing in Python"
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.8"
+
+[package.dependencies]
+numpy = ">=1.19.5,<1.27.0"
+
+[package.extras]
+test = ["pytest", "pytest-cov", "pytest-timeout", "pytest-xdist", "asv", "mpmath", "gmpy2", "threadpoolctl", "scikit-umfpack", "pooch"]
+doc = ["sphinx (!=4.1.0)", "pydata-sphinx-theme (==0.9.0)", "sphinx-design (>=0.2.0)", "matplotlib (>2)", "numpydoc"]
+dev = ["mypy", "typing-extensions", "pycodestyle", "flake8", "rich-click", "click", "doit (>=0.36.0)", "pydevtool"]
+
+[[package]]
+name = "simpful"
+version = "2.9.0"
+description = "A user-friendly Python library for fuzzy logic"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = ">=1.12.0"
+requests = "*"
+scipy = ">=1.0.0"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "smart-open"
+version = "6.3.0"
+description = "Utils for streaming large files (S3, HDFS, GCS, Azure Blob Storage, gzip, bz2...)"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.extras]
+all = ["boto3", "google-cloud-storage (>=2.6.0)", "azure-storage-blob", "azure-common", "azure-core", "requests", "paramiko"]
+azure = ["azure-storage-blob", "azure-common", "azure-core"]
+gcs = ["google-cloud-storage (>=2.6.0)"]
+http = ["requests"]
+s3 = ["boto3"]
+ssh = ["paramiko"]
+test = ["boto3", "google-cloud-storage (>=2.6.0)", "azure-storage-blob", "azure-common", "azure-core", "requests", "paramiko", "moto", "responses", "pytest", "pytest-rerunfailures"]
+webhdfs = ["requests"]
 
 [[package]]
 name = "taskipy"
@@ -560,7 +714,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "181b90e8555eb87eb3add52603ae87b95d469a89f831f208cde0f65f85873786"
+content-hash = "dcb6fec5e2536b3a634c0a5ae50b2efe02fe71c8df205d903983d3c0bb8b3559"
 
 [metadata.files]
 absl-py = []
@@ -572,7 +726,10 @@ charset-normalizer = []
 click = []
 colorama = []
 flatbuffers = []
+fst-pso = []
+fuzzytm = []
 gast = []
+gensim = []
 google-auth = []
 google-auth-oauthlib = []
 google-pasta = []
@@ -584,22 +741,30 @@ libclang = []
 markdown = []
 markupsafe = []
 mecab-python3 = []
+miniful = []
 mslex = []
 mypy-extensions = []
 numpy = []
 oauthlib = []
 opt-einsum = []
 packaging = []
+pandas = []
 pathspec = []
 platformdirs = []
 protobuf = []
 psutil = []
 pyasn1 = []
 pyasn1-modules = []
+pyfume = []
+python-dateutil = []
+pytz = []
 requests = []
 requests-oauthlib = []
 rsa = []
+scipy = []
+simpful = []
 six = []
+smart-open = []
 taskipy = []
 tensorboard = []
 tensorboard-data-server = []
