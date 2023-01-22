@@ -8,3 +8,6 @@ __pycache__
 
 # for test
 /app/doc2vec.py
+
+# tensorboardX
+runs

@@ -12,6 +12,8 @@ tensorflow-macos = "^2.11.0"
 mecab-python3 = "^1.0.6"
 pandas = "^1.5.3"
 gensim = "^4.3.0"
+tensorboardX = "^2.5.1"
+torch = "^1.13.1"
 
 [tool.poetry.dev-dependencies]
 taskipy = "^1.10.3"
@@ -26,6 +28,7 @@ start = "app.main:app"
 
 [tool.taskipy.tasks]
 format = "poetry run black ./app"
+board = "poetry run tensorboard --logdir='runs'"
 
 [tool.black]
 line-length = 120
