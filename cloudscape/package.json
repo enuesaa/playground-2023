@@ -1,0 +1,30 @@
+{
+  "name": "my-nextjs-template",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export -o dist",
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@next/eslint-plugin-next": "^13.1.5",
+    "modern-css-reset": "^1.4.0",
+    "next": "13.1.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "eslint": "8.31.0",
+    "eslint-config-next": "13.1.4",
+    "prettier": "^2.8.2",
+    "typescript": "4.9.4"
+  }
+}
