@@ -1,17 +1,17 @@
 import { createContext, useState, ReactNode } from 'react'
 
 type StyleObject = {
-  [key: string]: string,
+  [key: string]: string
 }
 type StyleObjects = {
-  [className: string]: StyleObject,
+  [className: string]: StyleObject
 }
 type StyleNodeState = {
-  [id: string]: StyleObjects,
+  [id: string]: StyleObjects
 }
 
 type PackedStyleHandler = (id: string, styleObjects: StyleObjects) => void
-export const PackedStyleHandlerContext = createContext<PackedStyleHandler>(() => {});
+export const PackedStyleHandlerContext = createContext<PackedStyleHandler>(() => {})
 
 const serialize = (className: string, styleObject: StyleObject) => {
   const styleString = Object.keys(styleObject).reduce((prev: string, k) => {
@@ -25,7 +25,7 @@ const serialize = (className: string, styleObject: StyleObject) => {
 }
 
 type PackedContextProps = {
-  children: ReactNode,
+  children: ReactNode
   packedbase: any
 }
 export const PackedContext = ({ children }: PackedContextProps) => {
@@ -36,16 +36,16 @@ export const PackedContext = ({ children }: PackedContextProps) => {
 
   return (
     <>
-      {Object.keys(styleNodeState).map(k => {
+      {Object.keys(styleNodeState).map((k) => {
         return (
           <style key={k}>
-            {Object.entries(styleNodeState[k]).map(([k, v]) => serialize(k, v)).reduce((prev, v) => `${prev}${v}`)}
+            {Object.entries(styleNodeState[k])
+              .map(([k, v]) => serialize(k, v))
+              .reduce((prev, v) => `${prev}${v}`)}
           </style>
         )
       })}
-      <PackedStyleHandlerContext.Provider value={packedStyleHandler}>
-        {children}
-      </PackedStyleHandlerContext.Provider>
+      <PackedStyleHandlerContext.Provider value={packedStyleHandler}>{children}</PackedStyleHandlerContext.Provider>
     </>
   )
 }

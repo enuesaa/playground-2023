@@ -7,18 +7,14 @@ export const Card = () => {
    * const customCard = packed.card.with({
    *   borderRadius: '5px',
    * })
-   * 
+   *
    * or
-   * 
+   *
    * const customCard = packed.card * 2 // meaning like width * 2
    */
 
   // return class id
   const customCard = packed.card()
-  
-  return (
-    <div className={customCard}>
-      card
-    </div>
-  )
+
+  return <div className={customCard}>card</div>
 }

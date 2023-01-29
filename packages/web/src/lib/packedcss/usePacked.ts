@@ -3,7 +3,7 @@ import { PackedStyleHandlerContext } from './PackedContext'
 import { nanoid } from 'nanoid'
 
 type Packed = {
-  card: () => string,
+  card: () => string
 }
 export const usePacked = (): Packed => {
   const [id] = useState<string>(nanoid())
@@ -13,7 +13,7 @@ export const usePacked = (): Packed => {
   const card = () => {
     const classId = nanoid()
     packedStyleHandler(id, {
-      'bhj': { background: '#ff6633' },
+      bhj: { background: '#ff6633' },
     })
     return 'bhj'
   }
