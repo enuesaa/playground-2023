@@ -18,12 +18,12 @@ export function jsxDEV(type: any, props: Record<string, any>, key: any, isStatic
   }
 
   const properProps: Record<string, any> = {}
-  Object.keys(props).map(k => {
+  Object.keys(props).map((k) => {
     if (k !== 'css') {
       properProps[k] = props[k]
     }
   })
-  
+
   // @ts-ignore
   const styled = ReactJsxDevRuntime.jsxDEV('style', {
     children: serialize(props.css.className, props.css.style),
