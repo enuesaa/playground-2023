@@ -2369,6 +2369,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+vivid-studio@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/vivid-studio/-/vivid-studio-0.14.0.tgz#3d6ce6b000d2681aee12c8476b6390a203bfc97d"
+  integrity sha512-JZPaZeEBerGA9xEY3pbbx+boQ+LvB+T/KbvS9upZTig+QAK/S0TDrLvHv3kWAocr67LqlkIeKQFQPmiZ7vmPng==
+
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
