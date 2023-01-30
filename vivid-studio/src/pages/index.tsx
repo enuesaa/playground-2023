@@ -7,6 +7,8 @@ export default function TopPage() {
       <Header />
       <Main>
         a
+        <div></div>
+        <div className="bg-slate-100 to-pink-900">div</div>
       </Main>
     </>
   )
