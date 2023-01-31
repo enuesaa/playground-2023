@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
+import { cardStyle } from '@/styles/base'
 
 type Props = {
   href: string
@@ -7,14 +8,8 @@ type Props = {
 }
 export const LinkCard = ({ href, name }: Props) => {
   const styles = {
-    link: css({
-      display: 'inline-block',
+    link: css(cardStyle, {
       padding: '10px 20px',
-      color: '#cccccc',
-      fontSize: '20px',
-      background: '#333333',
-      margin: '10px',
-      borderRadius: '10px',
     }),
   }
 
