@@ -1,37 +1,38 @@
 import Link from 'next/link'
-import { Heading, css, Flex, Box, Button } from 'theme-ui'
+import { Heading, css, Box, Button } from 'theme-ui'
 
 export const Header = () => {
   const styles = {
     header: css({
       width: '100%',
-      background: 'primary'
-    }),
-    flex: css({
-      padding: 'x2',
+      background: 'primary',
+      display: 'flex',
+      px: 'x2',
       alignItems: 'center',
     }),
     flexLeft: css({
       flex: '1 1 auto',
+      a: {
+        display: 'block',
+        width: '300px',
+      },
+      h1: {
+        fontSize: 3,
+        color: 'background',
+      },
     }),
-    h1: css({
-      fontSize: 3,
-      color: 'accent',
-    })
   }
 
   return (
     <header css={styles.header}>
-      <Flex css={styles.flex}>
-        <Box css={styles.flexLeft}>
-          <Link href={{ pathname: `/` }} css={{display: 'block', width: '300px'}}>
-            <Heading as='h1' css={styles.h1}>my-nextjs-template</Heading>
-          </Link>
-        </Box>
-        <Box>
-          <Button variant='buttons.secondary'>aa</Button>
-        </Box>
-      </Flex>
+      <Box css={styles.flexLeft}>
+        <Link href={{ pathname: `/` }}>
+          <Heading as='h1'>my-nextjs-template</Heading>
+        </Link>
+      </Box>
+      <Box>
+        <Button variant='buttons.secondary'>aa</Button>
+      </Box>
     </header>
   )
 }

@@ -15,11 +15,18 @@ export const variants: ThemeUIStyleObject = {
       px: 'x2',
       py: 'x1',
       color: 'background',
-      background: 'muted',
+      background: 'rgba(0,0,0,0)',
+      cursor: 'pointer',
+      '&:hover': {
+        color: 'text',
+        background: 'background',
+      },
     },
   },
   text: {
     heading: {
+      color: 'text',
+      padding: ['x1', 'x2'],
       userSelect: 'none',
       display: 'block',
     },
@@ -27,14 +34,7 @@ export const variants: ThemeUIStyleObject = {
   // links: {},
   // images: {},
   // cards: {},
-  layout: {
-    container: {
-      width: '90%',
-      margin: '0 auto',
-      height: '100vh',
-      padding: '20px 0',
-    },
-  },
+  // layout: {},
   // forms: {},
   // badges: {},
   // alerts: {},
