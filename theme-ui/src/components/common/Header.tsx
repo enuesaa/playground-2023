@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '../base/Link'
 import { Heading, css, Box, Button } from 'theme-ui'
 
 export const Header = () => {
@@ -12,10 +12,6 @@ export const Header = () => {
     }),
     flexLeft: css({
       flex: '1 1 auto',
-      a: {
-        display: 'block',
-        width: '300px',
-      },
       h1: {
         fontSize: 3,
         color: 'background',

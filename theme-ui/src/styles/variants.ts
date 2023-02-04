@@ -31,7 +31,33 @@ export const variants: ThemeUIStyleObject = {
       display: 'block',
     },
   },
-  // links: {},
+  links: {
+    main: {
+      display: 'inline-block',
+    },
+    card: {
+      display: 'inline-block',
+      py: 'x1', 
+      px: 'x2',
+      color: 'background',
+      background: 'text',
+      borderRadius: 'x1',
+      '&:hover': {
+        color: 'text',
+        background: 'background',
+      },
+    },
+    list: {
+      display: 'block',
+      px: 'x2',
+      py: 'x1',
+      color: 'background',
+      '&:hover': {
+        color: 'text',
+        background: 'background',
+      },
+    }
+  },
   // images: {},
   // cards: {},
   // layout: {},

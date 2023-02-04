@@ -26,7 +26,11 @@ export const scales = {
     main: 1.5,
   },
   // opacities
-  // radii
+  radii: {
+    x0: '0px',
+    x1: '10px',
+    x2: '20px',
+  },
   // shadows
   space: {
     x0: '0px',
