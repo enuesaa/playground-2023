@@ -3,9 +3,13 @@ export const scales = {
   // borderStyles
   // borderWidths
   colors: {
-    primary: '#fafafa',
-    text: '#000',
-    background: '#fff',
+    primary: '#191970',
+    text: '#1a1a1a',
+    background: '#cccccc',
+    secondary: '#1a1a1a',
+    accent: '#f0f8ff',
+    highlight: '#1a1a1a',
+    muted: '#4169e1',
   },
   fonts: {
     body: 'system-ui, sans-serif',
@@ -13,12 +17,15 @@ export const scales = {
     monospace: 'system-ui, sans-serif',
   },
   fontSizes: [
-    14, 16, 20, 24, 32, 48, 64,
+    14, 16, 20, 24
   ],
   fontWeights: {
     body: 400,
-    heading: 800,
-    bold: 800,
+    heading: 600,
+    bold: 600,
+  },
+  shadows: {
+    heading: '2px 2px 2px #000',
   },
   // letterSpacings
   lineHeights: {
@@ -28,7 +35,10 @@ export const scales = {
   // opacities
   // radii
   // shadows
-  // sizes
+  space: {
+    x1: '10px',
+    x2: '20px',
+  }
   // space
   // transitions
   // zIndices

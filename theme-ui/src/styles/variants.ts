@@ -1,14 +1,32 @@
 import { ThemeUIStyleObject } from 'theme-ui'
 
 export const variants: ThemeUIStyleObject = {
-  grids: {},
-  buttons: {},
-  text: {
-    heading: {},
+  // grids: {},
+  buttons: {
+    primary: {
+      padding: 'x1',
+      color: 'background',
+      background: 'primary',
+      '&:hover': {
+        background: 'text',
+      },
+    },
+    secondary: {
+      px: 'x2',
+      py: 'x1',
+      color: 'background',
+      background: 'muted',
+    },
   },
-  links: {},
-  images: {},
-  cards: {},
+  text: {
+    heading: {
+      userSelect: 'none',
+      display: 'block',
+    },
+  },
+  // links: {},
+  // images: {},
+  // cards: {},
   layout: {
     container: {
       width: '90%',
@@ -17,8 +35,8 @@ export const variants: ThemeUIStyleObject = {
       padding: '20px 0',
     },
   },
-  forms: {},
-  badges: {},
-  alerts: {},
-  messages: {},
+  // forms: {},
+  // badges: {},
+  // alerts: {},
+  // messages: {},
 }

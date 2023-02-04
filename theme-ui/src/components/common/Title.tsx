@@ -1,4 +1,4 @@
-import { Heading, ThemeUICSSObject, css } from 'theme-ui'
+import { Heading, css } from 'theme-ui'
 
 type Props = {
   name: string

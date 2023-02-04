@@ -13,7 +13,4 @@ export const global: ThemeUIStyleObject = {
   '*': {
     boxSizing: 'border-box',
   },
-  body: {
-    background: '#1a1a1a',
-  },
 }
