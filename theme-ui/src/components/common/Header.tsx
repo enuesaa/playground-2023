@@ -13,27 +13,13 @@ export function Header() {
       justifyContent: 'center',
       alignItems: 'center',
     }),
-    title: css({
-      color: '#fafafa',
-      textShadow: '2px 2px 2px #000',
-      fontSize: '45px',
-      height: '100px',
-      lineHeight: '100px',
-      fontWeight: '800',
-      margin: '0 auto',
-      textAlign: 'center',
-      userSelect: 'none',
-      '&:hover': {
-        textShadow: '3px 3px 2px #000',
-      },
-    }),
   }
 
   return (
     <>
       <header css={styles.top}>
         <Link href={{ pathname: `/` }}>
-          <div css={styles.title}>my-nextjs-template</div>
+          <h1>my-nextjs-template</h1>
         </Link>
       </header>
     </>
