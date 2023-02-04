@@ -7,7 +7,7 @@ type Props = {
 }
 export const LinkCard = ({ href, name }: Props) => {
   const styles = {
-    link: css({
+    link: {
       display: 'inline-block',
       padding: '10px 20px',
       color: '#cccccc',
@@ -15,11 +15,11 @@ export const LinkCard = ({ href, name }: Props) => {
       background: '#333333',
       margin: '10px',
       borderRadius: '10px',
-    }),
+    },
   }
 
   return (
-    <Link href={href} css={styles.link}>
+    <Link href={href} sx={styles.link}>
       {name}
     </Link>
   )
