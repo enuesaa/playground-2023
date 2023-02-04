@@ -1,4 +1,4 @@
-import { css } from '@emotion/react'
+import { css } from 'theme-ui'
 import Link from 'next/link'
 
 type Props = {

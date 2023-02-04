@@ -3,7 +3,7 @@ export const scales = {
   // borderStyles
   // borderWidths
   colors: {
-    primary: '#33e',
+    primary: '#fafafa',
     text: '#000',
     background: '#fff',
   },
