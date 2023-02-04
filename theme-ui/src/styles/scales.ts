@@ -13,7 +13,7 @@ export const scales = {
   },
   fonts: {
     body: 'system-ui, sans-serif',
-    heading: '"Avenir Next", sans-serif',
+    // heading: '"Avenir Next", sans-serif',
     monospace: 'system-ui, sans-serif',
   },
   fontSizes: [
@@ -21,16 +21,16 @@ export const scales = {
   ],
   fontWeights: {
     body: 400,
-    heading: 600,
+    // heading: 600,
     bold: 600,
   },
   shadows: {
-    heading: '2px 2px 2px #000',
+    // heading: '2px 2px 2px #000',
   },
   // letterSpacings
   lineHeights: {
     body: 1.5,
-    heading: 1.5,
+    // heading: 1.5,
   },
   // opacities
   // radii
