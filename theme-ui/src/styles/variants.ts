@@ -1,11 +1,22 @@
-export const variants = {
+import { ThemeUIStyleObject } from 'theme-ui'
+
+export const variants: ThemeUIStyleObject = {
   grids: {},
   buttons: {},
-  text: {},
+  text: {
+    heading: {},
+  },
   links: {},
   images: {},
   cards: {},
-  layout: {},
+  layout: {
+    container: {
+      width: '90%',
+      margin: '0 auto',
+      height: '100vh',
+      padding: '20px 0',
+    },
+  },
   forms: {},
   badges: {},
   alerts: {},
