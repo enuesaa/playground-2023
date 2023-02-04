@@ -10,5 +10,8 @@ export const theme: Theme = {
 
   ...scales,
   ...variants,
-  styles: global,
+
+  styles: {
+    root: global,
+  },
 }

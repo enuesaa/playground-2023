@@ -1,22 +1,20 @@
-import { ThemeStyles } from 'theme-ui'
+import { ThemeUIStyleObject } from 'theme-ui'
 
-export const global: ThemeStyles = {
-  root: {
-    'html,body': {
-      padding: '0',
-      margin: '0',
-      fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-    },
-    a: {
-      color: 'inherit',
-      textDecoration: 'none',
-    },
-    '*': {
-      boxSizing: 'border-box',
-    },
-    body: {
-      background: '#1a1a1a',
-    }
+export const global: ThemeUIStyleObject = {
+  'html,body': {
+    padding: '0',
+    margin: '0',
+    fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+  },
+  a: {
+    color: 'inherit',
+    textDecoration: 'none',
+  },
+  '*': {
+    boxSizing: 'border-box',
+  },
+  body: {
+    background: '#1a1a1a',
   },
   h1: {
     color: '#ff6633',
