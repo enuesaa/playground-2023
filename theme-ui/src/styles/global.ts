@@ -1,6 +1,9 @@
-import { ThemeUIStyleObject } from 'theme-ui'
+import { ThemeStyles } from 'theme-ui'
 
-export const global: ThemeUIStyleObject = {
+export const global: ThemeStyles = {
+  root: {
+    boxSizing: 'border-box',
+  },
   'html,body': {
     padding: '0',
     margin: '0',
@@ -9,8 +12,5 @@ export const global: ThemeUIStyleObject = {
   a: {
     color: 'inherit',
     textDecoration: 'none',
-  },
-  '*': {
-    boxSizing: 'border-box',
   },
 }
