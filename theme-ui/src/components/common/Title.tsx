@@ -1,10 +1,10 @@
-import { Heading } from 'theme-ui'
+import { H2 } from '../base/H2'
 
 type Props = {
   name: string
 }
 export const Title = ({ name }: Props) => {
   return (
-    <Heading as='h2'>{name}</Heading>
+    <H2>{name}</H2>
   )
 }

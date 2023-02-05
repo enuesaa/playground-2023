@@ -1,5 +1,5 @@
 import { Header } from '@/components/common/Header'
-import { LinkCard } from '@/components/common/LinkCard'
+import { LinkCard } from '@/components/base/LinkCard'
 import { SideMenu } from '@/components/common/SideMenu'
 import { Title } from '@/components/common/Title'
 import { Box, Flex } from 'theme-ui'
@@ -18,7 +18,7 @@ export default function TopPage() {
         <SideMenu />
         <Box css={styles.flexRight}>
           <Title name='aaa' />
-          <LinkCard href='/' name='aaa' />
+          <LinkCard href='/'>aaa</LinkCard>
         </Box>
       </Flex>
     </>

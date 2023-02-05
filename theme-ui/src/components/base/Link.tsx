@@ -1,23 +1,24 @@
-import { BoxProps, useThemeUI, css } from 'theme-ui'
+import { css } from 'theme-ui'
 import type { LinkProps } from 'next/link'
 import NextLink from 'next/link'
+import { ReactNode, forwardRef } from 'react'
 
-export const Link = (props: BoxProps & LinkProps) => {
-  const { theme } = useThemeUI()
-  const linkStyleSettings = theme.links ?? {}
-
-  const variant = props.variant ?? 'main'
-  const baseStyle = linkStyleSettings.hasOwnProperty(variant) ? linkStyleSettings[variant] : {}
-  const customStyle = (props.css ?? {}) as Record<string, any>
-  const style = css({
-    ...baseStyle,
-    ...customStyle,
-  })
-  const children = props.children
+type Props = LinkProps & {
+  css?: any,
+  children: ReactNode,
+}
+export const Link = forwardRef<any, Props>((props, ref) => {
+  const style = [
+    css({
+      display: 'inline-block',
+      background: 'rgba(0,0,0,0)',
+    }),
+    props.css ?? {},
+  ]
 
   return (
-    <NextLink href={props.href} css={style}>
-      {children}
+    <NextLink {...props} ref={ref} css={props.css}>
+      {props.children}
     </NextLink>
   )
-}
+})

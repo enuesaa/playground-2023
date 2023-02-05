@@ -1,5 +1,6 @@
 import { Link } from '../base/Link'
-import { Heading, css, Box, Button } from 'theme-ui'
+import { css, Box } from 'theme-ui'
+import { H1 } from '../base/H1'
 
 export const Header = () => {
   const styles = {
@@ -21,11 +22,9 @@ export const Header = () => {
 
   return (
     <header css={styles.header}>
-      <Box css={styles.flexLeft}>
-        <Link href='/'>
-          <Heading as='h1'>my-nextjs-template</Heading>
-        </Link>
-      </Box>
+      <Link href='/' css={styles.flexLeft}>
+        <H1>my-nextjs-template</H1>
+      </Link>
       <Box>
         <Link href='/about'>about</Link>
       </Box>

@@ -2,56 +2,8 @@ import { ThemeUIStyleObject } from 'theme-ui'
 
 export const variants: ThemeUIStyleObject = {
   // grids: {},
-  buttons: {
-    main: {
-      p: 'x1',
-      color: 'background',
-      background: 'primary',
-      '&:hover': {
-        background: 'text',
-      },
-    },
-  },
-  text: {
-    heading: {
-      fontFamily: 'heading',
-      fontWeight: 'heading',
-      lineHeight: 'heading',
-      color: 'text',
-      px: 'x2', 
-      py: 'x1',
-      userSelect: 'none',
-      display: 'block',
-    },
-  },
-  links: {
-    main: {
-      display: 'inline-block',
-      background: 'rgba(0,0,0,0)',
-    },
-    card: {
-      display: 'inline-block',
-      px: 'x2',
-      py: 'x1',
-      color: 'background',
-      background: 'text',
-      borderRadius: 'x1',
-      '&:hover': {
-        color: 'text',
-        background: 'background',
-      },
-    },
-    invert: {
-      display: 'block',
-      px: 'x2',
-      py: 'x1',
-      color: 'background',
-      '&:hover': {
-        color: 'text',
-        background: 'background',
-      },
-    }
-  },
+  // buttons: {},
+  // links: {},
   // images: {},
   // cards: {},
   // layout: {},

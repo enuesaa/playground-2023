@@ -1,5 +1,5 @@
 import { css } from 'theme-ui'
-import { Link } from '../base/Link'
+import { LinkNav } from '../base/LinkNav'
 
 export const SideMenu = () => {
   const styles = {
@@ -12,13 +12,15 @@ export const SideMenu = () => {
 
   return (
     <nav css={styles.nav}>
-      <Link href='/' variant='invert'>a</Link>
-      <Link href='/' variant='invert'>a</Link>
-      <Link href='/' variant='invert'>a</Link>
-      <Link href='/' variant='invert'>a</Link>
-      <Link href='/' variant='invert'>a</Link>
-      <Link href='/' variant='invert'>a</Link>
-      <Link href='/' variant='invert'>a</Link>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
+      <LinkNav href='/'>a</LinkNav>
     </nav>
   )
 }
