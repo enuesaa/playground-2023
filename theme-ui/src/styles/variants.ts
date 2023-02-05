@@ -3,23 +3,12 @@ import { ThemeUIStyleObject } from 'theme-ui'
 export const variants: ThemeUIStyleObject = {
   // grids: {},
   buttons: {
-    primary: {
-      padding: 'x1',
+    main: {
+      p: 'x1',
       color: 'background',
       background: 'primary',
       '&:hover': {
         background: 'text',
-      },
-    },
-    secondary: {
-      px: 'x2',
-      py: 'x1',
-      color: 'background',
-      background: 'rgba(0,0,0,0)',
-      cursor: 'pointer',
-      '&:hover': {
-        color: 'text',
-        background: 'background',
       },
     },
   },
@@ -38,6 +27,7 @@ export const variants: ThemeUIStyleObject = {
   links: {
     main: {
       display: 'inline-block',
+      background: 'rgba(0,0,0,0)',
     },
     card: {
       display: 'inline-block',

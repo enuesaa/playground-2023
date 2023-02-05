@@ -22,12 +22,12 @@ export const Header = () => {
   return (
     <header css={styles.header}>
       <Box css={styles.flexLeft}>
-        <Link href={{ pathname: `/` }}>
+        <Link href='/'>
           <Heading as='h1'>my-nextjs-template</Heading>
         </Link>
       </Box>
       <Box>
-        <Button variant='buttons.secondary'>aa</Button>
+        <Link href='/about'>about</Link>
       </Box>
     </header>
   )
