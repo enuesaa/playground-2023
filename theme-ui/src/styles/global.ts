@@ -1,7 +1,7 @@
-import { ThemeStyles } from 'theme-ui'
+import { ThemeUIStyleObject } from 'theme-ui'
 
-export const global: ThemeStyles = {
-  root: {
+export const global: ThemeUIStyleObject = {
+  '*': {
     boxSizing: 'border-box',
   },
   'html,body': {

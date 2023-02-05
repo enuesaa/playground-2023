@@ -5,7 +5,7 @@ export const variants: ThemeUIStyleObject = {
   buttons: {
     primary: {
       padding: 'x1',
-      color: 'base',
+      color: 'background',
       background: 'primary',
       '&:hover': {
         background: 'text',
@@ -14,17 +14,20 @@ export const variants: ThemeUIStyleObject = {
     secondary: {
       px: 'x2',
       py: 'x1',
-      color: 'base',
+      color: 'background',
       background: 'rgba(0,0,0,0)',
       cursor: 'pointer',
       '&:hover': {
         color: 'text',
-        background: 'base',
+        background: 'background',
       },
     },
   },
   text: {
     heading: {
+      fontFamily: 'heading',
+      fontWeight: 'heading',
+      lineHeight: 'heading',
       color: 'text',
       px: 'x2', 
       py: 'x1',
@@ -40,22 +43,22 @@ export const variants: ThemeUIStyleObject = {
       display: 'inline-block',
       px: 'x2',
       py: 'x1',
-      color: 'base',
+      color: 'background',
       background: 'text',
       borderRadius: 'x1',
       '&:hover': {
         color: 'text',
-        background: 'base',
+        background: 'background',
       },
     },
     invert: {
       display: 'block',
       px: 'x2',
       py: 'x1',
-      color: 'base',
+      color: 'background',
       '&:hover': {
         color: 'text',
-        background: 'base',
+        background: 'background',
       },
     }
   },

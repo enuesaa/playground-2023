@@ -3,27 +3,29 @@ export const scales = {
   // borderStyles
   // borderWidths
   colors: {
-    primary: '#434fbe',
-    base: '#fafafa',
     text: '#1a1a1a',
+    background: '#fafafa',
+    primary: '#434fbe',
   },
   fonts: {
-    main: 'system-ui, sans-serif',
-    accent:  '"Avenir Next", sans-serif',
+    body: 'system-ui, sans-serif',
+    heading:  '"Avenir Next", sans-serif',
   },
   fontSizes: [
     14, 16, 20, 24
   ],
   fontWeights: {
-    main: 400,
-    accent: 600,
+    body: 400,
+    heading: 600,
+    bold: 600,
   },
   shadows: {
     main: '2px 2px 2px #000',
   },
   // letterSpacings
   lineHeights: {
-    main: 1.5,
+    body: 1.5,
+    heading: 1.5,
   },
   // opacities
   radii: {

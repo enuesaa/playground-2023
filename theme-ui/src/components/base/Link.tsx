@@ -4,6 +4,7 @@ import NextLink from 'next/link'
 
 export const Link = (props: BoxProps & LinkProps) => {
   const { theme } = useThemeUI()
+  console.log(theme)
   const linkStyleSettings = theme.links ?? {}
 
   const variant = props.variant ?? 'main'
