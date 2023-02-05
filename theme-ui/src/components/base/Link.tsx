@@ -1,8 +1,12 @@
 import { css } from 'theme-ui'
 import type { LinkProps } from 'next/link'
 import NextLink from 'next/link'
-import { ReactNode, forwardRef } from 'react'
+import { ReactNode, forwardRef, ComponentPropsWithRef } from 'react'
 
+/**
+ * Propsを全て定義しようとするとキリがない. そのため ComponentPropsWithRef を使うと良いらしい
+ * @see https://zenn.dev/takepepe/articles/atoms-type-definitions
+ */
 type Props = LinkProps & {
   css?: any,
   children: ReactNode,
