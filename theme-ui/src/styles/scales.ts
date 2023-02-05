@@ -4,8 +4,8 @@ export const scales = {
   // borderWidths
   colors: {
     primary: '#434fbe',
+    base: '#fafafa',
     text: '#1a1a1a',
-    background: '#fafafa',
   },
   fonts: {
     main: 'system-ui, sans-serif',

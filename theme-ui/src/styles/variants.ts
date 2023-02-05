@@ -5,7 +5,7 @@ export const variants: ThemeUIStyleObject = {
   buttons: {
     primary: {
       padding: 'x1',
-      color: 'background',
+      color: 'base',
       background: 'primary',
       '&:hover': {
         background: 'text',
@@ -14,19 +14,20 @@ export const variants: ThemeUIStyleObject = {
     secondary: {
       px: 'x2',
       py: 'x1',
-      color: 'background',
+      color: 'base',
       background: 'rgba(0,0,0,0)',
       cursor: 'pointer',
       '&:hover': {
         color: 'text',
-        background: 'background',
+        background: 'base',
       },
     },
   },
   text: {
     heading: {
       color: 'text',
-      padding: ['x1', 'x2'],
+      px: 'x2', 
+      py: 'x1',
       userSelect: 'none',
       display: 'block',
     },
@@ -37,24 +38,24 @@ export const variants: ThemeUIStyleObject = {
     },
     card: {
       display: 'inline-block',
-      py: 'x1', 
       px: 'x2',
-      color: 'background',
+      py: 'x1',
+      color: 'base',
       background: 'text',
       borderRadius: 'x1',
       '&:hover': {
         color: 'text',
-        background: 'background',
+        background: 'base',
       },
     },
-    list: {
+    invert: {
       display: 'block',
       px: 'x2',
       py: 'x1',
-      color: 'background',
+      color: 'base',
       '&:hover': {
         color: 'text',
-        background: 'background',
+        background: 'base',
       },
     }
   },

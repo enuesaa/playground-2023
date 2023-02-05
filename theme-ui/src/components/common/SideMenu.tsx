@@ -12,13 +12,13 @@ export const SideMenu = () => {
 
   return (
     <nav css={styles.nav}>
-      <Link href='/' variant='list'>a</Link>
-      <Link href='/' variant='list'>a</Link>
-      <Link href='/' variant='list'>a</Link>
-      <Link href='/' variant='list'>a</Link>
-      <Link href='/' variant='list'>a</Link>
-      <Link href='/' variant='list'>a</Link>
-      <Link href='/' variant='list'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
+      <Link href='/' variant='invert'>a</Link>
     </nav>
   )
 }
