@@ -6,8 +6,8 @@ __pycache__
 # editor
 .vscode
 
-# for test
-/app/doc2vec.py
-
 # tensorboardX
 runs
+
+# jupyter
+.ipynb_checkpoints
