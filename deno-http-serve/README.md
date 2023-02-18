@@ -1,19 +1,28 @@
 # deno-http-serve
+
 ## Memo
+
 - package.json はないらしい
 - golang のように url から import できる
 - root file は index.ts ではなく main.ts
+
 ## Links
+
 - [example http sever](https://examples.deno.land/http-server-routing)
-- https://zenn.dev/uki00a/books/effective-deno/viewer/task-runner
+- https://zenn.dev/uki00a/books/effective-deno
 
 ## Command
+
 ### init
-~~~bash
+
+```bash
 deno init
-~~~
+```
+
 deno.jsonc というファイルができる. jsonc はコメントが書けるjson
+
 ### Up dev server
-~~~bash
+
+```bash
 deno task dev
-~~~
+```
