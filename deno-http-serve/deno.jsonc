@@ -1,6 +1,7 @@
 {
   "imports": {
-    "http/server": "https://deno.land/std@0.175.0/http/server.ts"
+    "http/server": "https://deno.land/std@0.175.0/http/server.ts",
+    "testing/asserts": "https://deno.land/std@0.177.0/testing/asserts.ts"
   },
   "tasks": {
     "dev": "deno run --watch main.ts"
