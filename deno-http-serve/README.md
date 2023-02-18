@@ -4,6 +4,7 @@
 
 - package.json はないらしい
 - golang のように url から import できる
+- deno v1.30 で import map を deno.jsonc に記述できるようになったらしい
 - root file は index.ts ではなく main.ts
 
 ## Links

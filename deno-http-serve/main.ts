@@ -1,4 +1,4 @@
-import { serve } from "https://deno.land/std@0.175.0/http/server.ts";
+import { serve } from "http/server";
 
 const BOOK_ROUTE = new URLPattern({ pathname: "/books/:id" });
 
