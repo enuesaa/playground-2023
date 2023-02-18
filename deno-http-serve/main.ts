@@ -1,8 +1,20 @@
-export function add(a: number, b: number): number {
-  return a + b;
+import { serve } from "https://deno.land/std@0.175.0/http/server.ts";
+
+const BOOK_ROUTE = new URLPattern({ pathname: "/books/:id" });
+
+function handler(req: Request): Response {
+
+  const match = BOOK_ROUTE.exec(req.url);
+
+  if (match) {
+    const id = match.pathname.groups.id;
+    return new Response(`Book ${id}`);
+  }
+
+  return new Response("Not found (try /books/1)", {
+    status: 404,
+  });
 }
 
-// Learn more at https://deno.land/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
-}
+console.log("Listening on http://localhost:8000");
+serve(handler);
