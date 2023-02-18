@@ -1,2 +1,2 @@
-# devdev-app
+# devdev
 Sample application for prototyping.
