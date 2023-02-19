@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "ruby/thor/hello/version"
+require "ruby_thor_hello/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "ruby-thor-hello"
-  spec.version       = Ruby::Thor::Hello::VERSION
+  spec.name          = "ruby_thor_hello"
+  spec.version       = RubyThorHello::VERSION
 
   spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
@@ -27,8 +27,6 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
-  spec.add_dependency "thor"
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
