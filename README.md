@@ -1,4 +1,5 @@
-# moviecatalog-app
+# ml-learning
+My playground for learning ML.  
 
 ## Links
 - https://keras.io/api/datasets/imdb/
