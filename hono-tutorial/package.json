@@ -1,5 +1,8 @@
 {
+  "name": "hono-tutorial",
+  "license": "UNLICENSED",
   "scripts": {
+    "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts"
   },
   "dependencies": {
