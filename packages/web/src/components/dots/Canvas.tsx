@@ -19,6 +19,14 @@ export const Canvas = () => {
     console.log(res)
   }
 
+  /**
+   * @todo react strict mode をどう handle するか。
+   * 
+   * 部分的に無効化したいが、手立てがないように見える。
+   * プロジェクト全体で react strict mode を無効化するのは、おかしな話だと思うので、
+   * ランダム値を使う Component が何かしら対処すべきだと思う。Seed 値のような仕組みを作るか。。
+   */
+
   return (
     <>
       <svg width='600' height='600'>
