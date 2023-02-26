@@ -11,18 +11,18 @@ pub fn greet(name: &str) -> String {
 
 #[derive(Serialize)]
 struct Points {
-    x: u16,
-    y: u16,
+    x: u8,
+    y: u8,
 }
 #[wasm_bindgen]
-pub fn generate_points(count: u8) -> Result<JsValue, JsValue> {
+pub fn generate_points(count: usize) -> Result<JsValue, JsValue> {
     let mut rng: StdRng = SeedableRng::seed_from_u64(99);
     
-    let mut ret = vec![];
-    for _i in 1..count {
+    let mut ret = Vec::with_capacity(count);
+    for _ in 0..count {
         ret.push(Points {
-            x: rng.gen::<u16>(),
-            y: rng.gen::<u16>(),
+            x: rng.gen::<u8>(),
+            y: rng.gen::<u8>(),
         });
     };
     Ok(serde_wasm_bindgen::to_value(&ret)?)
