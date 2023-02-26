@@ -1,5 +1,5 @@
 /** @ts-ignore-next-line */
-import { greet } from '../../../public/waveslib/waveslib.js'
+import { greet, generate_points } from '../../../public/waveslib/waveslib.js'
 import { MouseEventHandler } from 'react'
 
 type Point = {
@@ -16,6 +16,11 @@ export const Canvas = () => {
   const handleGreet: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
     const res = greet('aa')
+    console.log(res)
+  }
+  const handleGeneratePoints: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault()
+    const res = generate_points(1000)
     console.log(res)
   }
 
@@ -36,6 +41,7 @@ export const Canvas = () => {
         ))}
       </svg>
       <button onClick={handleGreet}>greet</button>
+      <button onClick={handleGeneratePoints}>generatePoints</button>
     </>
   )
 }
