@@ -1,24 +1,17 @@
-/** @ts-ignore-next-line */
-// import { greet, generate_points } from '@/waveslib/waveslib'
 import { MouseEventHandler } from 'react'
-import { useAtom } from 'jotai'
-import { wasmAtom } from '@/lib/wasm'
-
-type Point = {
-  x: number;
-  y: number;
-}
+import { useAtomValue } from 'jotai'
+import { waveslibAtom } from '@/lib/waveslib'
 
 export const Canvas = () => {
-  const [wasmAtomCtx] = useAtom(wasmAtom)
-  if (wasmAtomCtx.wasm === null) {
+  const waveslib = useAtomValue(waveslibAtom)
+  if (waveslib === null) {
     return (<></>)
   }
-  const points: Point[] = wasmAtomCtx.wasm.generate_points(1000)
+  const points = waveslib.generate_points(1000)
 
   const handleGreet: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
-    const res = wasmAtomCtx.wasm?.greet('a')
+    const res = waveslib.greet('a')
     console.log(res)
   }
 
