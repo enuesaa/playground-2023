@@ -1,0 +1,12 @@
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[package]
+name = "waveslib"
+description = "test"
+version = "0.1.0"
+edition = "2021"
+license = "UNLICENSED"
+
+[dependencies]
+wasm-bindgen = "0.2.84"
