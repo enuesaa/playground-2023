@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:waveslib": "wasm-pack build ../waveslib --out-dir ../web/public/waveslib",
+    "build:waveslib": "wasm-pack build ../waveslib --out-dir ../web/src/waveslib",
     "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "html2canvas": "^1.4.1",
+    "jotai": "^2.0.2",
     "modern-css-reset": "^1.4.0",
     "nanoid": "^4.0.0",
     "next": "13.1.2",
