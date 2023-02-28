@@ -1,4 +1,3 @@
-import { MouseEventHandler } from 'react'
 import { useAtomValue } from 'jotai'
 import { waveslibAtom } from '@/lib/waveslib'
 
@@ -9,12 +8,6 @@ export const Canvas = () => {
   }
   const points = waveslib.generate_points(1000)
 
-  const handleGreet: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault()
-    const res = waveslib.greet('a')
-    console.log(res)
-  }
-
   return (
     <>
       <svg width='255' height='255'>
@@ -23,7 +16,6 @@ export const Canvas = () => {
           <circle key={i} cx={p.x} cy={p.y} r='1' fill='#ff6633' />
         ))}
       </svg>
-      <button onClick={handleGreet}>greet</button>
     </>
   )
 }
