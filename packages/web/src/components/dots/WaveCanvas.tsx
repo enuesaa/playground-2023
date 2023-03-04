@@ -1,4 +1,9 @@
+import { useState } from 'react'
+
 export const WaveCanvas = () => {
+  const [point, setPoint] = useState<number>(90)
+  setTimeout(() => setPoint(Math.random() * 500), 2000)
+
   return (
     <>
       <svg viewBox='0 0 1440 590'>
@@ -9,7 +14,7 @@ export const WaveCanvas = () => {
           </linearGradient>
         </defs>
         <path
-          d='M 0,600 C 0,600 0,200 0,200 C 115,228 231,257 326,251 C 420,244 492,203 579,193 C 665,182 766,201 871,190 C 975,178 1084,134 1180,131 C 1275,127 1357,163 1440,200 C 1440,200 1440,600 1440,600 Z'
+          d={`M 0,600 C 0,600 0,200 0,200 C ${point},228 231,257 326,251 C 420,244 492,203 579,193 C 665,182 766,201 871,190 C 975,178 1084,134 1180,131 C 1275,127 1357,163 1440,200 C 1440,200 1440,600 1440,600 Z`}
           stroke='none'
           stroke-width='0'
           fill='url(#gradient)'
