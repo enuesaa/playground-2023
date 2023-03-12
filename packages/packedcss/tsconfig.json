@@ -3,13 +3,17 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "noEmit": true,
     "incremental": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "baseUrl": "."
+    "outDir": "./dist"
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/*.ts"],
+  "exclude": [
+    "node_modules",
+    "src/jsx-runtime.ts",
+    "src/jsx-dev-runtime.ts",
+    "src/PackedContext.ts",
+    "src/usePacked.ts"
+  ]
 }
