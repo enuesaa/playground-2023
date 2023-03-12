@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:transmeet": "wasm-pack build ../transmeet --out-dir ../web/src/transmeet",
     "build:waveslib": "wasm-pack build ../waveslib --out-dir ../web/src/waveslib",
     "lint": "next lint"
   },

@@ -1,5 +1,8 @@
 import { usePacked } from '@/lib/packedcss/usePacked'
 
+/**
+ * @deprecated
+ */
 export const Card = () => {
   const packed = usePacked()
 

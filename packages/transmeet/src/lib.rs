@@ -10,7 +10,7 @@ pub fn execute(value: &str, query: &str) -> Result<JsValue, JsValue> {
 }
 
 fn execute_hanlder(value: &str, query: &str) -> String {
-    if query == "string" {
+    if query == "replace" {
         return replace(value);
     }
     value.to_string()
