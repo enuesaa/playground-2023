@@ -1,5 +1,8 @@
 import { createContext, useState, ReactNode } from 'react'
 
+/**
+ * @deprecated all codes of this file
+ */
 type StyleObject = {
   [key: string]: string
 }

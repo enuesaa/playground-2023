@@ -1,5 +1,9 @@
 import * as ReactJsxDevRuntime from 'react/jsx-dev-runtime'
 
+/**
+ * @deprecated all codes of this file
+ */
+
 const serialize = (className: string, styleObject: Record<string, string>) => {
   const styleString = Object.keys(styleObject).reduce((prev: string, k) => {
     const v = styleObject[k]

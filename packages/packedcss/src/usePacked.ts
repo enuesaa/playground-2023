@@ -2,6 +2,9 @@ import { useContext, useState } from 'react'
 import { PackedStyleHandlerContext } from './PackedContext'
 import { nanoid } from 'nanoid'
 
+/**
+ * @deprecated all codes of this file
+ */
 type Packed = {
   card: () => string
 }
