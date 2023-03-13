@@ -18,11 +18,6 @@ export default function TopPage() {
    */
 
   return (
-    <>
-      <Header />
-      <Main>
-        <Title name='cabinet' />
-      </Main>
-    </>
+    <Title name='cabinet' />
   )
 }

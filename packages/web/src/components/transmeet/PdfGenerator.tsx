@@ -1,7 +1,6 @@
 import { useAtomValue } from 'jotai'
 import { transmeetAtom } from '@/lib/transmeet'
 import { css } from '@emotion/react'
-import { MouseEventHandler } from 'react'
 
 export const PdfGenerator = () => {
   const transmeet = useAtomValue(transmeetAtom)

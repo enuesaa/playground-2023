@@ -1,4 +1,3 @@
-import { Header } from '@/components/common/Header'
 import { css } from '@emotion/react'
 import { packed } from 'packedcss'
 
@@ -9,7 +8,6 @@ export default function PackedcssDemoPage() {
 
   return (
     <>
-      <Header />
       <section css={styles.section}>
         aa
       </section>

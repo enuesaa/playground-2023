@@ -1,5 +1,3 @@
-import { Header } from '@/components/common/Header'
-import { Main } from '@/components/common/Main'
 import { LinkCard } from '@/components/common/LinkCard'
 
 import { promises as fs } from 'node:fs'
@@ -11,12 +9,9 @@ type Props = {
 export default function TopPage({ projectNames }: Props) {
   return (
     <>
-      <Header />
-      <Main>
-        {projectNames.map((p) => (
-          <LinkCard href={`/projects/${p}`} name={p} key={p} />
-        ))}
-      </Main>
+      {projectNames.map((p) => (
+        <LinkCard href={`/projects/${p}`} name={p} key={p} />
+      ))}
     </>
   )
 }
