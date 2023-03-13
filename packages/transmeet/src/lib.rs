@@ -11,7 +11,7 @@ pub fn execute(value: &str, query: &str) -> Result<JsValue, JsValue> {
     Ok(serde_wasm_bindgen::to_value(&ret)?)
 }
 
-fn execute_hanlder(value: &str, query: &str) -> String {
+pub fn execute_hanlder(value: &str, query: &str) -> String {
     if query == "replace" {
         return replace(value);
     }
