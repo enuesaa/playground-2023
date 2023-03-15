@@ -1,14 +1,14 @@
-import { css } from '@emotion/react'
+import { css, useTheme } from '@emotion/react'
 import Link from 'next/link'
-import { cardStyle } from '@/styles/base'
 
 type Props = {
   href: string
   name: string
 }
 export const LinkCard = ({ href, name }: Props) => {
+  const theme = useTheme()
   const styles = {
-    link: css(cardStyle, {
+    link: css(theme.linkCard, {
       padding: '10px 20px',
     }),
   }

@@ -31,6 +31,8 @@ export const Capture = ({ children }: Props) => {
     imgPlaceTarget.current.src = await captureToBase64(captureTarget.current)
   }
 
+  /* eslint-disable @next/next/no-img-element */
+
   return (
     <>
       <section css={styles.main} ref={captureTarget}>
