@@ -7,7 +7,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"packages/**/*.{ts,tsx}\""
+    "format": "prettier --write \"packages/**/*.{ts,tsx}\"",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "eslint": "^8.36.0",
