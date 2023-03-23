@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  elixir:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
