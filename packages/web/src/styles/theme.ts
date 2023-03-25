@@ -2,8 +2,8 @@ import { Theme } from '@emotion/react'
 
 export const baseTheme: Theme = {
   form: {
-    'input': {},
-    'textarea':{},
+    input: {},
+    textarea: {},
   },
   button: {},
   box: {

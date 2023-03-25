@@ -4,7 +4,7 @@ import { waveslibAtom } from '@/lib/waveslib'
 export const Canvas = () => {
   const waveslib = useAtomValue(waveslibAtom)
   if (waveslib === null) {
-    return (<></>)
+    return <></>
   }
   const points = waveslib.generate_points(1000)
 

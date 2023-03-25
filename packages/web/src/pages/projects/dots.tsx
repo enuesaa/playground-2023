@@ -4,7 +4,6 @@ import { AnimatedCanvas } from '@/components/dots/AnimatedCanvas'
 import { WaveCanvas } from '@/components/dots/WaveCanvas'
 
 export default function TopPage() {
-
   return (
     <>
       <Title name='dots' />

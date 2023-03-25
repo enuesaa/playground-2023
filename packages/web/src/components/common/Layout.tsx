@@ -3,15 +3,13 @@ import { Main } from '@/components/common/Main'
 import { ReactNode } from 'react'
 
 type Props = {
-  children: ReactNode;
+  children: ReactNode
 }
 export const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <Main>
-        {children}
-      </Main>
+      <Main>{children}</Main>
     </>
   )
 }

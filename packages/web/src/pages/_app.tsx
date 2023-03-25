@@ -7,21 +7,19 @@ import type { NextPage } from 'next'
 import { baseTheme } from '@/styles/theme'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode,
+  getLayout?: (page: ReactElement) => ReactNode
 }
 
 type Props = AppProps & {
-  Component: NextPageWithLayout,
+  Component: NextPageWithLayout
 }
 export default function App({ Component, pageProps }: Props) {
-  const getLayout = Component.getLayout ?? (page => <Layout>{page}</Layout>)
+  const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>)
 
   return (
     <>
       <Global styles={globalStyle} />
-      <ThemeProvider theme={baseTheme}>
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
+      <ThemeProvider theme={baseTheme}>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
     </>
   )
 }

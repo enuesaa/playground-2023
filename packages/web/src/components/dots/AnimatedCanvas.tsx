@@ -5,7 +5,7 @@ import { css, keyframes } from '@emotion/react'
 export const AnimatedCanvas = () => {
   const waveslib = useAtomValue(waveslibAtom)
   if (waveslib === null) {
-    return (<></>)
+    return <></>
   }
   const points = waveslib.generate_points(1000)
   const randomMoves = [

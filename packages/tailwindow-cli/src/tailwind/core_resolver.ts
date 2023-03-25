@@ -7,7 +7,7 @@ export const listUtilities = (): Record<string, Record<string, string>> => {
   const addUtilities = (args: Record<string, Record<string, string>>) => {
     Object.assign(utilities, args)
   }
-  Object.keys(corePlugins).map(key => {
+  Object.keys(corePlugins).map((key) => {
     const plugin = corePlugins[key]
     /**
      * @see https://tailwindcss.com/docs/plugins
@@ -19,7 +19,7 @@ export const listUtilities = (): Record<string, Record<string, string>> => {
       addComponents: () => {},
       matchUtilities: () => {},
       addDefaults: () => {},
-      config: () => ({ future: 'all', }),
+      config: () => ({ future: 'all' }),
     })
   })
 

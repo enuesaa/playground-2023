@@ -19,13 +19,15 @@ export const WaveCanvas = () => {
           stroke-width='0'
           fill='url(#gradient)'
           fill-opacity='0.53'
-          className='transition-all duration-300 ease-in-out delay-150 path-0' />
+          className='transition-all duration-300 ease-in-out delay-150 path-0'
+        />
         <path
           d='M 0,600 C 0,600 0,400 0,400 C 84,419 169,438 264,440 C 358,441 463,426 557,434 C 650,441 732,472 819,470 C 905,467 995,433 1100,416 C 1204,398 1322,399 1440,400 C 1440,400 1440,600 1440,600 Z'
           stroke='none'
           stroke-width='0'
           fill='url(#gradient)'
-          fill-opacity='1' />
+          fill-opacity='1'
+        />
       </svg>
     </>
   )

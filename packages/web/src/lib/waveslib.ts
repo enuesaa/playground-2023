@@ -1,12 +1,12 @@
 import { atom } from 'jotai'
 
 type Point = {
-  x: number;
-  y: number;
+  x: number
+  y: number
 }
 
 type Waveslib = Omit<typeof import('@/waveslib/waveslib.js'), 'generate_points'> & {
-  generate_points: (count: number) => Point[];
+  generate_points: (count: number) => Point[]
 }
 
 /**
@@ -14,5 +14,5 @@ type Waveslib = Omit<typeof import('@/waveslib/waveslib.js'), 'generate_points'>
  */
 export const waveslibAtom = atom<Waveslib | null>(null)
 waveslibAtom.onMount = (set) => {
-  (async() => set(await import('@/waveslib/waveslib.js')))()
+  ;(async () => set(await import('@/waveslib/waveslib.js')))()
 }

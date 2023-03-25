@@ -8,9 +8,7 @@ export default function PackedcssDemoPage() {
 
   return (
     <>
-      <section css={styles.section}>
-        aa
-      </section>
+      <section css={styles.section}>aa</section>
     </>
   )
 }
