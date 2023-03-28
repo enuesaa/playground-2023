@@ -1,15 +1,18 @@
 version: '3.8'
 
 services:
-  master:
+  spark:
     image: bitnami/spark
     ports:
       - 4040:4040
       - 8080:8080
-    command: /spark/bin/spark-class org.apache.spark.deploy.master.Master --host 0.0.0.0
+    environment:
+      - SPARK_MODE=master
 
-  worker:
+  spark-worker:
     image: bitnami/spark
     ports:
       - 8081:8081
-    command: /spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077 --host 0.0.0.0
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
