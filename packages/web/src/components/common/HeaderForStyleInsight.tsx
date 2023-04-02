@@ -7,6 +7,35 @@ import { MdOutlineCoffeeMaker } from 'react-icons/md'
 export const HeaderForStyleInsight = () => {
   const theme = useTheme()
 
+  /**
+   * グローバルで定義しても違和感が少ないもの (グローバルに書いた方が良い、という訳ではない)
+   * - input周りのreset css
+   * 
+   * 他へ影響があるもの
+   * - margin ... chakraui で言う spacer component
+   * - flex ... chakraui で言う flex component
+   * 
+   * 親要素`のみ`が定義し子要素では定義すべきでないこと
+   * - height(絶対値)
+   * - width(絶対値)
+   * 
+   * 当該要素で定義すべきもの
+   * - 基本 margin:0, padding:0, display:block, fontSize: normal, 
+   * - box shadow
+   * - color
+   * - background
+   * - font size
+   * - font weight
+   * - line height
+   * - vertical align
+   * - cursor
+   * - border
+   * - border radius
+   * - padding
+   * - display ... flex を除く ... というより <Inline> <InlineBlock> <Block> <Flex> で良いのかも?
+   */
+
+  // theme.box というのが直感的でない. 実際にどんな値がセットされているのか想像できない
   const styles = {
     top: css(theme.box, {
       boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
