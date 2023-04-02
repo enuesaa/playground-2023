@@ -3,6 +3,44 @@ import { css, useTheme } from '@emotion/react'
 import { BiCoffee } from 'react-icons/bi'
 import { FaSearch } from 'react-icons/fa'
 import { MdOutlineCoffeeMaker } from 'react-icons/md'
+import { packed } from '@/lib/packed'
+import { ReactNode } from 'react'
+
+const Space = ({ height, width, inlineBlock }: { height: string; width: string, inlineBlock: boolean }) => {
+  return (<div style={{ height, width, display: inlineBlock ? 'inline-block' : 'block' }} />)
+}
+
+const InlineBlock = ({ c, children }: { c: any, children: ReactNode }) => {
+  return (<div css={c} style={{ display: 'inline-block' }}>{children}</div>)
+}
+
+const Cards = () => {
+  const styles = {
+    main: css(packed('main', 'x2', 'a'), {
+      width: '100%',
+      height: '100%'
+    }),
+    card: css(packed('reverse', 'x3', 'b')),
+    // card: css(packed({ surf: 'reverse', size: 'x3', decorate: 'b')),
+  }
+
+  return (
+    <section css={styles.main}>
+      <Space height='10px' width='100%' inlineBlock={false} />
+      <InlineBlock c={styles.card}>
+        a
+      </InlineBlock>
+      <Space height='0' width='10px' inlineBlock={true} />
+      <InlineBlock c={styles.card}>
+        a
+      </InlineBlock>
+      <Space height='0' width='10px' inlineBlock={true} />
+      <InlineBlock c={styles.card}>
+        a
+      </InlineBlock>
+    </section>
+  )
+}
 
 export const HeaderForStyleInsight = () => {
   const theme = useTheme()
@@ -21,7 +59,7 @@ export const HeaderForStyleInsight = () => {
    * - width(絶対値)
    * 
    * 当該要素で定義すべきもの
-   * - 基本 margin: 0, padding: 0, display: block, fontSize: normal, width: 100%, height: 100%
+   * - 基本 margin: 0, padding: 0, fontSize: normal, width: auto, height: auto
    * 
    * - [surf]
    *   - color
@@ -30,14 +68,14 @@ export const HeaderForStyleInsight = () => {
    * - [size]
    *   - font size
    *   - font weight
-   *   - line height
    *   - padding
    * 
-   * - [box]
+   * - [decorate]
    *   - border
    *   - border radius
    *   - box shadow
    * 
+   * - line height
    * - width
    * - height
    * - vertical align
@@ -53,9 +91,10 @@ export const HeaderForStyleInsight = () => {
 
   // theme.box というのが直感的でない. 実際にどんな値がセットされているのか想像できない
   const styles = {
-    // top: packed('normal', 'x2', 'boxe').with({
+    // top: css(packed('normal', 'x2', 'boxe'), {
     //   padding: '10px',
-    //   'svg': packed('normal', 'x2', 'boxe').flatten({
+    //   'svg': {
+    //     ...packed('normal', 'x2', 'boxe'),
 
     //   }),
     // }),
@@ -107,20 +146,23 @@ export const HeaderForStyleInsight = () => {
   }
 
   return (
-    <header css={styles.top}>
-      <div css={styles.title}>
-        <Link href={{ pathname: `/` }}>
-          <BiCoffee />
-          teatime
-        </Link>
-        <div css={styles.search}>
-          <input type='text' placeholder='search...' />
-          <FaSearch />
+    <>
+      <header css={styles.top}>
+        <div css={styles.title}>
+          <Link href={{ pathname: `/` }}>
+            <BiCoffee />
+            teatime
+          </Link>
+          <div css={styles.search}>
+            <input type='text' placeholder='search...' />
+            <FaSearch />
+          </div>
         </div>
-      </div>
-      <button css={styles.config} onClick={() => console.log('a')}>
-        <MdOutlineCoffeeMaker />
-      </button>
-    </header>
+        <button css={styles.config} onClick={() => console.log('a')}>
+          <MdOutlineCoffeeMaker />
+        </button>
+      </header>
+      <Cards />
+    </>
   )
 }
