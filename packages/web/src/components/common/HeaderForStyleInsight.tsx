@@ -11,32 +11,54 @@ export const HeaderForStyleInsight = () => {
    * グローバルで定義しても違和感が少ないもの (グローバルに書いた方が良い、という訳ではない)
    * - input周りのreset css
    * 
-   * 他へ影響があるもの
-   * - margin ... chakraui で言う spacer component
-   * - flex ... chakraui で言う flex component
+   * 他へ影響があるもの ... styled へ
+   * - margin ... <Space height='100%' width='100%'>
+   * - display ... <span> <InlineBlock> <div> <Flex> <FlexBasis basis=''>
+   * - position ... <Relative> <Absolute> <Fixed>
    * 
    * 親要素`のみ`が定義し子要素では定義すべきでないこと
    * - height(絶対値)
    * - width(絶対値)
    * 
    * 当該要素で定義すべきもの
-   * - 基本 margin:0, padding:0, display:block, fontSize: normal, 
-   * - box shadow
-   * - color
-   * - background
-   * - font size
-   * - font weight
-   * - line height
+   * - 基本 margin: 0, padding: 0, display: block, fontSize: normal, width: 100%, height: 100%
+   * 
+   * - [surf]
+   *   - color
+   *   - background
+   * 
+   * - [size]
+   *   - font size
+   *   - font weight
+   *   - line height
+   *   - padding
+   * 
+   * - [box]
+   *   - border
+   *   - border radius
+   *   - box shadow
+   * 
+   * - width
+   * - height
    * - vertical align
    * - cursor
-   * - border
-   * - border radius
-   * - padding
-   * - display ... flex を除く ... というより <Inline> <InlineBlock> <Block> <Flex> で良いのかも?
+   */
+
+  /**
+   * Layer
+   * - Basic Theme
+   * - Property Combination // builder like // with cache
+   * - styled
    */
 
   // theme.box というのが直感的でない. 実際にどんな値がセットされているのか想像できない
   const styles = {
+    // top: packed('normal', 'x2', 'boxe').with({
+    //   padding: '10px',
+    //   'svg': packed('normal', 'x2', 'boxe').flatten({
+
+    //   }),
+    // }),
     top: css(theme.box, {
       boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
       padding: '0',
