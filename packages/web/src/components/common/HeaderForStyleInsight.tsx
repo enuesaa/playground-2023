@@ -16,6 +16,9 @@ const InlineBlock = ({ c, children }: { c: any, children: ReactNode }) => {
 
 const Cards = () => {
   const styles = {
+    main: packed({surf: 'main', size: 'x2', decorate: 'a'}, {
+      
+    }),
     main: css(packed('main', 'x2', 'a'), {
       width: '100%',
       height: '100%'
