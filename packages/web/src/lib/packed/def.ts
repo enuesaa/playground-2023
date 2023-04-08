@@ -1,5 +1,4 @@
-
-const mapping = {
+export const def = {
   surf: {
     // 仮に値を変えるとしても影響範囲がわかりやすい.
     main: {
@@ -49,16 +48,5 @@ const mapping = {
       borderRadius: '10px',
       boxShadow: 'none',
     }
-  }
-}
-
-export const packed = (surf: string, size: string, decorate: string) => {
-  return {
-    margin: '0',
-    padding: '0',
-    width: 'auto',
-    height: 'auto',
-    // @ts-ignore
-    ...mapping.surf[surf] ?? {}, ...mapping.size[size], ...mapping.decorate[decorate]
   }
 }
