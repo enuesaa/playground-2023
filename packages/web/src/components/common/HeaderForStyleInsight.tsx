@@ -3,7 +3,7 @@ import { css, useTheme } from '@emotion/react'
 import { BiCoffee } from 'react-icons/bi'
 import { FaSearch } from 'react-icons/fa'
 import { MdOutlineCoffeeMaker } from 'react-icons/md'
-import { packed } from '@/lib/packed/main'
+import { packed } from '@/lib/packed'
 import { ReactNode } from 'react'
 
 const Space = ({ height, width, inlineBlock }: { height: string; width: string, inlineBlock: boolean }) => {

@@ -1,6 +1,11 @@
 import { def } from './def'
 
-export const packed = (surf: string, size: string, decorate: string) => {
+type PackedAttrs = {
+  surf: null | string;
+  size: null | string;
+  decorate: null | string;
+}
+export const packed = ({ surf, size, decorate }: PackedAttrs) => {
   return {
     margin: '0',
     padding: '0',
