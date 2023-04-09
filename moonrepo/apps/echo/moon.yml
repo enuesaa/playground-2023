@@ -1,0 +1,10 @@
+language: 'javascript'
+
+tasks:
+  dev:
+    command: 'node ./index.js'
+    args: []
+    deps: []
+    env: {}
+    inputs: []
+    outputs: []
