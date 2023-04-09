@@ -17,7 +17,7 @@ export const baseTheme: Theme = {
     transparent: {
       color: 'none',
       background: 'transparent',
-    }
+    },
   },
   size: {
     x1: {
@@ -46,6 +46,6 @@ export const baseTheme: Theme = {
       border: 'none',
       borderRadius: '10px',
       boxShadow: 'none',
-    }
+    },
   }
 }

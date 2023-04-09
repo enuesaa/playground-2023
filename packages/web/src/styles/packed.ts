@@ -1,22 +1,46 @@
-import { css, useTheme as emotionUseTheme, type CSSObject, SerializedStyles } from '@emotion/react'
+import { css, useTheme as useEmotionTheme, type CSSObject, SerializedStyles, Theme as EmotionTheme } from '@emotion/react'
 import { SurfDef, SizeDef, DecorateDef } from './emotion'
 
-type Base = {
-  surf: keyof SurfDef;
-  size: keyof SizeDef;
-  decorate: keyof DecorateDef;
-}
-export const useTheme = () => ({ surf = 'main', size = 'x1', decorate = 'a' }: Partial<Base>, custom: CSSObject = {}): SerializedStyles => {
-  const theme = emotionUseTheme()
+class Theme {
+  public css: CSSObject = {};
 
-  return css({
-    margin: '0',
-    padding: '0',
-    width: 'auto',
-    height: 'auto',
-    ...theme.surf[surf],
-    ...theme.size[size],
-    ...theme.decorate[decorate],
-    ...custom,
-  })
+  constructor(
+    protected emotionTheme: EmotionTheme
+  ) {}
+
+  clone() {
+    return new Theme(this.emotionTheme)
+  }
+
+  surf(name: keyof SurfDef) {
+    this.css = { ...this.css, ...this.emotionTheme.surf[name] }
+    return this
+  }
+
+  size(name: keyof SizeDef) {
+    this.css = { ...this.css, ...this.emotionTheme.size[name] }
+    return this
+  }
+
+  decorate(name: keyof DecorateDef) {
+    this.css = { ...this.css, ...this.emotionTheme.decorate[name] }
+    return this
+  }
+
+  with(css: CSSObject) {
+    this.css = { ...this.css, ...css }
+    return this
+  }
+}
+
+export const useDesignSystem = <A extends string>(
+  buildfn: (theme: Theme) => Record<A, Theme>
+): Record<A, SerializedStyles> => {
+  const emotionTheme = useEmotionTheme()
+  const builded = buildfn(new Theme(emotionTheme))
+  return Object.keys(builded).reduce((prev, k) => {
+    // @ts-ignore
+    prev[k] = css(builded[k].css)
+    return prev
+  }, {}) as Record<A, SerializedStyles>
 }

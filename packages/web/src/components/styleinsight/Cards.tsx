@@ -1,14 +1,11 @@
-import { useTheme } from '@/styles/packed'
+import { useDesignSystem } from '@/styles/packed'
 import { Space, InlinedSpace } from '../common/Space'
 
 export const Cards = () => {
-  const theme = useTheme()
-
-  const styles = {
-    // how to nest ?
-    main: theme({surf: 'main', size: 'x2', decorate: 'a'}, {}),
-    card: theme({surf: 'reverse', size: 'x3', decorate: 'b'}),
-  }
+  const styles = useDesignSystem(theme => ({
+    main: theme.clone().surf('main').size('x2').decorate('a'),
+    card: theme.clone().surf('reverse').size('x3').decorate('b'),
+  }))
 
   return (
     <section css={styles.main}>

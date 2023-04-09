@@ -19,8 +19,8 @@ export type DecorateDef = {
 
 declare module '@emotion/react' {
   export interface Theme {
-    surf: SurfDef,
-    size: SizeDef,
-    decorate: DecorateDef,
+    surf: SurfDef;
+    size: SizeDef;
+    decorate: DecorateDef;
   }
 }
