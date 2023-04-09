@@ -1,12 +1,13 @@
-import { usePacked } from '@/styles/packed'
+import { useTheme } from '@/styles/packed'
 import { Space, InlinedSpace } from '../common/Space'
 
 export const Cards = () => {
-  const packed = usePacked()
+  const theme = useTheme()
 
   const styles = {
-    main: packed({surf: 'main', size: 'x2', decorate: 'a'}, {}),
-    card: packed({surf: 'reverse', size: 'x3', decorate: 'b'}),
+    // how to nest ?
+    main: theme({surf: 'main', size: 'x2', decorate: 'a'}, {}),
+    card: theme({surf: 'reverse', size: 'x3', decorate: 'b'}),
   }
 
   return (

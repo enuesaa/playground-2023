@@ -1,11 +1,4 @@
-# memo
-- emotionベース
-- emotionの一つ上のレイヤー. uitlity functionライクな薄いレイヤー.
-
-## グローバルで定義しても違和感が少ないもの (グローバルに書いた方が良い、という訳ではない)
-- input周りのreset css
-
-## 他へ影響があるもの ... styled へ
+## 他へ影響があるもの
 - margin ... <Space height='100%' width='100%'>
 - display ... <span> <InlineBlock> <div> <Flex> <FlexBasis basis=''>
 - position ... <Relative> <Absolute> <Fixed>
@@ -36,8 +29,3 @@
 - height
 - vertical align
 - cursor
-
-## Layer
-- Basic Theme
-- Property Combination // builder like // with cache
-- styled
