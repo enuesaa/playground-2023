@@ -1,0 +1,17 @@
+$schema: 'https://moonrepo.dev/schemas/toolchain.json'
+
+node:
+  version: '18.0.0'
+  packageManager: 'yarn'
+  yarn: {}
+  addEnginesConstraint: true
+  aliasPackageNames: 'name-and-scope'
+  dedupeOnLockfileChange: true
+  inferTasksFromScripts: true
+  syncProjectWorkspaceDependencies: true
+
+typescript:
+  createMissingConfig: false
+  routeOutDirToCache: false
+  syncProjectReferences: false
+  syncProjectReferencesToPaths: false
