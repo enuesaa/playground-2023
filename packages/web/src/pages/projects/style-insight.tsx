@@ -1,9 +1,9 @@
-import { HeaderForStyleInsight } from '@/components/common/HeaderForStyleInsight'
+import { Cards } from '@/components/styleinsight/Cards'
 
 export default function Page() {
   return (
     <>
-      <HeaderForStyleInsight />
+      <Cards />
     </>
   )
 }

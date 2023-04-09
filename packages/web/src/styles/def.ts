@@ -1,6 +1,28 @@
-export const def = {
+import { CSSObject } from '@emotion/react'
+
+export type SurfDef = {
+  main: CSSObject,
+  sub: CSSObject,
+  reverse: CSSObject,
+  transparent: CSSObject
+}
+export type SizeDef = {
+  x1: CSSObject,
+  x2: CSSObject,
+  x3: CSSObject,
+}
+export type DecorateDef = {
+  a: CSSObject,
+  b: CSSObject,
+}
+export type Def = {
+  surf: SurfDef,
+  size: SizeDef,
+  decorate: DecorateDef,
+}
+
+export const def: Def = {
   surf: {
-    // 仮に値を変えるとしても影響範囲がわかりやすい.
     main: {
       color: '#111111',
       background: '#fafafa',
@@ -19,7 +41,6 @@ export const def = {
     }
   },
   size: {
-    // padding はついで.. 
     x1: {
       fontSize: '16px',
       fontWeight: '400',
@@ -37,7 +58,6 @@ export const def = {
     },
   },
   decorate: {
-    // どこで使われているかわかるんじゃないか..  
     a: {
       border: 'none',
       borderRadius: '0',

@@ -41,9 +41,3 @@
 - Basic Theme
 - Property Combination // builder like // with cache
 - styled
-
-```ts
-const styles = {
-    card: css(packed({ surf: 'reverse', size: 'x3', decorate: 'b')),
-}
-```
