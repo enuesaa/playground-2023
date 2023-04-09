@@ -1,19 +1,19 @@
-import { useDesignSystem } from '@/styles/packed'
-import { Space, InlinedSpace } from '../common/Space'
+import { useStyles } from '@/styles/use'
 
 export const Cards = () => {
-  const styles = useDesignSystem(theme => ({
-    main: theme.clone().surf('main').size('x2').decorate('a'),
-    card: theme.clone().surf('reverse').size('x3').decorate('b'),
+  const styles = useStyles(builder => ({
+    main: builder().surf('main').size('x2').decorate('a').css({
+      background: '#ff6633',
+    }),
+    card: builder().surf('reverse').size('x3').decorate('b').css({
+      margin: '10px',
+    }),
   }))
 
   return (
     <section css={styles.main}>
-      <Space height='10px' width='100%' />
       <div css={styles.card}>a</div>
-      <InlinedSpace height='0' width='10px' />
       <div css={styles.card}>b</div>
-      <InlinedSpace height='0' width='10px' />
       <div css={styles.card}>c</div>
     </section>
   )
