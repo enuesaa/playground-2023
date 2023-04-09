@@ -1,53 +1,38 @@
 import { css, useTheme, type CSSObject, SerializedStyles, Theme } from '@emotion/react'
 import { SurfDef, SizeDef, DecorateDef } from './emotion'
 
-class Builder {
-  protected _css: CSSObject = {};
-  protected _surf: keyof SurfDef | null = null;
-  protected _size: keyof SizeDef | null = null;
-  protected _decorate: keyof DecorateDef | null = null;
+type ThemedStyleArgs = {
+  surf: keyof SurfDef;
+  size: keyof SizeDef;
+  decorate: keyof DecorateDef;
+}
+class ThemedStyle {
+  public cssobject: CSSObject = {};
 
   constructor(
-    protected theme: Theme
-  ) {}
-
-  surf(name: keyof SurfDef) {
-    this._surf = name;
-    return this
-  }
-
-  size(name: keyof SizeDef) {
-    this._size = name;
-    return this
-  }
-
-  decorate(name: keyof DecorateDef) {
-    this._decorate = name;
-    return this
+    theme: Theme,
+    {surf, size, decorate}: Partial<ThemedStyleArgs>
+  ) {
+    this.cssobject = {
+      ...(surf === undefined ? {} : theme.surf[surf]),
+      ...(size === undefined ? {} : theme.size[size]),
+      ...(decorate === undefined ? {} : theme.decorate[decorate]),
+    }
   }
 
   css(css: CSSObject) {
-    this._css = { ...this._css, ...css }
+    this.cssobject = { ...this.cssobject, ...css }
     return this
-  }
-
-  toCssObject(): CSSObject {
-    return {
-      ...(this._surf === null ? {} : this.theme.surf[this._surf]),
-      ...(this._size === null ? {} : this.theme.size[this._size]),
-      ...(this._decorate === null ? {} : this.theme.decorate[this._decorate]),
-      ...this._css,
-    }
   }
 }
 
 export const useStyles = <A extends string>(
-  createStyles: (builder: () => Builder) => Record<A, Builder>
+  createStyles: (theme: (args: Partial<ThemedStyleArgs>) => ThemedStyle) => Record<A, ThemedStyle>
 ): Record<A, SerializedStyles> => {
   const theme = useTheme()
-  const styles = createStyles(() => new Builder(theme))
+  const styles = createStyles((args) => new ThemedStyle(theme, args))
 
   return Object.fromEntries(
-    Object.entries<Builder>(styles).map(([k, v]) => [k, css(v.toCssObject())])
+    Object.entries<ThemedStyle>(styles).map(([k, v]) => [k, css(v.cssobject)])
   ) as Record<A, SerializedStyles>
 }

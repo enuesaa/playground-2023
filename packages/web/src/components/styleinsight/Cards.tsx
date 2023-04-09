@@ -1,11 +1,11 @@
 import { useStyles } from '@/styles/use'
 
 export const Cards = () => {
-  const styles = useStyles(builder => ({
-    main: builder().surf('main').size('x2').decorate('a').css({
+  const styles = useStyles(theme => ({
+    main: theme({surf: 'main', size: 'x2', decorate: 'a'}).css({
       background: '#ff6633',
     }),
-    card: builder().surf('reverse').size('x3').decorate('b').css({
+    card: theme({surf: 'reverse', size: 'x3', decorate: 'b'}).css({
       margin: '10px',
     }),
   }))
