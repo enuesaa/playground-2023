@@ -11,3 +11,5 @@ runs
 
 # jupyter
 .ipynb_checkpoints
+
+venv*
