@@ -2,17 +2,14 @@ import { css, useTheme, type CSSObject, SerializedStyles, Theme } from '@emotion
 import { SurfDef, SizeDef, DecorateDef } from './emotion'
 
 type ThemedStyleArgs = {
-  surf: keyof SurfDef;
-  size: keyof SizeDef;
-  decorate: keyof DecorateDef;
+  surf: keyof SurfDef
+  size: keyof SizeDef
+  decorate: keyof DecorateDef
 }
 class ThemedStyle {
-  public cssobject: CSSObject = {};
+  public cssobject: CSSObject = {}
 
-  constructor(
-    theme: Theme,
-    {surf, size, decorate}: Partial<ThemedStyleArgs>
-  ) {
+  constructor(theme: Theme, { surf, size, decorate }: Partial<ThemedStyleArgs>) {
     this.cssobject = {
       ...(surf === undefined ? {} : theme.surf[surf]),
       ...(size === undefined ? {} : theme.size[size]),
@@ -32,7 +29,8 @@ export const useStyles = <A extends string>(
   const theme = useTheme()
   const styles = createStyles((args) => new ThemedStyle(theme, args ?? {}))
 
-  return Object.fromEntries(
-    Object.entries<ThemedStyle>(styles).map(([k, v]) => [k, css(v.cssobject)])
-  ) as Record<A, SerializedStyles>
+  return Object.fromEntries(Object.entries<ThemedStyle>(styles).map(([k, v]) => [k, css(v.cssobject)])) as Record<
+    A,
+    SerializedStyles
+  >
 }

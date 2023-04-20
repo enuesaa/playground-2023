@@ -47,5 +47,5 @@ export const baseTheme: Theme = {
       borderRadius: '10px',
       boxShadow: 'none',
     },
-  }
+  },
 }
