@@ -1,10 +1,13 @@
-import { useAtomValue } from 'jotai'
-import { containerAtom } from '../../lib/state'
+import { WebContainer } from "@webcontainer/api"
 
 export const Container = () => {
-  const container = useAtomValue(containerAtom);
+
+  if (typeof window !== 'object') {
+    return (<></>)
+  }
 
   (async () => {
+    const container = await WebContainer.boot()
     const installProcess = await container.spawn('npm', ['install']);
     const code = await installProcess.exit
     console.log(code)
