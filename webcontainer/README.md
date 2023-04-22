@@ -1,9 +1,6 @@
-# my-nextjs-template
-Template repository for NextJS application.
+# WebContainer
+NodeJSライクなAPIをブラウザで扱えるらしい？
 
-## Stack
-- TypeScript
-- NextJS v13 ... not app directory
-- @emotion/react
-- ESLint
-- Prettier
+## Links
+- https://webcontainers.io/guides/quickstart
+- https://www.publickey1.jp/blog/23/webwebassemblynodejswebcontainerapihttpnodejs_cli.html
