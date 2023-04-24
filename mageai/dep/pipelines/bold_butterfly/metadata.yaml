@@ -1,0 +1,38 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - wild_feather
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: read_aa_csv
+  status: updated
+  type: data_loader
+  upstream_blocks: []
+  uuid: read_aa_csv
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: wild feather
+  status: updated
+  type: transformer
+  upstream_blocks:
+  - read_aa_csv
+  uuid: wild_feather
+data_integration: null
+description: null
+executor_count: 1
+extensions: {}
+name: bold butterfly
+type: python
+updated_at: '2023-04-24 12:01:41'
+uuid: bold_butterfly
+widgets: []
