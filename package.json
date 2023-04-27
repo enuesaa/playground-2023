@@ -1,0 +1,17 @@
+{
+  "name": "kakko-fn",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "dependencies": {
+    "turbo": "^1.9.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
