@@ -1,12 +1,5 @@
-[package]
-name = "aero"
-version = "0.1.0"
-edition = "2021"
-
 [workspace]
 members = [
-    "apps/aero",
+    "apps/aero-core",
     "apps/aero-api",
 ]
-
-[dependencies]
