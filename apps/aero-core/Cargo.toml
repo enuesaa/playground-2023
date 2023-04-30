@@ -2,3 +2,6 @@
 name = "aero-core"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+rs-docker = "0.0.60"
