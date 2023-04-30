@@ -1,7 +1,7 @@
+
 pub fn replacefn(text: &str, from: &str, to: &str) -> String {
     text.replace(from, to)
 }
-
 
 #[test]
 fn test_replacefn() {

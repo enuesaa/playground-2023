@@ -11,8 +11,8 @@ export const baseTheme: Theme = {
       background: '#333333',
     },
     reverse: {
-      color: '#111111',
-      background: '#fafafa',
+      color: '#222222',
+      background: '#e1e1e1',
     },
     transparent: {
       color: 'none',
@@ -57,6 +57,11 @@ export const baseTheme: Theme = {
       '&:hover': {
         boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
       },
+    },
+    highlight: {
+      '&:hover': {
+        color: '#ff6633',
+      }
     }
   },
   around: {

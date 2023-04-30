@@ -19,6 +19,7 @@ export type DecorateDef = {
 }
 export type HoverDef = {
   shadow: CSSObject;
+  highlight: CSSObject;
 }
 export type AroundDef = {
   x1: CSSObject;

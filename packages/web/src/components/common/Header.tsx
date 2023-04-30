@@ -1,40 +1,19 @@
-import { css, useTheme } from '@emotion/react'
+import { useStyles } from '@/styles/use'
 import Link from 'next/link'
 
 export const Header = () => {
-  const theme = useTheme()
-
-  const styles = {
-    top: css({
-      height: '1.0',
-      minHeight: '100px',
-      // background: theme.color.highlight,
-      boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+  const styles = useStyles(theme => ({
+    top: theme({ surf: 'main', decorate: 'shadow' }).css({
+      padding: '10px 10px 10px 30px',
     }),
-    title: css({
-      color: '#fafafa',
-      textShadow: '2px 2px 2px #000',
-      fontSize: '45px',
-      height: '100px',
-      lineHeight: '100px',
-      fontWeight: '800',
-      margin: '0 auto',
-      textAlign: 'center',
-      userSelect: 'none',
-      '&:hover': {
-        textShadow: '3px 3px 2px #000',
-      },
-    }),
-  }
+    title: theme({ size: 'x2', around: 'x2tb', hover: 'highlight' }),
+  }))
 
   return (
     <>
       <header css={styles.top}>
-        <Link href={{ pathname: `/` }}>
-          <div css={styles.title}>(fn.)</div>
+        <Link href={'/'} css={styles.title}>
+          (fn.)
         </Link>
       </header>
     </>
