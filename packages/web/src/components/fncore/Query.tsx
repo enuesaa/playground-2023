@@ -7,7 +7,7 @@ export const Query = () => {
     return <></>
   }
 
-  const res = fncore.hello('aaa')
+  const res = fncore.replace('baabbcca', 'a', 'b')
 
   return <section style={{ color: '#fafafa' }}>{res}</section>
 }

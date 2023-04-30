@@ -1,7 +1,7 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn hello(name: &str) -> Result<JsValue, JsValue> {
-    let ret = format!("hello {}", name);
+pub fn replace(text: &str, from: &str, to: &str) -> Result<JsValue, JsValue> {
+    let ret = text.replace(from, to);
     Ok(serde_wasm_bindgen::to_value(&ret)?)
 }
