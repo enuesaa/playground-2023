@@ -18,6 +18,29 @@ export const globalStyle = css`
     box-sizing: border-box;
   }
   body {
-    background: #1a1a1a;
+    background: #222222;
+  }
+
+  input[type='text'],
+  textarea {
+    background: inherit;
+    color: inherit;
+    outline: none;
+    appearance: none;
+    border: none;
+    display: block;
+  }
+
+  button {
+    outline: none;
+    appearance: none;
+    border: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
   }
 `

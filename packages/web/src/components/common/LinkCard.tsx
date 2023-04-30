@@ -8,7 +8,7 @@ type Props = {
 export const LinkCard = ({ href, name }: Props) => {
   const theme = useTheme()
   const styles = {
-    link: css(theme.linkCard),
+    link: css({}),
   }
 
   return (

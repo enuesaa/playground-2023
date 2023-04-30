@@ -1,55 +1,88 @@
 import { type Theme } from '@emotion/react'
 
 export const baseTheme: Theme = {
-  form: {
-    input: {},
-    textarea: {},
+  surf: {
+    main: {
+      color: '#fafafa',
+      background: '#222222',
+    },
+    sub: {
+      color: '#fafafa',
+      background: '#333333',
+    },
+    reverse: {
+      color: '#111111',
+      background: '#fafafa',
+    },
+    transparent: {
+      color: 'none',
+      background: 'transparent',
+    },
   },
-  button: {},
-  box: {
-    width: '100%',
-    padding: '10px',
+  size: {
+    x1: {
+      fontSize: '16px',
+      fontWeight: '400',
+      // padding: '2px 5px',
+    },
+    x2: {
+      fontSize: '20px',
+      fontWeight: '600',
+      // padding: '5px 10px',
+    },
+    x3: {
+      fontSize: '25px',
+      fontWeight: '800',
+      // padding: '10px 15px',
+    },
   },
-  innerbox: {
-    width: '98%',
-    margin: '10px auto',
-    padding: '10px',
+  decorate: {
+    shadow: {
+      border: 'none',
+      borderRadius: '0',
+      boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
+    },
+    rounded: {
+      border: 'none',
+      borderRadius: '5px',
+      boxShadow: 'none',
+    },
+    card: {
+      border: 'solid 1px rgba(255,255,255,0.2)',
+      borderRadius: '5px',
+    }
   },
-  card: {},
-  link: {},
-  linkCard: {
-    display: 'inline-block',
-    padding: '10px 20px',
-    color: '#cccccc',
-    fontSize: '20px',
-    background: '#333333',
-    margin: '10px',
-    borderRadius: '10px',
+  hover: {
+    shadow: {
+      '&:hover': {
+        boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
+      },
+    }
   },
-  heading: {
-    width: '100%',
-    display: 'block',
-    fontWeight: '600',
-    padding: '10px',
-    fontSize: '30px',
-    userSelect: 'none',
-  },
-
-  color: {
-    main: '#e6e6e6',
-    sub: 'rgba(0, 0, 0, 0.15)',
-    subHover: 'rgba(0, 0, 0, 0.25)',
-    contrast: '#1a1a1a',
-    highlight: '#ff6633',
-    highlightHover: '#ff9933',
-    danger: '#ff1111',
-  },
-  fontSize: {
-    small: '14px',
-    normal: '16px',
-    large: '20px',
-    xlarge: '25px',
-    x2large: '30px',
-    x3large: '35px',
+  around: {
+    x1: {
+      padding: '3px',
+      margin: '3px',
+    },
+    x1tb: {
+      padding: '3px 0',
+      margin: '3px 0',
+    },
+    x2: {
+      padding: '6px',
+      margin: '6px',
+    },
+    x2tb: {
+      padding: '6px 0',
+      margin: '6px 0',
+    },
+    x3: {
+      padding: '9px',
+      margin: '9px',
+    },
+    x3tb: {
+      padding: '9px 0',
+      margin: '9px 0',
+    },
   },
 }

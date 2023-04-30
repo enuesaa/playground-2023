@@ -8,7 +8,7 @@ export const Main = ({ children }: Props) => {
   const theme = useTheme()
 
   const styles = {
-    main: css(theme.innerbox, {
+    main: css({
       height: '100vh',
     }),
   }

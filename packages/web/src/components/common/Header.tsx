@@ -5,10 +5,10 @@ export const Header = () => {
   const theme = useTheme()
 
   const styles = {
-    top: css(theme.box, {
+    top: css({
       height: '1.0',
       minHeight: '100px',
-      background: theme.color.highlight,
+      // background: theme.color.highlight,
       boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
       display: 'flex',
       justifyContent: 'center',
