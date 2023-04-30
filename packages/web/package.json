@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o dist",
+    "build": "next build",
     "build:fncore": "wasm-pack build ../fncore --out-dir ../web/src/fncore",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

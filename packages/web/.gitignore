@@ -4,6 +4,7 @@ out/
 .vercel
 next-env.d.ts
 build
+dist
 
 # wasm build output
 src/fncore
