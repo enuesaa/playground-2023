@@ -28,6 +28,8 @@ export const Sidebar = () => {
     <section css={styles.main}>
       <SidebarItem name='replace' href='/fns/replace' />
       <SidebarItem name='count' href='/fns/count' />
+      <SidebarItem name='json2yaml' href='/fns/json2yaml' />
+      <SidebarItem name='jsonformat' href='/fns/jsonformat' />
     </section>
   )
 }
