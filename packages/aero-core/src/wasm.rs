@@ -1,6 +1,7 @@
 use wasmtime::*;
 
-fn callwasm(wat: &str, handler: &str) -> wasmtime::Result<i32> {
+// see https://docs.rs/wasmtime/latest/wasmtime/
+pub fn callwasm(wat: &str, handler: &str) -> wasmtime::Result<i32> {
     let engine = Engine::default();
     let mut store = Store::new(&engine, 0);
 
@@ -15,8 +16,7 @@ fn callwasm(wat: &str, handler: &str) -> wasmtime::Result<i32> {
     Ok(res)
 }
 
-// see https://docs.rs/wasmtime/latest/wasmtime/
-fn main() {
+fn a() {
     let handler = "hello"; // aws lambda でいう lambda_handler に相当?
     let wat = r#"
         (module

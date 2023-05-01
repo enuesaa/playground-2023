@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "apps/aero-core",
-    "apps/aero-api",
+    "packages/aero-core",
+    "packages/aero-api",
 ]
