@@ -1,55 +1,97 @@
-use clap::{Args, Parser, Subcommand, ValueEnum};
+use clap::{Args, Parser, Subcommand, ArgAction};
 
 pub mod wasm;
 
-#[derive(Debug, Parser)]
+#[derive(Parser)]
 #[command(name = "aero-core", about = "Wasm app management CLI.", long_about = None)]
+#[clap(disable_help_subcommand = true, disable_help_flag = true)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
+
+    // see https://github.com/clap-rs/clap/issues/1127
+    #[arg(long, short_alias = '?', action = ArgAction::Help, help = "Print help information")]
+    help: bool,
 }
 
-#[derive(Debug, Subcommand)]
+#[derive(Subcommand)]
 enum Commands {
-    App(AppArgs),
-    // invoke
+    ListApps(ListAppsArgs),
+    DescribeApp(DescribeAppArgs),
+    CreateApp(CreateAppArgs),
+    UpdateApp(UpdateAppArgs),
+    DeleteApp(DeleteAppArgs),
+    Invoke(InvokeArgs),
 }
 
 #[derive(Debug, Args)]
-struct AppArgs {
-    #[command(subcommand)]
-    command: Option<AppCommands>,
-}
-
-#[derive(Debug, Subcommand)]
-enum AppCommands {
-    List {},
-    Create(AppCreateArgs),
-    Delete(AppCreateArgs),
-}
+struct ListAppsArgs {}
 
 #[derive(Debug, Args)]
-struct AppCreateArgs {
-    #[arg(short, long)]
+struct DescribeAppArgs {
+    #[arg(long)]
     name: String,
+}
+
+#[derive(Debug, Args)]
+struct CreateAppArgs {
+    #[arg(long)]
+    name: String,
+    #[arg(long)]
+    source: String,
+    #[arg(long)]
+    handler: String,
+}
+
+#[derive(Debug, Args)]
+struct UpdateAppArgs {
+    #[arg(long)]
+    name: String,
+    #[arg(long)]
+    source: String,
+    #[arg(long)]
+    handler: String,
+}
+
+#[derive(Debug, Args)]
+struct DeleteAppArgs {
+    #[arg(long)]
+    name: String,
+    #[arg(long)]
+    source: String,
+    #[arg(long)]
+    handler: String,
+}
+
+#[derive(Debug, Args)]
+struct InvokeArgs {
+    #[arg(long)]
+    app: String,
+    #[arg(long)]
+    body: String, // json
 }
 
 fn main() {
     let args = Cli::parse();
 
     match args.command {
-        Commands::App(app) => {
-            match app.command.unwrap() {
-                AppCommands::List {} => {
-                    println!("List");
-                },
-                AppCommands::Create(create_args) => {
-                    println!("Create");
-                },
-                AppCommands::Delete(create_args) => {
-                    println!("Delete");
-                },
-            }
-        }
+        Commands::ListApps(args) => {
+            println!("list {:?}", args);
+        },
+        Commands::DescribeApp(args) => {
+            println!("describe {:?}", args);
+        },
+        Commands::CreateApp(args) => {
+            println!("create {:?}", args);
+        },
+        Commands::UpdateApp(args) => {
+            println!("update {:?}", args);
+        },
+        Commands::DeleteApp(args) => {
+            println!("delete {:?}", args);
+        },
+        Commands::Invoke(args) => {
+            println!("invoke {:?}", args);
+        },
     }
 }
