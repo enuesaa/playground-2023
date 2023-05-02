@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  # Admin console url is http://localhost:5984/_utils
+  couch:
+    image: couchdb:latest
+    ports:
+      - 5984:5984
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=admin
+    volumes:
+      - ./couch:/opt/couchdb/data
