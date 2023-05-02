@@ -1,4 +1,4 @@
-use jsonwith_formatter::json2yaml;
+use jsonwith::json2yaml;
 
 pub fn json2yamlfn(text: &str) -> String {
     json2yaml(text, 2)

@@ -1,4 +1,4 @@
-use jsonwith_formatter::json2json;
+use jsonwith::json2json;
 
 pub fn jsonformatfn(text: &str) -> String {
     json2json(text, 2)
