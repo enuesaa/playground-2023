@@ -7,7 +7,7 @@ use crate::commands::delete_app::DeleteAppArgs;
 use crate::commands::invoke::InvokeArgs;
 
 #[derive(Parser)]
-#[command(name = "aero-core", about = "Aero management CLI.", long_about = None)]
+#[command(name = "aero-cli", about = "Aero management CLI.", long_about = None)]
 #[clap(disable_help_subcommand = true, disable_help_flag = true)]
 pub struct Cli {
     #[command(subcommand)]
