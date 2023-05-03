@@ -4,6 +4,8 @@ EXPOSE 3000
 
 WORKDIR /app
 COPY . .
+
+RUN cargo install cargo-watch
 RUN cargo build
 
-CMD cargo run
+CMD cargo watch -x run
