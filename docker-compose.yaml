@@ -21,8 +21,8 @@ services:
     environment:
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=admin
-#     volumes:
-#       - couch:/opt/couchdb/data
+    volumes:
+      - couch:/opt/couchdb/data
 
-# volumes:
-#   couch:
+volumes:
+  couch:
