@@ -50,7 +50,7 @@ export const baseTheme: Theme = {
     card: {
       border: 'solid 1px rgba(255,255,255,0.2)',
       borderRadius: '5px',
-    }
+    },
   },
   hover: {
     shadow: {
@@ -61,8 +61,8 @@ export const baseTheme: Theme = {
     highlight: {
       '&:hover': {
         color: '#ff6633',
-      }
-    }
+      },
+    },
   },
   around: {
     x1: {

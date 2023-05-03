@@ -2,7 +2,7 @@ import { useStyles } from '@/styles/use'
 import Link from 'next/link'
 
 export const Header = () => {
-  const styles = useStyles(theme => ({
+  const styles = useStyles((theme) => ({
     top: theme({ surf: 'main', decorate: 'shadow' }).css({
       padding: '10px 10px 10px 30px',
     }),

@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode
 }
 export const Layout = ({ children }: Props) => {
-  const styles = useStyles(theme => ({
+  const styles = useStyles((theme) => ({
     main: theme({ around: 'x2' }).css({ display: 'flex' }),
     leftSide: theme().css({ flex: '0 0 300px' }),
     rightSide: theme().css({ flex: '1 0 auto' }),
@@ -20,9 +20,7 @@ export const Layout = ({ children }: Props) => {
         <div css={styles.leftSide}>
           <Sidebar />
         </div>
-        <div css={styles.rightSide}>
-          {children}
-        </div>
+        <div css={styles.rightSide}>{children}</div>
       </section>
     </>
   )

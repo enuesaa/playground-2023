@@ -9,7 +9,7 @@ export const Jsonformat = () => {
   const [result, setResult] = useState<number | null>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  const styles = useStyles(theme => ({
+  const styles = useStyles((theme) => ({
     main: theme({ surf: 'main' }),
     textarea: theme({ decorate: 'card', around: 'x3' }).css({
       width: '80%',
@@ -24,7 +24,7 @@ export const Jsonformat = () => {
 
   const handleCount: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
-    const text = textareaRef.current?.value ?? '';
+    const text = textareaRef.current?.value ?? ''
     /** @todo specify return type */
     const res = fncore.jsonformat(text)
     setResult(res)
@@ -34,10 +34,10 @@ export const Jsonformat = () => {
     <section css={styles.main}>
       <PageTitle title='Jsonformat' />
       <textarea css={styles.textarea} ref={textareaRef} />
-      <button onClick={handleCount} css={styles.hanldeConvertBtn}>jsonformat</button>
-      <div css={styles.display}>
-        {result}
-      </div>
+      <button onClick={handleCount} css={styles.hanldeConvertBtn}>
+        jsonformat
+      </button>
+      <div css={styles.display}>{result}</div>
     </section>
   )
 }

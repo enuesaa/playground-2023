@@ -1,12 +1,12 @@
-import { useStyles } from '@/styles/use';
+import { useStyles } from '@/styles/use'
 import Link from 'next/link'
 
 type SidebarItemProps = {
-  name: string;
-  href: string;
+  name: string
+  href: string
 }
 const SidebarItem = ({ name, href }: SidebarItemProps) => {
-  const styles = useStyles(theme => ({
+  const styles = useStyles((theme) => ({
     link: theme({ surf: 'sub', size: 'x2', around: 'x3', decorate: 'rounded', hover: 'shadow' }).css({
       display: 'inline-block',
       width: '70%',
@@ -15,12 +15,14 @@ const SidebarItem = ({ name, href }: SidebarItemProps) => {
   }))
 
   return (
-    <Link href={href} css={styles.link}>{name}</Link>
+    <Link href={href} css={styles.link}>
+      {name}
+    </Link>
   )
 }
 
 export const Sidebar = () => {
-  const styles = useStyles(theme => ({
+  const styles = useStyles((theme) => ({
     main: theme({ around: 'x2tb' }),
   }))
 

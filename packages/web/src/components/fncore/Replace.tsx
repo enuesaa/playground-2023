@@ -11,7 +11,7 @@ export const Replace = () => {
   const fromRef = useRef<HTMLInputElement>(null)
   const toRef = useRef<HTMLInputElement>(null)
 
-  const styles = useStyles(theme => ({
+  const styles = useStyles((theme) => ({
     main: theme({ surf: 'main' }),
     textarea: theme({ decorate: 'card', around: 'x3' }).css({
       width: '80%',
@@ -22,7 +22,7 @@ export const Replace = () => {
       display: 'block',
     }),
     handleReplaceBtn: theme({ surf: 'reverse', size: 'x2', around: 'x2', decorate: 'rounded' }),
-    display: theme({ around: 'x3', size: 'x3' })
+    display: theme({ around: 'x3', size: 'x3' }),
   }))
   if (fncore === null) {
     return <></>
@@ -31,9 +31,9 @@ export const Replace = () => {
   const handleCount: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
     /** @todo use react hook form */
-    const text = textareaRef.current?.value ?? '';
-    const from = fromRef.current?.value ?? '';
-    const to = toRef.current?.value ?? '';
+    const text = textareaRef.current?.value ?? ''
+    const from = fromRef.current?.value ?? ''
+    const to = toRef.current?.value ?? ''
     /** @todo specify return type */
     const res = fncore.replace(text, from, to)
     setReplaced(res)
@@ -45,10 +45,10 @@ export const Replace = () => {
       <textarea css={styles.textarea} ref={textareaRef} />
       <input type='text' css={styles.input} ref={fromRef} placeholder='from' />
       <input type='text' css={styles.input} ref={toRef} placeholder='to' />
-      <button onClick={handleCount} css={styles.handleReplaceBtn}>replace</button>
-      <div css={styles.display}>
-        {replaced}
-      </div>
+      <button onClick={handleCount} css={styles.handleReplaceBtn}>
+        replace
+      </button>
+      <div css={styles.display}>{replaced}</div>
     </section>
   )
 }
