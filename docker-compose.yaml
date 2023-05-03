@@ -10,6 +10,8 @@ services:
     volumes:
       - ./packages/aero-api:/app
     tty: true
+    depends_on:
+      - couch
 
   # Admin console url is http://localhost:5984/_utils
   couch:
@@ -19,8 +21,8 @@ services:
     environment:
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=admin
-    volumes:
-      - couch:/opt/couchdb/data
+#     volumes:
+#       - couch:/opt/couchdb/data
 
-volumes:
-  couch:
+# volumes:
+#   couch:
