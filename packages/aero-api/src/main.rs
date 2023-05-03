@@ -1,5 +1,6 @@
 pub mod route;
 pub mod controller;
+pub mod repository;
 
 use std::net::SocketAddr;
 

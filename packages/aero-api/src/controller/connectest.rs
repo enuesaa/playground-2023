@@ -1,17 +1,24 @@
-use couch_rs::types::find::FindQuery;
-use std::error::Error;
+use crate::repository::couch::CouchRepository;
+use axum::extract::Json as Request;
+use axum::response::Json as Response;
+use serde::{Serialize, Deserialize};
 
-pub async fn connectest() -> &'static str {
-    let _ = connect().await;
-
-    "Hello, World!"
+#[derive(Serialize, Deserialize)]
+pub struct ConnectestRequest {
+    a: String,
 }
 
-async fn connect() -> Result<(), Box<dyn Error>> {
-    let client = couch_rs::Client::new("http://couch:5984", "admin", "admin")?;
-    let db = client.db("apps").await?;
-    let find_all = FindQuery::find_all();
-    let docs = db.find_raw(&find_all).await?;
+#[derive(Serialize, Deserialize)]
+pub struct ConnectestResponse {
+    b: String,
+}
+
+pub async fn connectest(Request(_): Request<ConnectestRequest>) -> Response<ConnectestResponse> {
+    let couch = CouchRepository::new();
+    let docs = couch.find_all("apps").await;
     println!("{:?}", docs);
-    Ok(())
+
+    Response(ConnectestResponse {
+        b: "b".to_string(),
+    })
 }

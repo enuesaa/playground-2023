@@ -25,6 +25,7 @@ dependencies = [
  "couch_rs",
  "dirs",
  "serde",
+ "serde_json",
  "tokio",
 ]
 

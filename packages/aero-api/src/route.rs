@@ -9,5 +9,5 @@ pub fn router() -> Router {
     Router::new()
         .route("/", get(root))
         .route("/upload", post(upload))
-        .route("/connectest", get(connectest))
+        .route("/connectest", post(connectest))
 }
