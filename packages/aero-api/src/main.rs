@@ -1,6 +1,8 @@
 pub mod route;
 pub mod controller;
 pub mod repository;
+pub mod service;
+pub mod usecase;
 
 use std::net::SocketAddr;
 
