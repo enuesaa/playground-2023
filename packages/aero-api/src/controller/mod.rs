@@ -1,4 +1,3 @@
-pub mod root;
 pub mod upload;
 pub mod connectest;
 pub mod setup;

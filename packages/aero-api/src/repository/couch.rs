@@ -4,6 +4,7 @@ use couch_rs::database::Database;
 use couch_rs::document::DocumentCollection;
 use serde_json::Value;
 
+#[derive(Clone)]
 pub struct CouchRepository {
     host: String,
     username: String,

@@ -1,7 +1,7 @@
 use crate::repository::couch::CouchRepository;
 use crate::service::domain::WithMetadata;
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct App {
     name: String,
     saved: Option<String>, // path

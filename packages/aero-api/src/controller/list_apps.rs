@@ -1,5 +1,7 @@
 use axum::response::Json as Response;
 use serde::{Serialize, Deserialize};
+use crate::usecase::appcase::Appcase;
+use crate::repository::couch::CouchRepository;
 
 #[derive(Serialize, Deserialize)]
 pub struct ListAppsResponse {}
@@ -7,5 +9,7 @@ pub struct ListAppsResponse {}
 // use Extension to handle di.
 
 pub async fn list_apps() -> Response<ListAppsResponse> {
+    let apps = Appcase::new(CouchRepository::new()).list_apps();
+    println!("{:?}", apps);
     Response(ListAppsResponse {})
 }

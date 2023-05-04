@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct WithMetadata<T: Clone> {
     id: String,
     created: String,
