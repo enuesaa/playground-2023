@@ -14,7 +14,7 @@ impl Appcase {
         self.couch.clone()
     }
 
-    pub fn list_apps(&self) -> Vec<WithMetadata<App>> {
-        AppService::list(self.couch())
+    pub async fn list_apps(&self) -> Vec<App> {
+        AppService::list(self.couch()).await
     }
 }

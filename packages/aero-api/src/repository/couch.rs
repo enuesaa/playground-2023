@@ -3,6 +3,7 @@ use couch_rs::Client;
 use couch_rs::database::Database;
 use couch_rs::document::DocumentCollection;
 use serde_json::Value;
+use couch_rs::document::TypedCouchDocument;
 
 #[derive(Clone)]
 pub struct CouchRepository {
@@ -27,9 +28,9 @@ impl CouchRepository {
         self.client().db(name).await.unwrap()
     }
 
-    pub async fn find_all(&self, name: &str) -> DocumentCollection<Value> {
+    pub async fn find_all<T: TypedCouchDocument>(&self, name: &str) -> DocumentCollection<T> {
         let db = self.db(name).await;
         let query = FindQuery::find_all();
-        db.find_raw(&query).await.unwrap()
+        db.find(&query).await.unwrap()
     }
 }

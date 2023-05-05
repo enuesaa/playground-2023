@@ -1,17 +1,28 @@
+use couch_rs::CouchDocument;
+use couch_rs::types::document::DocumentId;
+use couch_rs::document::{TypedCouchDocument, DocumentCollection};
+use serde::{Serialize, Deserialize};
+
 use crate::repository::couch::CouchRepository;
 use crate::service::domain::WithMetadata;
 
 #[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, CouchDocument)]
 pub struct App {
-    name: String,
-    saved: Option<String>, // path
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub _id: DocumentId,
+
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub _rev: String,
+    pub name: Option<String>,
+    pub saved: Option<String>, // path
 }
 
 pub struct AppService {}
 impl AppService {
-    pub fn list(couch: CouchRepository) -> Vec<WithMetadata<App>> {
-        let docs = couch.find_all("apps");
-        todo!()
+    pub async fn list(couch: CouchRepository) -> Vec<App> {
+        let docs = couch.find_all::<App>("apps").await;
+        docs.rows
     }
     
     pub fn get(couch: CouchRepository, id: &str) -> WithMetadata<App> {
