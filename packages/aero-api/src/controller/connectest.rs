@@ -15,8 +15,8 @@ pub struct ConnectestResponse {
 
 pub async fn connectest(Request(_): Request<ConnectestRequest>) -> Response<ConnectestResponse> {
     let couch = CouchRepository::new();
-    // let docs = couch.find_all("apps").await;
-    // println!("{:?}", docs);
+    let docs = couch.find_raw_all("apps").await;
+    println!("{:?}", docs);
 
     Response(ConnectestResponse {
         b: "b".to_string(),

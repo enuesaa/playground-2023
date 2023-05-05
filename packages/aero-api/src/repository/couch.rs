@@ -33,4 +33,10 @@ impl CouchRepository {
         let query = FindQuery::find_all();
         db.find(&query).await.unwrap()
     }
+
+    pub async fn find_raw_all(&self, name: &str) -> DocumentCollection<Value> {
+        let db = self.db(name).await;
+        let query = FindQuery::find_all();
+        db.find_raw(&query).await.unwrap()
+    }
 }

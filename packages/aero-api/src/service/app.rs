@@ -1,6 +1,6 @@
 use couch_rs::CouchDocument;
 use couch_rs::types::document::DocumentId;
-use couch_rs::document::{TypedCouchDocument, DocumentCollection};
+use couch_rs::document::TypedCouchDocument;
 use serde::{Serialize, Deserialize};
 
 use crate::repository::couch::CouchRepository;
@@ -11,9 +11,9 @@ use crate::service::domain::WithMetadata;
 pub struct App {
     #[serde(skip_serializing_if = "String::is_empty")]
     pub _id: DocumentId,
-
     #[serde(skip_serializing_if = "String::is_empty")]
     pub _rev: String,
+
     pub name: Option<String>,
     pub saved: Option<String>, // path
 }
