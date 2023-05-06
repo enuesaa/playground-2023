@@ -28,15 +28,28 @@ impl CouchRepository {
         self.client().db(name).await.unwrap()
     }
 
-    pub async fn find_all<T: TypedCouchDocument>(&self, name: &str) -> DocumentCollection<T> {
+    pub async fn find_all<T: TypedCouchDocument>(&self, name: &str) -> Vec<T> {
         let db = self.db(name).await;
         let query = FindQuery::find_all();
-        db.find(&query).await.unwrap()
+        let docs = db.find::<T>(&query).await.unwrap();
+        docs.rows
     }
 
-    pub async fn find_raw_all(&self, name: &str) -> DocumentCollection<Value> {
+    pub async fn get<T: TypedCouchDocument>(&self, name: &str, id: &str) -> T {
         let db = self.db(name).await;
-        let query = FindQuery::find_all();
-        db.find_raw(&query).await.unwrap()
+        db.get::<T>(id).await.unwrap()
+    }
+
+    pub async fn create<T: TypedCouchDocument>(&self, name: &str, mut data: T) -> String {
+        let db = self.db(name).await;
+        let details = db.create(&mut data).await;
+        details.unwrap().id
+    }
+
+    pub async fn delete<T: TypedCouchDocument>(&self, name: &str, id: &str) {
+        let db = self.db(name).await;
+        if let Some(doc) = db.get::<T>(id).await.ok() {
+            db.remove(&doc).await;
+        }
     }
 }
