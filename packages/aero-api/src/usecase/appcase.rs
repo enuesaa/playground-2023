@@ -1,6 +1,7 @@
 use crate::repository::couch::CouchRepository;
 use crate::service::app::{App, AppService};
 use crate::repository::runwasm::RunwasmRepository;
+use crate::service::appversion::{Appversion, AppversionService};
 
 #[derive(Clone)]
 pub struct Appcase {
@@ -37,7 +38,19 @@ impl Appcase {
         AppService::delete(self.couch(), id).await;
     }
 
-    pub async fn invoke_app(&self, id: &str) {
-        AppService::invoke(self.couch(), self.runwasm(), id);
+    pub async fn list_appversions(&self) -> Vec<Appversion> {
+        AppversionService::list(self.couch()).await
+    }
+
+    pub async fn get_appversion(&self, id: &str) -> Appversion {
+        AppversionService::get(self.couch(), id).await
+    }
+
+    pub async fn create_appversion(&self, appversion: Appversion) -> String {
+        AppversionService::create(self.couch(), appversion).await
+    }
+
+    pub async fn invoke_appversion(&self, id: &str) {
+        AppversionService::invoke(self.couch(), self.runwasm(), id).await;
     }
 }
