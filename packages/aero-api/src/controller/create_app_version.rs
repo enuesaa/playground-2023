@@ -18,7 +18,7 @@ pub struct CreateAppversionResponse {
 
 pub async fn create_appversion(
     State(appcase): State<Appcase>,
-    Path((app_id, version_id)): Path<(String, String)>,
+    Path(app_id): Path<String>,
     Request(req): Request<CreactAppVersionRequest>,
     // mut multipart: Multipart,
 ) -> Response<CreateAppversionResponse> {
@@ -32,6 +32,7 @@ pub async fn create_appversion(
     // }
 
     let mut appversion = Appversion::new();
+    appversion.set_app_id(&app_id);
     appversion.set_handler(&req.handler);
     appversion.set_wat(&req.wat);
 

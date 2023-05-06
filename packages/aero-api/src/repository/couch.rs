@@ -35,6 +35,11 @@ impl CouchRepository {
         docs.rows
     }
 
+    pub async fn find<T: TypedCouchDocument>(&self, name: &str) -> Vec<T> {
+        todo!()
+        // use couch_rs::types::find::FindQuery
+    }
+
     pub async fn get<T: TypedCouchDocument>(&self, name: &str, id: &str) -> T {
         let db = self.db(name).await;
         db.get::<T>(id).await.unwrap()

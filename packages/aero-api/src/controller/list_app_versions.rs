@@ -17,9 +17,9 @@ pub struct ListAppVersionsResponse {
 
 pub async fn list_app_versions(
     State(appcase): State<Appcase>,
-    Path((app_id, version_id)): Path<(String, String)>,
+    Path(app_id): Path<String>,
 ) -> Response<ListAppVersionsResponse> {
-    let apps = appcase.list_appversions().await;
+    let apps = appcase.list_appversions(&app_id).await;
 
     let items = apps.iter().map(|v| AppversionItem {
         id: v.get_id(),

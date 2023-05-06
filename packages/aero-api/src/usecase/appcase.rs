@@ -38,8 +38,8 @@ impl Appcase {
         AppService::delete(self.couch(), id).await;
     }
 
-    pub async fn list_appversions(&self) -> Vec<Appversion> {
-        AppversionService::list(self.couch()).await
+    pub async fn list_appversions(&self, app_id: &str) -> Vec<Appversion> {
+        AppversionService::list(self.couch(), app_id).await
     }
 
     pub async fn get_appversion(&self, id: &str) -> Appversion {

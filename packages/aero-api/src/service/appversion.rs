@@ -13,6 +13,7 @@ pub struct Appversion {
     #[serde(skip_serializing_if = "String::is_empty")]
     pub _rev: String,
 
+    pub app_id: Option<String>,
     pub handler: Option<String>,
     pub wat: Option<String>,
 }
@@ -21,6 +22,7 @@ impl Appversion {
         Self {
             _id: "".to_string(),
             _rev: "".to_string(),
+            app_id: None,
             handler: None,
             wat: None,
         }
@@ -28,6 +30,14 @@ impl Appversion {
 
     pub fn get_id(&self) -> String {
         self._id.clone()
+    }
+
+    pub fn set_app_id(&mut self, app_id: &str) {
+        self.app_id = Some(app_id.to_string());
+    }
+
+    pub fn get_app_id(&self) -> String {
+        self.app_id.clone().unwrap_or("".to_string())
     }
 
     pub fn set_handler(&mut self, handler: &str) {
@@ -49,7 +59,7 @@ impl Appversion {
 
 pub struct AppversionService {}
 impl AppversionService {
-    pub async fn list(couch: CouchRepository) -> Vec<Appversion> {
+    pub async fn list(couch: CouchRepository, app_id: &str) -> Vec<Appversion> {
         couch.find_all::<Appversion>("appversions").await
     }
     
@@ -69,6 +79,6 @@ impl AppversionService {
         let appversion = couch.get::<Appversion>("appversions", id).await;
         println!("{:?}", appversion);
 
-        runwasm.run(&appversion.get_handler(), &appversion.get_wat());
+        runwasm.run(&appversion.get_wat(), &appversion.get_handler());
     }
 }
