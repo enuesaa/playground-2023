@@ -7,8 +7,12 @@ use crate::controller::list_apps::list_apps;
 use crate::controller::get_app::get_app;
 use crate::controller::create_app::create_app;
 use crate::controller::delete_app::delete_app;
+use crate::repository::couch::CouchRepository;
+use crate::usecase::appcase::Appcase;
 
-pub fn router() -> Router {
+pub fn app() -> Router {
+    let appcase = Appcase::new(CouchRepository::new());
+
     Router::new()
         .route("/upload", post(upload))
         .route("/setup", post(setup))
@@ -16,4 +20,5 @@ pub fn router() -> Router {
         .route("/apps/:app_id", get(get_app))
         .route("/apps", post(create_app))
         .route("/apps/:app_id", delete(delete_app))
+        .with_state(appcase)
 }

@@ -2,6 +2,7 @@ use crate::repository::couch::CouchRepository;
 use crate::service::domain::WithMetadata;
 use crate::service::app::{App, AppService};
 
+#[derive(Clone)]
 pub struct Appcase {
     couch: CouchRepository,
 }
