@@ -7,9 +7,13 @@ impl RunwasmRepository {
         RunwasmRepository { }
     }
 
+    pub fn engine(&self) -> Engine {
+        Engine::default()
+    }
+
     // see https://docs.rs/wasmtime/latest/wasmtime/
-    pub fn call(&self, wat: &str, handler: &str) -> wasmtime::Result<i32> {
-        let engine = Engine::default();
+    fn call(&self, wat: &str, handler: &str) -> wasmtime::Result<i32> {
+        let engine = self.engine();
         let mut store = Store::new(&engine, 0);
     
         // 実行可能な形式に
@@ -23,17 +27,8 @@ impl RunwasmRepository {
         Ok(res)
     }
 
-    pub fn run(&self) {
-        let handler = "hello"; // aws lambda でいう lambda_handler に相当?
-        let wat = r#"
-            (module
-                (func (export "hello") (result i32)
-                i32.const 90
-                return
-                )
-            )
-        "#;
-        let a = self.call(wat, handler);
-        println!("{:?}", a);
+    pub fn run(&self, wat: &str, handler: &str) {
+        let res = self.call(wat, handler);
+        println!("{:?}", res);
     }
 }

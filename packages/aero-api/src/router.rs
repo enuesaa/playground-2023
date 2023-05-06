@@ -9,10 +9,14 @@ use crate::controller::create_app::create_app;
 use crate::controller::delete_app::delete_app;
 use crate::controller::invoke_app::invoke_app;
 use crate::repository::couch::CouchRepository;
+use crate::repository::runwasm::RunwasmRepository;
 use crate::usecase::appcase::Appcase;
 
 pub fn app() -> Router {
-    let appcase = Appcase::new(CouchRepository::new());
+    let appcase = Appcase::new(
+        CouchRepository::new(),
+        RunwasmRepository::new(),
+    );
 
     Router::new()
         .route("/upload", post(upload))

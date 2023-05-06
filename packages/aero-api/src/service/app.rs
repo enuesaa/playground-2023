@@ -3,7 +3,7 @@ use couch_rs::types::document::DocumentId;
 use couch_rs::document::TypedCouchDocument;
 use serde::{Serialize, Deserialize};
 
-use crate::repository::couch::CouchRepository;
+use crate::repository::{couch::CouchRepository, runwasm::RunwasmRepository};
 
 #[derive(Clone, Debug)]
 #[derive(Serialize, Deserialize, CouchDocument)]
@@ -73,5 +73,22 @@ impl AppService {
 
     pub async fn delete(couch: CouchRepository, id: &str) {
         couch.delete::<App>("apps", id).await;
+    }
+
+    pub async fn invoke(couch: CouchRepository, runwasm: RunwasmRepository, id: &str) {
+        let app = couch.get::<App>("apps", id).await;
+        println!("{:?}", app);
+
+        let handler = "hello"; // aws lambda でいう lambda_handler に相当?
+        let wat = r#"
+            (module
+                (func (export "hello") (result i32)
+                i32.const 90
+                return
+                )
+            )
+        "#;
+
+        runwasm.run(wat, handler);
     }
 }

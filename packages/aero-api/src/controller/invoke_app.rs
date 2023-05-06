@@ -3,7 +3,6 @@ use axum::extract::Json as Request;
 use axum::response::Json as Response;
 use serde::{Serialize, Deserialize};
 
-use crate::repository::runwasm::RunwasmRepository;
 use crate::usecase::appcase::Appcase;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -18,8 +17,7 @@ pub async fn invoke_app(
     Request(req): Request<InvokeAppRequest>,
 ) -> Response<InvokeAppResponse> {
 
-    let runwasm = RunwasmRepository::new();
-    runwasm.run();
+    appcase.invoke_app(&app_id).await;
 
     Response(InvokeAppResponse {})
 }

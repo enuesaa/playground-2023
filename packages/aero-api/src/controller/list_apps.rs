@@ -1,6 +1,5 @@
 use axum::extract::State;
 use axum::response::Json as Response;
-use couch_rs::document::TypedCouchDocument;
 use serde::{Serialize, Deserialize};
 use crate::usecase::appcase::Appcase;
 

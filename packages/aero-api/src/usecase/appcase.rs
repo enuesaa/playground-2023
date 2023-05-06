@@ -1,17 +1,24 @@
 use crate::repository::couch::CouchRepository;
 use crate::service::app::{App, AppService};
+use crate::repository::runwasm::RunwasmRepository;
 
 #[derive(Clone)]
 pub struct Appcase {
     couch: CouchRepository,
+    runwasm: RunwasmRepository,
 }
 impl Appcase {
-    pub fn new(couch: CouchRepository) -> Self {
-        Appcase { couch }
+    pub fn new(couch: CouchRepository, runwasm: RunwasmRepository) -> Self {
+        Appcase { couch, runwasm }
     }
 
     fn couch(&self) -> CouchRepository {
         self.couch.clone()
+    }
+
+    fn runwasm(&self) -> RunwasmRepository {
+        // インフラに依存しない runner なので di する意味はない気がする
+        self.runwasm.clone()
     }
 
     pub async fn list_apps(&self) -> Vec<App> {
@@ -28,5 +35,9 @@ impl Appcase {
 
     pub async fn delete_app(&self, id: &str) {
         AppService::delete(self.couch(), id).await;
+    }
+
+    pub async fn invoke_app(&self, id: &str) {
+        AppService::invoke(self.couch(), self.runwasm(), id);
     }
 }
