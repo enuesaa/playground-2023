@@ -32,6 +32,7 @@ export const Sidebar = () => {
       <SidebarItem name='count' href='/fns/count' />
       <SidebarItem name='json2yaml' href='/fns/json2yaml' />
       <SidebarItem name='jsonformat' href='/fns/jsonformat' />
+      <SidebarItem name='wasm-validator' href='/fns/wasm-validator' />
     </section>
   )
 }
