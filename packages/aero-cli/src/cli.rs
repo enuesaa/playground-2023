@@ -14,7 +14,7 @@ pub struct Cli {
     pub command: Commands,
 
     // see https://github.com/clap-rs/clap/issues/1127
-    #[arg(long, short_alias = '?', action = ArgAction::Help, help = "information")]
+    #[arg(long, action = ArgAction::Help, help = "information")]
     help: bool,
 }
 

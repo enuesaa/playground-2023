@@ -14,7 +14,7 @@ services:
       - couch
 
   # Admin console url is http://localhost:5984/_utils
-  # see https://github.com/apache/couchdb-docker/issues/18
+  # see https://stackoverflow.com/questions/69542519/why-is-couchdb-looking-for-users-database
   couch:
     image: couchdb:latest
     ports:
