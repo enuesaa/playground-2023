@@ -1,0 +1,7 @@
+# next.js
+.next/
+out/
+.vercel
+next-env.d.ts
+build
+dist
