@@ -5,3 +5,7 @@ out/
 next-env.d.ts
 build
 dist
+
+# go wasm
+public/wasm_exec.js
+public/main.wasm

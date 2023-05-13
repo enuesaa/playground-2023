@@ -1,18 +1,20 @@
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-import 'wasm_exec-ts'
+import Script from 'next/script'
 
 export default function Page() {
-  const go = new Go();
-  WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
-      go.run(result.instance);
-  });
-
   return (
     <>
       <Header />
       <Main>
       </Main>
+
+      <Script id='exec-wasm' src='/wasm_exec.js' onLoad={() => {
+        const go = new Go()
+        WebAssembly.instantiateStreaming(fetch('/main.wasm'), go.importObject).then(res => {
+          go.run(res.instance)
+        })
+      }}/>
     </>
   )
 }
