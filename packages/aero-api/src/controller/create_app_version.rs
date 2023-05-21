@@ -16,20 +16,12 @@ pub struct CreateAppversionResponse {
     id: String,
 }
 
+// upload もこのエンドポイントでする
 pub async fn create_appversion(
     State(appcase): State<Appcase>,
     Path(app_id): Path<String>,
     Request(req): Request<CreactAppVersionRequest>,
-    // mut multipart: Multipart,
 ) -> Response<CreateAppversionResponse> {
-    // while let Some(field) = multipart.next_field().await.unwrap() {
-    //     let name = field.name().unwrap().to_string();
-    //     let data = field.bytes().await.unwrap();
-
-    //     println!("Length of `{}` is {} bytes", name, data.len());
-    //     let path = home_dir().unwrap().join("tmp/a.jpeg");
-    //     fs::write(path, data).unwrap();
-    // }
 
     let mut appversion = Appversion::new();
     appversion.set_app_id(&app_id);

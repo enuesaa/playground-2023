@@ -26,6 +26,7 @@ pub fn app() -> Router {
         .route("/apps", post(create_app))
         .route("/apps/:app_id", delete(delete_app))
         .route("/apps/:app_id/versions", get(list_app_versions))
+        // update meta 
         .route("/apps/:app_id/versions", post(create_appversion))
         .route("/apps/:app_id/versions/:version_id/invoke", post(invoke_app_version))
         .with_state(appcase)
