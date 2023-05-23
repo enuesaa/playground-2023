@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:fngo": "cp $(go env GOROOT)/misc/wasm/wasm_exec.js public/wasm_exec.js && GOOS=js GOARCH=wasm go build -o public/main.wasm ../fngo/main.go",
+    "build:go": "cp $(go env GOROOT)/misc/wasm/wasm_exec.js public/wasm_exec.js && GOOS=js GOARCH=wasm go build -o public/main.wasm ../code-go/main.go",
     "lint": "next lint"
   },
   "dependencies": {

@@ -13,3 +13,6 @@ func ListFiles() {
 		fmt.Printf("%+v", files)
 	}
 }
+
+// see https://dskrzypiec.dev/mock-go-filesystem/
+// os.ReadDir 自体をmockしている
