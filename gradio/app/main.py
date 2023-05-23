@@ -1,8 +1,16 @@
 import gradio as gr
+from gradio import Blocks
 
-def greet(name):
-    return "Hello " + name + "!"
+def greet(name, value):
+    return ["Hello " + name + ":" + value + "!", "a"]
+
+def create_custom_interface() -> Blocks:
+    return gr.Interface(fn=greet, inputs=["text", "text"], outputs=["text", "text"])
+
+def create_huggingface_inference() -> Blocks:
+    return gr.load("Helsinki-NLP/opus-mt-en-es", src="models")
 
 def main():
-    demo = gr.Interface(fn=greet, inputs="text", outputs="text")
-    demo.launch()
+    app = create_custom_interface()
+    # app = create_huggingface_inference()
+    app.launch()
