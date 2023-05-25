@@ -13,7 +13,7 @@ export const Header = () => {
     <>
       <header css={styles.top}>
         <Link href={'/'} css={styles.title}>
-          (fn.)
+          (fn)
         </Link>
       </header>
     </>
