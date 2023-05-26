@@ -9,11 +9,11 @@ export default function Page() {
       <Main>
       </Main>
 
-      <Script id='exec-wasm' src='/wasm_exec.js' onLoad={() => {
+      <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
         const go = new Go()
-        WebAssembly.instantiateStreaming(fetch('/main.wasm'), go.importObject).then(res => {
-          go.run(res.instance)
-        })
+        const res = await WebAssembly.instantiateStreaming(fetch('/main.wasm'), go.importObject)
+        go.run(res.instance)
+        console.log(GlobalFuncName())
       }}/>
     </>
   )
