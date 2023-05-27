@@ -13,6 +13,8 @@ export default function Page() {
         const go = new Go()
         const res = await WebAssembly.instantiateStreaming(fetch('/main.wasm'), go.importObject)
         go.run(res.instance)
+        // やはり go で wasm は難しそう
+        // global に関数を一つ用意して派生させるしかない？
         console.log(GlobalFuncName())
       }}/>
     </>
