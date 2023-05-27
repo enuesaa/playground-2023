@@ -1,18 +1,12 @@
-use couch_rs::CouchDocument;
-use couch_rs::types::document::DocumentId;
-use couch_rs::document::TypedCouchDocument;
 use serde::{Serialize, Deserialize};
 
-use crate::repository::{couch::CouchRepository, runwasm::RunwasmRepository};
+use crate::repository::couch::CouchRepository;
+use crate::repository::runwasm::RunwasmRepository;
 
 #[derive(Clone, Debug)]
-#[derive(Serialize, Deserialize, CouchDocument)]
+#[derive(Serialize, Deserialize)]
 pub struct App {
-    #[serde(skip_serializing_if = "String::is_empty")]
-    pub _id: DocumentId,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    pub _rev: String,
-
+    pub id: Option<String>,
     pub name: Option<String>,
     pub description: Option<String>,
     pub saved: Option<String>, // path
@@ -20,8 +14,7 @@ pub struct App {
 impl App {
     pub fn new() -> Self {
         Self {
-            _id: "".to_string(),
-            _rev: "".to_string(),
+            id: Some("".to_string()),
             name: None,
             description: None,
             saved: None,
@@ -29,7 +22,7 @@ impl App {
     }
 
     pub fn get_id(&self) -> String {
-        self._id.clone()
+        self.id.clone().unwrap()
     }
 
     pub fn get_name(&self) -> String {

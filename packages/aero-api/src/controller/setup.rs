@@ -13,8 +13,8 @@ pub async fn setup(Request(_): Request<SetupRequest>) -> Response<SetupResponse>
     let couch = CouchRepository::new();
 
     // get or create database. see couch_rs::client::Client::db;
-    couch.db("apps").await;
-    couch.db("invocations").await;
+    // couch.db("apps").await;
+    // couch.db("invocations").await;
 
     Response(SetupResponse {})
 }

@@ -22,6 +22,9 @@ impl CouchRepository {
     }
 }
 
+// couchdb に関連するものは、このファイルで完結させる
+// async trait は難しそう..
+
 #[async_trait]
 pub trait CouchTrait {
     fn client(&self) -> Client;
@@ -29,12 +32,13 @@ pub trait CouchTrait {
     async fn find_all<T: TypedCouchDocument>(&self, name: &str) -> Vec<T>;
     async fn find<T: TypedCouchDocument>(&self, name: &str) -> Vec<T>;
     async fn get<T: TypedCouchDocument>(&self, name: &str, id: &str) -> T;
-    // async fn create<T: TypedCouchDocument>(&self, name: &str, mut data: T) -> String;
-    // async fn delete<T: TypedCouchDocument>(&self, name: &str, id: &str);
+    async fn create<T: TypedCouchDocument>(&self, name: &str, mut data: T) -> String;
+    async fn delete<T: TypedCouchDocument>(&self, name: &str, id: &str);
 }
 
 #[async_trait]
 impl CouchTrait for CouchRepository {
+    
     fn client(&self) -> Client {
         couch_rs::Client::new(&self.host, &self.username, &self.password).unwrap()
     }
