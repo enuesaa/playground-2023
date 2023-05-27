@@ -12,10 +12,13 @@ export default function Page() {
       <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
         const go = new Go()
         const res = await WebAssembly.instantiateStreaming(fetch('/main.wasm'), go.importObject)
-        go.run(res.instance)
+        const wasm = res.instance
+        go.run(wasm)
+        const a = wasm.exports.hasPrefix("a", "b")
+        console.log(a)
+        console.log(wasm.exports.hasPrefix())
         // やはり go で wasm は難しそう
         // global に関数を一つ用意して派生させるしかない？
-        console.log(GlobalFuncName())
       }}/>
     </>
   )
