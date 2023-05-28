@@ -1,9 +1,0 @@
-{
-  "schema": "schema",
-  "name": "go-list-files",
-  "action": "list-files",
-  "language": "go",
-  "usage": "files, err := os.ReadDir(name)",
-  "sample": "list-files",
-  "demo": "go-list-files"
-}

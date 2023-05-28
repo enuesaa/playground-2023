@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:fncore": "wasm-pack build ../fncore --out-dir ../web/src/fncore",
+    "build:go": "docker compose -f ../code-go/docker-compose.yaml run app cat /usr/local/tinygo/targets/wasm_exec.js > public/wasm_exec.js && docker compose -f ../code-go/docker-compose.yaml run app tinygo build -o main.wasm -target wasm main.go && mv ../code-go/main.wasm public/main.wasm",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,6 +21,7 @@
     "react-hook-form": "^7.43.9"
   },
   "devDependencies": {
+    "@types/golang-wasm-exec": "^1.15.0",
     "@types/node": "18.16.0",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11"
