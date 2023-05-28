@@ -1,4 +1,4 @@
-# fngo
+# codego
 wasm app of golang.
 
 ## Links

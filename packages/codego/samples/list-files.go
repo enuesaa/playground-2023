@@ -1,8 +1,8 @@
 package samples
 
 import (
-	"os"
 	"fmt"
+	"os"
 )
 
 func ListFiles() {

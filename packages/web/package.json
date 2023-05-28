@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:fncore": "wasm-pack build ../fncore --out-dir ../web/src/fncore",
-    "build:go": "docker compose -f ../code-go/docker-compose.yaml run app cat /usr/local/tinygo/targets/wasm_exec.js > public/wasm_exec.js && docker compose -f ../code-go/docker-compose.yaml run app tinygo build -o main.wasm -target wasm main.go && mv ../code-go/main.wasm public/main.wasm",
+    "build:go": "docker compose -f ../codego/docker-compose.yaml run app cat /usr/local/tinygo/targets/wasm_exec.js > public/wasm_exec.js && docker compose -f ../codego/docker-compose.yaml run app tinygo build -o main.wasm -target wasm main.go && mv ../codego/main.wasm public/main.wasm",
     "start": "next start",
     "lint": "next lint"
   },
