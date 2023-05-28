@@ -35,7 +35,7 @@ export default function Page() {
           const prefixres = routes.hasPrefix({ text: 'dkjbdkj', prefix: 'd' })
           console.log(prefixres)
         }
-      }}/>
+      }} />
     </>
   )
 }
