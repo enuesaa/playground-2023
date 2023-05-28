@@ -11,7 +11,7 @@ export default function Page() {
 
       <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
         const routes: Record<string, (arg: any) => any> = {}
-        global.wasmTinygoRegisterFn = (name: string, callback: (arg: any) => any) => {
+        globalThis.wasmTinygoRegisterFn = (name, callback) => {
           routes[name] = callback
         }
         const go = new Go()
@@ -21,8 +21,8 @@ export default function Page() {
 
         const callres = routes.callname({ name: 'aa' })
         console.log(callres)
-        // const prefixres = wasmTinygoGlobalObject.hasPrefix("dkjbdkj", "a")
-        // console.log(prefixres)
+        const prefixres = routes.hasPrefix({ text: 'dkjbdkj', prefix: 'd' })
+        console.log(prefixres)
       }}/>
     </>
   )
