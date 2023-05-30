@@ -9,3 +9,12 @@ wasm app of golang.
 
 ## fix `no required module provides package "syscall/js"` on vscode
 https://github.com/golang/vscode-go/issues/1799
+
+## TODO
+- 言語比較をしたい
+- メタ的な情報を可視化できないか
+  - どんなものがあるか。
+- 詳細な signature とかはいらない
+- ドキュメントだとかソースコードを確認したい
+- 簡易的に実行できればベスト
+- エラー文言
