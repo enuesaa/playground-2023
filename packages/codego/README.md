@@ -20,3 +20,5 @@ https://github.com/golang/vscode-go/issues/1799
 - エラー文言
 - ドキュメント（というより処理内容を示す marmeid がほしい）
 - 他言語でできることを、この言語でやるには？
+- json.decode() // 例外は何なのか, フロー図
+- テストコード
