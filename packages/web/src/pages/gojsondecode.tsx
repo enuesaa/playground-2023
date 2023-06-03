@@ -25,6 +25,8 @@ export default function Page() {
    *   - Node.js
    * 
    * もっと変わったことをしたいなあ
+   * インタフェースを研究する文脈で、題材として扱ってもいいかも
+   * Github Next の Blocks のような
    */
   return (<></>)
 }
