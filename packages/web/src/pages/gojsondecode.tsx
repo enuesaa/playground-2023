@@ -14,6 +14,7 @@ export default function Page() {
    * 
    * - usage
    * - wasm (demo)
+   *   たくさん examples をほしい
    * - link to go doc
    * - フロー図 (mermaid)
    * 
@@ -25,8 +26,13 @@ export default function Page() {
    *   - Node.js
    * 
    * もっと変わったことをしたいなあ
-   * インタフェースを研究する文脈で、題材として扱ってもいいかも
-   * Github Next の Blocks のような
+   * 
+   * 
+   * - インタフェースを研究する文脈で、題材として扱ってもいいかも
+   *   Github Next の Blocks のような
+   * - minify to prettier
+   *   https://githubnext.com/projects/code-brushes/
+   * - メソッド一覧の可視化とか
    */
   return (<></>)
 }
