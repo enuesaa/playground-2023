@@ -1,7 +1,7 @@
 type Props = {
   name: string;
 }
-export const Files = ({ name }: Props) => {
+export const Bubbles = ({ name }: Props) => {
   return (
     <section>
       {name}
