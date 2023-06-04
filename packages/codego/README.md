@@ -22,3 +22,9 @@ https://github.com/golang/vscode-go/issues/1799
 - 他言語でできることを、この言語でやるには？
 - json.decode() // 例外は何なのか, フロー図
 - テストコード // というかある意味デモ
+
+- インタフェースを研究する文脈で、題材として扱ってもいいかも
+  - Github Next の Blocks のような
+  - minify to prettier
+    https://githubnext.com/projects/code-brushes/
+  - メソッド一覧の可視化とか
