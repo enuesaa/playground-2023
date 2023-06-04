@@ -28,3 +28,5 @@ https://github.com/golang/vscode-go/issues/1799
   - minify to prettier
     https://githubnext.com/projects/code-brushes/
   - メソッド一覧の可視化とか
+- というか全てウェブアプリで、何でも可視化できればベスト
+  そのためには型の定義や、その型で、どういう図を生成できるかマッピングが必要
