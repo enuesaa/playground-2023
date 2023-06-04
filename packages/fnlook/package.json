@@ -1,8 +1,18 @@
 {
-  "name": "units",
-  "version": "1.0.0",
+  "name": "fnlook",
+  "version": "0.1.0",
   "license": "MIT",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.19",
+    "tsx": "^3.12.7"
   }
 }
