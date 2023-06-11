@@ -12,21 +12,21 @@ https://github.com/golang/vscode-go/issues/1799
 
 ## TODO
 - 言語比較をしたい
-- メタ的な情報を可視化できないか
-  - どんなものがあるか。
-- 詳細な signature とかはいらない
-- ドキュメントだとかソースコードを確認したい
-- 簡易的に実行できればベスト
-- エラー文言
-- ドキュメント（というより処理内容を示す marmeid がほしい）
-- 他言語でできることを、この言語でやるには？
-- json.decode() // 例外は何なのか, フロー図
-- テストコード // というかある意味デモ
-
-- インタフェースを研究する文脈で、題材として扱ってもいいかも
+  - usage
+  - links to doc or source
+  - wasm deno
+  - errors or exceptions
+  - flow ... 処理内容を示す marmeid がほしい
+- インタフェースを研究する文脈で、題材として扱う
   - Github Next の Blocks のような
-  - minify to prettier
-    https://githubnext.com/projects/code-brushes/
-  - メソッド一覧の可視化とか
 - というか全てウェブアプリで、何でも可視化できればベスト
   そのためには型の定義や、その型で、どういう図を生成できるかマッピングが必要
+  - Numbers
+  - String
+  - Boolean
+  - List
+
+## development plan
+- fnlook でグラフなどのインタフェースを用意する
+- それを web でマッピングする
+- 最後に wasm の demo など作る
