@@ -19,23 +19,21 @@ export const metadata = {
   description: '',
 }
 
-// なんか markdown みたいに順序通りに表示したいとは思うかどうか。
-// 無難にtsxにするか
-export const contents = {
-  attentions: ['aaa'],
-  texts: ['aaa'],
-  links: [{url: '', text: ''}],
-  images: [],
-  graphs: [],
-  // どちらかというと表
-  kvs: [
-    {
-      key: 'aa',
-      value: 'bb',
-      description: '',
-    }
-  ]
-}
+export const slides = [
+  // attention 'aaa'
+  // text 'aaa'
+  // link: [{url: '', text: ''}] // これどうするか
+  // images: [],
+  // graphs: [],
+  // // どちらかというと表
+  // kvs: [
+  //   {
+  //     key: 'aa',
+  //     value: 'bb',
+  //     description: '',
+  //   }
+  // ]
+];
 
 export const demos = [
   {
