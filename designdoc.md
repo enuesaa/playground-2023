@@ -8,6 +8,6 @@ My experimental website.
 | name | purpose | stacks | priority |
 | - | - | - | - |
 | web | Web application for kakkofn.dev | NextJS | ★★★★★ |
-| fncore | Tools | Rust | ★★★ |
+| toolkit | Tools | Rust | ★★★ |
 | codego | Code demonstration | Golang(Wasm) | ★★★★★ |
 | codepython | Code demonstration | Python(Wasm) | ★ |
