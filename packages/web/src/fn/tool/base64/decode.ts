@@ -22,10 +22,12 @@ export const metadata = {
 // なんか markdown みたいに順序通りに表示したいとは思うかどうか。
 // 無難にtsxにするか
 export const contents = {
-  texts: [{type: 'normal', text: 'aaa'}, {type: 'attention', text: 'aaa'}],
-  links: [],
+  attentions: ['aaa'],
+  texts: ['aaa'],
+  links: [{url: '', text: ''}],
   images: [],
   graphs: [],
+  // どちらかというと表
   kvs: [
     {
       key: 'aa',
