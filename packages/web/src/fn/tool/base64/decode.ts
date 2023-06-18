@@ -12,28 +12,37 @@
  * 
  * これを pages/fn/[name].tsx が getStaticProps をして render する
  */
-export const metadata = {
-  resourceName: 'tool:base64:decode', // url とか arn 的な意味合い
+type Metadata = {
+  resource: string;
+  name: string;
+  tags: string[];
+  description: string;
+}
+export const metadata: Metadata = {
+  resource: 'tool:base64:decode', // url とか arn 的な意味合い
   name: 'base64でデコードする',
   tags: ['decode'],
   description: '',
 }
 
-export const slides = [
-  // attention 'aaa'
-  // text 'aaa'
-  // link: [{url: '', text: ''}] // これどうするか
-  // images: [],
-  // graphs: [],
-  // // どちらかというと表
-  // kvs: [
-  //   {
-  //     key: 'aa',
-  //     value: 'bb',
-  //     description: '',
-  //   }
-  // ]
-];
+export const attentions = ['aaa']
+
+// files
+
+export const contents =  [`
+# aaaa
+aaaaa [aaa](https://example.com)
+
+![image](/aaa.png)
+`]
+
+// kvs([
+//   {name: 'aa', value: 'bb', description: ''},
+// ]),
+
+export const links = [
+  {href: 'https://example.com', name: '', description: ''},
+]
 
 export const demos = [
   {
