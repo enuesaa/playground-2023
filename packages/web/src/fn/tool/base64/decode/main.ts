@@ -21,7 +21,6 @@ export const kvs = kvs([
   {name: 'usage', value: 'JSON.Marahsll()', description: ''},
 ])
 
-// やはり tsx ではない
 export const slides = [
   attention('aa'),
   markdown('./content.md'),
