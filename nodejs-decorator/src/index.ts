@@ -1,8 +1,8 @@
-const Route = (route: string) => {
-  return function (constructor: any) {
-    return class extends constructor {
-      route = route;
-    }
+import 'reflect-metadata'
+
+const Route = (route: string): ClassDecorator => {
+  return function (cls: object) {
+    Reflect.defineMetadata('route', route, cls);
   }
 }
 
@@ -12,5 +12,5 @@ export class Controller {
   name: string = 'aaa';
 }
 
-const c = new Controller()
-console.log(c.route)
+const route = Reflect.getMetadata('route', Controller);
+console.log(route)
