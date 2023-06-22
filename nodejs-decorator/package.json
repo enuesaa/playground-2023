@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts"
+  },
   "devDependencies": {
     "eslint": "^8.43.0",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
     "typescript": "^5.1.3"
   }
 }
