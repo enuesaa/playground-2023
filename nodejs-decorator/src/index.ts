@@ -1,13 +1,16 @@
-const Something = (message: string) => {
-  return function (constructor: Function) {
-    console.log(message);
-  };
-};
-
-
-@Something('bb')
-export class C {
-  a = 'aa';
+const Route = (route: string) => {
+  return function (constructor: any) {
+    return class extends constructor {
+      route = route;
+    }
+  }
 }
 
-const c = new C()
+
+@Route('/something')
+export class Controller {
+  name: string = 'aaa';
+}
+
+const c = new Controller()
+console.log(c.route)
