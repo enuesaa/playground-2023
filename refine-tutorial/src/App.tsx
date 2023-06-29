@@ -16,6 +16,7 @@ import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import routerBindings, { NavigateToResource, CatchAllNavigate, UnsavedChangesNotifier, DocumentTitleHandler } from "@refinedev/react-router-v6";
 import dataProvider from "@refinedev/simple-rest";
 import { Header } from "./components/header";
+import { ChakraUIInferencer } from "@refinedev/inferencer/chakra-ui";
 
 
 
@@ -45,6 +46,21 @@ dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
 
                     <Routes>
                         <Route index element={<WelcomePage />} />
+                        <Route path="blog-posts">
+                                <Route index element={<ChakraUIInferencer />} />
+                                <Route
+                                    path="show/:id"
+                                    element={<ChakraUIInferencer />}
+                                />
+                                <Route
+                                    path="edit/:id"
+                                    element={<ChakraUIInferencer />}
+                                />
+                                <Route
+                                    path="create"
+                                    element={<ChakraUIInferencer />}
+                                />
+                            </Route>
                     </Routes>
                 <RefineKbar />
                 <UnsavedChangesNotifier />
