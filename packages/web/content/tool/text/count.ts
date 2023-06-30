@@ -8,8 +8,8 @@ export const metadata = metadata({
 })
 export const kvs = kvs([])
 
-文字数カウントをします
-<Attention />
-<Demo />
-<Markdown />
-<Files />
+// 文字数カウントをします
+// <Attention />
+// <Demo />
+// <Markdown />
+// <Files />
