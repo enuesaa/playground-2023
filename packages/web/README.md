@@ -18,3 +18,25 @@ fn/{namespace}/{category}/{action}/main.ts
 
 next.js とか remix みたいに named export する
 - これを pages/fn/[name].tsx が getStaticProps をして render する
+
+
+## Memo
+- 言語系
+  - usage
+  - links to doc or source
+  - wasm deno
+  - errors or exceptions
+  - flow ... 処理内容を示す marmeid がほしい
+- インタフェースを研究する文脈で、題材として扱う
+  - Github Next の Blocks のような
+- というか全てウェブアプリで、何でも可視化できればベスト
+  Rust の Displayトレイトのような fn がたくさんあれば良い
+  - ある型用とか。というか terraform のdata resourceみたいな
+  - プログラミングじゃないから型は柔らかく、、と思いつつ補完を考えると。。
+- というかフローなんだよなあ。
+  - なんか色んな fn を結びつけて順次実行できたらいいかなあ。
+  - langchain のようなイメージ
+  - めちゃくちゃ繋げたいわけではなく、ほんのちょっとできればいい
+- json形式とかでexportできればいいなあ
+- なんかついでに簡単な図を作成できればいいなあ
+  - 文字を表示する fn とか
