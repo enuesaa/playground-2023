@@ -9084,6 +9084,11 @@ std-env@^3.0.1:
   resolved "https://registry.yarnpkg.com/std-env/-/std-env-3.3.3.tgz#a54f06eb245fdcfef53d56f3c0251f1d5c3d01fe"
   integrity sha512-Rz6yejtVyWnVjC1RFvNmYL10kgjC49EOghxWn0RFqlCHGFpQx+Xe7yW3I4ceK1SGrWIGMjD5Kbue8W/udkbMJg==
 
+strapi-plugin-ja-pack@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-ja-pack/-/strapi-plugin-ja-pack-1.0.3.tgz#42af8f09641aef493cbc6efcdfa0e0e7e096dd2c"
+  integrity sha512-STb4DiYF8XI3ztVw95iezsbecv6xjBUB6Rvb03lhKiugd5TWsYOx54CtpzxZJMDDmu4JRdpK29Wi9mXaWcb5IQ==
+
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-2.2.5.tgz#b30967e8f14ee033c5b9a19bbe8a2cba90ba0d09"
