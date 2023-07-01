@@ -1,26 +1,31 @@
-export const metadata = {
+// import { metadata, kvs }
+
+// 全てタイル
+
+export const metadata = metadata({
   id: 'code/go/json-decode', // url とか arn 的な意味合い
   name: 'base64でデコードする',
   tags: ['decode'],
   description: '',
   created: '',
   modified: '',
-}
+})
 
-{/* 表示をトグルできるイメージ */}
-export const kvs = [
+export const kvs = ([
 //  {name: '', value: '', href: 'https://example.com', description: ''},
 //  {name: 'usage', value: 'JSON.Marahsll()', description: ''},
-]
+])
 
-export const slides = [
-  // attention('aa'),
-  // markdown('./content.md'),
-  // demo({
+export const kvs2 = kvs([])
+
+export const demo = demos({
   //   name: '',
   //   description: '',
   //   inputs: ['textarea'],
   //   handler: () => {},
-  // }),
-  // files('./files')
-]
+})
+
+export const file = file('./files')d 
+
+export const markdown = markdown('./content.md')
+export const attention = attention('aa')
