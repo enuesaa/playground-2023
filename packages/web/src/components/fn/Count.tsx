@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai'
-import { fncoreAtom } from '@/lib/fncore'
+import { fncoreAtom } from '@/lib/toolkit'
 import { PageTitle } from '@/components/common/PageTitle'
 import { useStyles } from '@/styles/use'
 import { MouseEventHandler, useRef, useState } from 'react'
