@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"tfnotes-provider/internal/provider"
+	"terraform-provider-tfnotes/internal/provider"
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 )
 

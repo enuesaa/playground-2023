@@ -1,4 +1,4 @@
-module tfnotes-provider
+module terraform-provider-tfnotes
 
 go 1.20
 
