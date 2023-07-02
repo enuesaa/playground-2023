@@ -10,8 +10,8 @@ import (
 
 func main() {
 	opts := providerserver.ServeOpts {
-		Address: "example.com/example/example",
-		Debug: true,
+		Address: "hashicorp.com/edu/tfnotes",
+		Debug: false, // true だと go run . で server が立ち上げっぱなしになる?ように見える
 	}
 
 	err := providerserver.Serve(context.Background(), provider.New, opts)
