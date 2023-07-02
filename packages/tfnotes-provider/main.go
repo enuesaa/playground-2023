@@ -1,11 +1,22 @@
 package main
 
 import (
-	"fmt"
+	"context"
+	"log"
 
-	_ "github.com/hashicorp/terraform-plugin-framework/providerserver"
+	"tfnotes-provider/internal/provider"
+	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 )
 
 func main() {
-	fmt.Println("aa")
+	opts := providerserver.ServeOpts {
+		Address: "example.com/example/example",
+		Debug: true,
+	}
+
+	err := providerserver.Serve(context.Background(), provider.New, opts)
+
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 }
