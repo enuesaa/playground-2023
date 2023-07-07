@@ -41,3 +41,4 @@ url と id は対応しない
 
 - wasm は隔離されていた方が良い、api gateway pattern を実現できないか
 - wasm の部分だけでnpm packageにしたいなあ。最悪グローバル変数を定義してもいい、playwrightの初回セットアップみたいに何かできないか
+- react context
