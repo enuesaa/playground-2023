@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"github.com/enuesaa/kakkofn/contents"
 )
 
 func main() {
-	fmt.Printf("aa")
+	contents.Base64Decode()
 }
