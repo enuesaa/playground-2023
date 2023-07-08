@@ -35,12 +35,20 @@ url と id は対応しない
   - タイルの非表示度かもでき
   - タイルの追加などもでき、svg化も出来る
 
-## TODO
-- やはりwebとコンテンツは分けたいなあ。
-  コンテンツというパッケージがあり、そのインタフェースとしてwebがあるイメージ。別に音声読み上げとかでもいい。
+## Architecture
+### Web API
+written by Go. 
+- handle something meta information.
+- use wasmer-go to execute wasm app.
 
-- wasm は隔離されていた方が良い、api gateway pattern を実現できないか
-- wasm の部分だけでnpm packageにしたいなあ。最悪グローバル変数を定義してもいい、playwrightの初回セットアップみたいに何かできないか
-- react context
-- go api
-- wasm のレイヤーの一つ上
+### CLI
+written by Go. 
+- print something meta information.
+- use wasmer-go to execute wasm app.
+
+### Wasm
+written by Rust. 
+
+### Web App
+written by JS
+
