@@ -6,7 +6,6 @@ My experimental website.
 | - | - | - | - |
 | web | Web application for kakkofn.dev | NextJS | ★★★★★ |
 | toolkit | Tools | Rust | ★★★ |
-| codego | Code demonstration | Golang(Wasm) | ★★★★★ |
 
 ## URL体系
 url と id は対応しない
