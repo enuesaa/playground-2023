@@ -7,7 +7,7 @@ build
 dist
 
 # rust wasm
-src/fncore
+src/toolkit
 
 # go wasm
 public/wasm_exec.js
