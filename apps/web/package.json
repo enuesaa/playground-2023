@@ -16,8 +16,10 @@
     "eslint": "^8.44.0",
     "jotai": "^2.0.4",
     "next": "13.3.1",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-frame-component": "^5.2.6",
     "react-hook-form": "^7.43.9",
     "turbo": "^1.10.7",
     "typescript": "^5.1.6"
