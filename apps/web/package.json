@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:toolkit": "wasm-pack build ../toolkit --out-dir ../web/src/toolkit",
     "start": "next start",
     "lint": "next lint"
   },
