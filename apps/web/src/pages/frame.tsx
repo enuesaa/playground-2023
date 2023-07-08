@@ -5,10 +5,14 @@ export default function Page() {
 
   if (typeof window !== 'undefined') {
     // react-devtools-bridge のメッセージも catch してしまう
-    window.addEventListener("message", (event) => {
-      console.log('on parent', event)
-      // event.stopPropagation()
-    }, false);
+    window.addEventListener(
+      'message',
+      (event) => {
+        console.log('on parent', event)
+        // event.stopPropagation()
+      },
+      false,
+    )
   }
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -18,10 +22,7 @@ export default function Page() {
 
   return (
     <>
-      <iframe
-        src='/embed'
-        ref={frame}
-      />
+      <iframe src='/embed' ref={frame} />
       <button onClick={handleClick}>aa</button>
     </>
   )

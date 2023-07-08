@@ -34,7 +34,7 @@ class ThemedStyle {
 }
 
 export const useStyles = <A extends string>(
-  createStyles: (theme: (args?: Partial<ThemedStyleArgs>) => ThemedStyle) => Record<A, ThemedStyle>
+  createStyles: (theme: (args?: Partial<ThemedStyleArgs>) => ThemedStyle) => Record<A, ThemedStyle>,
 ): Record<A, SerializedStyles> => {
   const theme = useTheme()
   const styles = createStyles((args) => new ThemedStyle(theme, args ?? {}))

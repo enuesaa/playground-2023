@@ -4,7 +4,7 @@ import { MouseEventHandler, useRef, useState } from 'react'
 
 export const WasmValidator = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const [isWasmValid, setIsWasmValid] = useState<boolean|null>(null)
+  const [isWasmValid, setIsWasmValid] = useState<boolean | null>(null)
 
   const styles = useStyles((theme) => ({
     main: theme({ surf: 'main' }),
@@ -35,9 +35,7 @@ export const WasmValidator = () => {
       <button onClick={handleValidate} css={styles.handleValidateBtn}>
         replace
       </button>
-      <div css={styles.display}>{
-        isWasmValid === null ? '' : (isWasmValid ? 'ok' : 'invalid')
-      }</div>
+      <div css={styles.display}>{isWasmValid === null ? '' : isWasmValid ? 'ok' : 'invalid'}</div>
     </section>
   )
 }
