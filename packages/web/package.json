@@ -7,8 +7,6 @@
     "dev": "next dev",
     "build": "next build",
     "build:toolkit": "wasm-pack build ../toolkit --out-dir ../web/src/toolkit",
-    "build:go": "GOOS=js GOARCH=wasm go build -C ../codego -o main.wasm main.go && mv ../codego/main.wasm public/main.wasm && cat $(go env GOROOT)/misc/wasm/wasm_exec.js > public/wasm_exec.js",
-    "build:tinygo": "docker compose -f ../codego/docker-compose.yaml run app cat /usr/local/tinygo/targets/wasm_exec.js > public/wasm_exec.js && docker compose -f ../codego/docker-compose.yaml run app tinygo build -o main.wasm -target wasm main.go && mv ../codego/main.wasm public/main.wasm",
     "start": "next start",
     "lint": "next lint"
   },

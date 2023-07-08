@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  # docker compose run app tinygo build -o wasm.wasm -target wasm ./main.go
-  app:
-    image: tinygo/tinygo:latest
-    volumes:
-      - ./:/workdir
-    working_dir: /workdir
