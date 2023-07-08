@@ -15,8 +15,8 @@ export default function Page() {
         }
 
         const go = new Go()
-        // see https://ludwig125.hatenablog.com/entry/2022/03/06/080625
-        go.importObject.env['syscall/js.finalizeRef'] = ()=> {};
+        // // see https://ludwig125.hatenablog.com/entry/2022/03/06/080625
+        // go.importObject.env['syscall/js.finalizeRef'] = ()=> {};
 
         const source = fetch('/main.wasm')
         const wasminit = await WebAssembly.instantiateStreaming(source, go.importObject)
