@@ -12,18 +12,35 @@ export default function Page() {
 
   useEvent(globalThis.window, 'message', (event) => {
     if (isAppMessage(event)) {
-      console.log(event.data.text)
+      console.log('on embed', event.data.text)
     }
   })
 
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleHello: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
-    window.parent.postMessage({ source: 'kakkofn', text: 'bbb' } as AppMessage)
+
+    const res = globalThis.goWasmRoutes.callname({ name: 'bb' })
+    window.parent.postMessage({ source: 'kakkofn', text: res } as AppMessage)
+  }
+
+  const handleHasPrefix: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault()
+
+    const res = globalThis.goWasmRoutes.hasPrefix({ text: 'dkjbdkj', prefix: 'a' })
+    window.parent.postMessage({ source: 'kakkofn', text: res } as AppMessage)
+  }
+
+  const handleIsValidJson: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault()
+    const res = globalThis.goWasmRoutes.decodeJson({ text: '{}' })
+    window.parent.postMessage({ source: 'kakkofn', text: res } as AppMessage)
   }
 
   return (
     <>
-      <button onClick={handleClick}>aa</button>
+      <button onClick={handleHello}>hello</button>
+      <button onClick={handleHasPrefix}>hasPrefix</button>
+      <button onClick={handleIsValidJson}>isValidJson</button>
       <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
         globalThis.goWasmRoutes = {
           callname: (_) => '',
@@ -35,11 +52,6 @@ export default function Page() {
         const source = fetch('/main.wasm')
         const wasminit = await WebAssembly.instantiateStreaming(source, go.importObject)
         go.run(wasminit.instance)
-
-        const callres = goWasmRoutes.callname({ name: 'bb' })
-        console.log(callres)
-        const prefixres = goWasmRoutes.hasPrefix({ text: 'dkjbdkj', prefix: 'a' })
-        console.log(prefixres)
         const isValidJson = goWasmRoutes.decodeJson({ text: '{}' })
         console.log(isValidJson)
       }} />

@@ -20,6 +20,9 @@ export default function Page() {
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
+    // console.log('should fail', new Go())
+    // console.log('should fail', globalThis.goWasmRoutes)
+
     frame.current?.contentWindow?.postMessage({source: 'kakkofn', text: 'aaa'} as AppMessage, 'http://localhost:3000')
   }
 
