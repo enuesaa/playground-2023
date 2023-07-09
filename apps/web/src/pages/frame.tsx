@@ -1,5 +1,5 @@
 import { useRef, MouseEventHandler } from 'react'
-import useEvent from '@react-hook/event'
+import { useEventListener } from 'usehooks-ts'
 import { type AppMessage, isAppMessage } from '@/lib/message'
 
 export default function Page() {
@@ -11,7 +11,7 @@ export default function Page() {
   //   })
   // }
 
-  useEvent(globalThis.window, 'message', (event) => {
+  useEventListener('message', (event) => {
     // https://github.com/facebook/react-devtools/issues/812
     if (isAppMessage(event)) {
       console.log('on parent', event.data.text)

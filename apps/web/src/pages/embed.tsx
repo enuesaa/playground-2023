@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react'
-import useEvent from '@react-hook/event'
+import { useEventListener } from 'usehooks-ts'
 import Script from 'next/script'
 import { type AppMessage, isAppMessage } from '@/lib/message'
 
@@ -10,7 +10,7 @@ export default function Page() {
   //   })
   // }
 
-  useEvent(globalThis.window, 'message', (event) => {
+  useEventListener('message', (event) => {
     if (isAppMessage(event)) {
       console.log('on embed', event.data.text)
     }
