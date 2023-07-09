@@ -20,3 +20,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# codego
+public/main.wasm
+public/wasm_exec.js
