@@ -19,6 +19,7 @@ func Base64Decode() {
 	demo := schema.DemoSchema {
 		Name: "",
 		Path: "",
+		// 入力値の定義
 	}
 	fmt.Printf("%v", demo)
 
