@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
+    "@react-hook/event": "^1.2.6",
     "emotion-normalize": "^11.0.1",
     "eslint": "^8.44.0",
     "jotai": "^2.0.4",
