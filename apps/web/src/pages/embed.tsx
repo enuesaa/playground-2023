@@ -4,12 +4,6 @@ import Script from 'next/script'
 import { type AppMessage, isAppMessage } from '@/lib/message'
 
 export default function Page() {
-  // if (typeof window !== 'undefined') {
-  //   window.addEventListener('message', (event) => {
-  //     console.log('on child', event)
-  //   })
-  // }
-
   useEventListener('message', (event) => {
     if (isAppMessage(event)) {
       console.log('on embed', event.data.text)
