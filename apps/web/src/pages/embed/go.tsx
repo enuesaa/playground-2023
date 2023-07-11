@@ -28,6 +28,7 @@ export default function Page() {
 
   return (
     <>
+      {'入力値をみてcomponentを組み立てる'}
       <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
         globalThis.goWasmRoutes = {
           callname: (_) => '',
