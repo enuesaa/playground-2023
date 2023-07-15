@@ -1,4 +1,7 @@
 import { Hono } from 'hono'
+import './wasm_exec.js'
+// @ts-ignore
+import module from './main.wasm'
 
 // declare const MY_KV: KVNamespace;
 type Bindings = {
@@ -19,6 +22,17 @@ app.post('/api/items', async (c) => {
     await c.env.MY_KV.put("aa", value)
   }
   return c.json({success: true})
+})
+
+app.post('/api/wasm', async (c) => {
+  // @ts-ignore
+  const go = new Go()
+  let instance;
+  WebAssembly.instantiate(module, go.importObject).then((obj) => {
+    instance = obj
+    go.run(instance)
+  })
+  console.log(instance.add(1, 2))
 })
 
 export default app

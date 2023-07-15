@@ -1,6 +1,6 @@
 name = "flywaywind-api"
 compatibility_date = "2023-01-01" # cloudformationのversion的な。
-
+fallthrough = true
 # 内部的にはKVっぽい。Cloudflare Pages が推奨されている
 # [site]
 # bucket = "./assets"
@@ -8,3 +8,11 @@ compatibility_date = "2023-01-01" # cloudformationのversion的な。
 kv_namespaces = [
   { binding = "MY_KV", id = "a2d5f9a828b343599241535be00963df" }
 ]
+
+[[build.upload.rules]]
+type = "CompiledWasm"
+globs = ["./src/main.wasm"]
+
+[[build.upload.rules]]
+type = "ESModule"
+globs = ["./src/wasm_exec.js"]
