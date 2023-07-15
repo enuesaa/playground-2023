@@ -9,11 +9,10 @@ kv_namespaces = [
   { binding = "MY_KV", id = "a2d5f9a828b343599241535be00963df" }
 ]
 
-[[rules]]
-type = "CompiledWasm"
-globs = ["./src/main.wasm"]
+rules = [
+  { type = "CompiledWasm", globs = ["./src/main.wasm"], fallthrough = true },
+  { type = "ESModule", globs = ["./src/wasm_exec.js"], fallthrough = true }
+]
 
+node_compat = true
 
-[[rules]]
-type = "ESModule"
-globs = ["./src/wasm_exec.js"]
