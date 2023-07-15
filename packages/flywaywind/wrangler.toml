@@ -1,5 +1,6 @@
 name = "flywaywind-api"
 compatibility_date = "2023-01-01"
 
-[site]
-bucket = "./assets"
+# 内部的にはKVっぽい。Cloudflare Pages が推奨されている
+# [site]
+# bucket = "./assets"

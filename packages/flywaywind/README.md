@@ -8,3 +8,10 @@ $ wrangler --version
 
 $ wrangler login
 ```
+
+## Links
+- https://developers.cloudflare.com/workers/wrangler/configuration/
+
+## Memo
+- api の各ルートに Cloudflare の Route 設定(トリガー)がいる
+  考えてみると当たり前だが。
