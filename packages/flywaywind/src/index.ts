@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { KVNamespace } from '@cloudflare/workers-types';
 // @ts-ignore
 import './wasm_exec.js'
 // @ts-ignore
@@ -20,10 +21,10 @@ globalThis.performance = {
 const app = new Hono<{ Bindings: Bindings }>()
 
 // app.get('/', (c) => c.text('Hello Hono!'))
-// app.get('/api/items/aa', async (c) => {
-//   const item = await c.env.MY_KV.get('aa')
-//   return c.json({success: true, aa: item})
-// })
+app.get('/api/items/aa', async (c) => {
+  // const item = await c.env.MY_KV.get('aa')
+  return c.json({success: true, a: globalThis.hasOwnProperty('MY_KV')})
+})
 
 // app.post('/api/items', async (c) => {
 //   const { value } = await c.req.json()
