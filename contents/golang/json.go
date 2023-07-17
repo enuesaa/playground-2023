@@ -15,8 +15,7 @@ func JsonDecode() schema.Content {
 	content.AddKv("docUrl", "https://example.com")
 	content.AddKv("usage", "JSON.Marahsll()")
 
-	content.AddDemo("main", "golang:json:decode:demo:main")
-	// {input: Textarea, output: Textarea}
+	content.AddDemo("main", "codego/jsonDecode")
 
 	return content
 }

@@ -1,27 +1,18 @@
 package tool
 
-// import (
-// 	"fmt"
+import (
+	"github.com/enuesaa/kakkofn/schema"
+)
 
-// 	"github.com/enuesaa/kakkofn/schema"
-// )
+func Base64Decode() schema.Content {
+	content := schema.NewContent("tool:base64:decode")
+	content.Name = "base64でデコード"
+	content.Description = "base64でデコードします"
 
-// func Base64Decode() {
-// 	content := schema.ContentSchema {
-// 		Id: "base64:decode",
-// 		Name: "",
-// 		Description: "base64でデコードする",
-// 		Created: "",
-// 		Modified: "",
-// 	}
-// 	fmt.Printf("%v", content)
+	content.AddKv("created", "2023-07-17T00:00:00+09:00")
+	content.AddKv("modified", "2023-07-17T00:00:00+09:00")
 
-// 	demo := schema.DemoSchema {
-// 		Name: "",
-// 		Path: "",
-// 		// 入力値の定義
-// 	}
-// 	fmt.Printf("%v", demo)
+	content.AddDemo("main", "toolkit/base64_docode")
 
-// 	// examples
-// }
+	return content
+}

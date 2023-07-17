@@ -23,6 +23,8 @@ type Memo struct {
 }
 
 func decodeJson(_ js.Value, args []js.Value) interface{} {
+	// ここに入力値の定義がいる?
+
 	text := args[0].Get("text").String()
 
 	var memo Memo
