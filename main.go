@@ -1,19 +1,36 @@
 package main
 
 import (
-	"fmt"
+	"os"
+	"io"
 
-	"github.com/enuesaa/kakkofn/contents/golang"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// api
+	f, _ := os.Create("tmp/gin.log")
+	gin.DefaultWriter = io.MultiWriter(os.Stdout, f)
 
+	router := setupRouter()
+	router.Run(":80")
+}
+
+
+func setupRouter() *gin.Engine {
+	router := gin.Default()
+	
+	// go言語でproxyするのもありだなあ..
 	// - GET /contents ... list contents
 	// - GET /contents/{id} ... get content with id
 	// - GET /contents/{id}/actions ... list content actions
-	// - POST /contents/{id}/actions/{id}/invoke ... invoke actions by wasmer-go
 	// - GET /contents/{id}/actions/{id}/wasm ... get wasm binary
 
-	fmt.Println(golang.Routes())
+	// - POST /contents/{id}/actions/{id}/invoke ... invoke actions by wasmer-go
+
+	base := router.Group("/api")
+	{
+		base.GET("contents") // todo handler
+	}
+
+	return router
 }
