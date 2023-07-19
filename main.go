@@ -1,9 +1,10 @@
 package main
 
 import (
-	"os"
 	"io"
+	"os"
 
+	"github.com/enuesaa/kakkofn/handler"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,7 +20,6 @@ func main() {
 func setupRouter() *gin.Engine {
 	router := gin.Default()
 	
-	// go言語でproxyするのもありだなあ..
 	// - GET /contents ... list contents
 	// - GET /contents/{id} ... get content with id
 	// - GET /contents/{id}/actions ... list content actions
@@ -29,7 +29,7 @@ func setupRouter() *gin.Engine {
 
 	base := router.Group("/api")
 	{
-		base.GET("contents") // todo handler
+		base.GET("contents", handler.ListContents)
 	}
 
 	return router

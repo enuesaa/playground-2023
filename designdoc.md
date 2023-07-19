@@ -9,12 +9,6 @@ My experimental website.
 | toolkit | Tools | Rust |
 | codego | Golang Demo (Wasm) | Go |
 
-## codego
-- usage
-- links to doc or source
-- wasm deno
-- flow ... 処理内容を示す marmeid がほしい
-
 ## philosophy
 - 何でも可視化できればベスト
 - インタフェースを研究する文脈で、題材として扱う
