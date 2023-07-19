@@ -1,4 +1,4 @@
-package schema
+package content
 
 type ContentDemo struct {
 	Name string

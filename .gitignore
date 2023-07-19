@@ -24,4 +24,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-public/dist.js
+web/public/dist.js

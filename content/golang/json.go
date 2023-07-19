@@ -1,11 +1,11 @@
 package golang
 
 import (
-	"github.com/enuesaa/kakkofn/schema"
+	"github.com/enuesaa/kakkofn/content"
 )
 
-func JsonDecode() schema.Content {
-	content := schema.NewContent("golang:json:decode")
+func JsonDecode() content.Content {
+	content := content.NewContent("golang:json:decode")
 	content.Name = "JSONのデコード"
 	content.Description = "GoでJSONのデコードをします"
 

@@ -8,8 +8,8 @@ import (
 
 func main() {
 	esbuild.Build(esbuild.BuildOptions{
-		EntryPoints: []string{"web/index.tsx"},
-		Outfile:     "public/dist.js",
+		EntryPoints: []string{"web/app.tsx"},
+		Outfile:     "public/app.js",
 		Bundle:      true,
 		Write:       true,
 		LogLevel:    esbuild.LogLevelInfo,
