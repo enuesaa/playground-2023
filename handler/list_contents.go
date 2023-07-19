@@ -1,10 +1,7 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import "github.com/gofiber/fiber/v2"
 
-func ListContents(c *gin.Context) {
-
-	c.JSON(200, gin.H{
-		"message": "pong",
-	})
+func ListContents(c *fiber.Ctx) error {
+	return c.JSON("Hello")
 }
