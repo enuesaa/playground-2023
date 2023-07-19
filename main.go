@@ -1,30 +1,28 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"os"
 
-	"github.com/enuesaa/kakkofn/handler"
+	// "github.com/enuesaa/kakkofn/handler"
 	esbuild "github.com/evanw/esbuild/pkg/api"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-    result := esbuild.Build(esbuild.BuildOptions{
-        EntryPoints: []string{"web/index.ts"},
-        Outfile:     "output.js",
-        Bundle:      true,
-        Write:       true,
-        LogLevel:    esbuild.LogLevelInfo,
-    })
-	fmt.Println(result)
+	esbuild.Build(esbuild.BuildOptions{
+		EntryPoints: []string{"web/index.tsx"},
+		Outfile:     "public/dist.js",
+		Bundle:      true,
+		Write:       true,
+		LogLevel:    esbuild.LogLevelInfo,
+	})
 
 	f, _ := os.Create("tmp/gin.log")
 	gin.DefaultWriter = io.MultiWriter(os.Stdout, f)
 
 	router := setupRouter()
-	router.Run(":80")
+	router.Run(":3000")
 }
 
 
@@ -37,10 +35,11 @@ func setupRouter() *gin.Engine {
 	// - GET /api/contents/{id}/actions ... list content actions
 	// - GET /api/contents/{id}/actions/{id}/wasm ... get wasm binary
 
-	base := router.Group("/api")
-	{
-		base.GET("contents", handler.ListContents)
-	}
+	// base := router.Group("/api")
+	// {
+	// 	base.GET("contents", handler.ListContents)
+	// }
+	router.Static("/", "public/")
 
 	return router
 }
