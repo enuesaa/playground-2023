@@ -30,13 +30,12 @@ func main() {
 
 func setupRouter() *gin.Engine {
 	router := gin.Default()
-	
-	// - GET /contents ... list contents
-	// - GET /contents/{id} ... get content with id
-	// - GET /contents/{id}/actions ... list content actions
-	// - GET /contents/{id}/actions/{id}/wasm ... get wasm binary
 
-	// - POST /contents/{id}/actions/{id}/invoke ... invoke actions by wasmer-go
+	// nextjs で言う api routes みたいな. SSGされる対象
+	// - GET /api/contents ... list contents
+	// - GET /api/contents/{id} ... get content with id
+	// - GET /api/contents/{id}/actions ... list content actions
+	// - GET /api/contents/{id}/actions/{id}/wasm ... get wasm binary
 
 	base := router.Group("/api")
 	{
