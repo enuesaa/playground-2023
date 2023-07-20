@@ -13,7 +13,7 @@ export default function Page() {
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
-    frame.current?.contentWindow?.postMessage({source: 'kakkofn', text: 'aaa'} as AppMessage, 'http://localhost:3000')
+    frame.current?.contentWindow?.postMessage({ source: 'kakkofn', text: 'aaa' } as AppMessage, 'http://localhost:3000')
   }
 
   return (

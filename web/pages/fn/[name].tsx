@@ -1,10 +1,10 @@
 export default function Page() {
-  // iframe 
+  // iframe
 
   // if embed.type == "go" <iframe src='/embed/go'>
   // if embed.type == "rust" <iframe src='/embed/rust'>
 
-  return (<></>)
+  return <></>
 }
 
 // getStaticProps で fn の list を得る

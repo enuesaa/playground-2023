@@ -16,7 +16,7 @@ export default function Page() {
       const name = 'callname' // 何を name とするか定義が必要
       if (!globalThis.goWasmRoutes.hasOwnProperty(name)) {
         // send error message
-        return;
+        return
       }
 
       const fn = globalThis.goWasmRoutes[name]
@@ -25,22 +25,25 @@ export default function Page() {
     }
   })
 
-
   return (
     <>
       {'入力値をみてcomponentを組み立てる'}
-      <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
-        globalThis.goWasmRoutes = {
-          callname: (_) => '',
-          hasPrefix: (_) => '',
-          decodeJson: (_) => '',
-        }
+      <Script
+        id='exec-wasm'
+        src='/wasm_exec.js'
+        onLoad={async () => {
+          globalThis.goWasmRoutes = {
+            callname: (_) => '',
+            hasPrefix: (_) => '',
+            decodeJson: (_) => '',
+          }
 
-        const go = new Go()
-        // たぶん、これも name ごと？
-        const source = fetch('/main.wasm')
-        await WebAssembly.instantiateStreaming(source, go.importObject)
-      }} />
+          const go = new Go()
+          // たぶん、これも name ごと？
+          const source = fetch('/main.wasm')
+          await WebAssembly.instantiateStreaming(source, go.importObject)
+        }}
+      />
     </>
   )
 }

@@ -11,7 +11,7 @@ export default function Page() {
 
       const name = 'callname'
       if (!globalThis.goWasmRoutes.hasOwnProperty(name)) {
-        return;
+        return
       }
 
       const fn = globalThis.goWasmRoutes[name]
@@ -20,9 +20,5 @@ export default function Page() {
     }
   })
 
-  return (
-    <>
-      {'入力値をみてcomponentを組み立てる'}
-    </>
-  )
+  return <>{'入力値をみてcomponentを組み立てる'}</>
 }

@@ -35,20 +35,24 @@ export default function Page() {
       <button onClick={handleHello}>hello</button>
       <button onClick={handleHasPrefix}>hasPrefix</button>
       <button onClick={handleIsValidJson}>isValidJson</button>
-      <Script id='exec-wasm' src='/wasm_exec.js' onLoad={async () => {
-        globalThis.goWasmRoutes = {
-          callname: (_) => '',
-          hasPrefix: (_) => '',
-          decodeJson: (_) => '',
-        }
+      <Script
+        id='exec-wasm'
+        src='/wasm_exec.js'
+        onLoad={async () => {
+          globalThis.goWasmRoutes = {
+            callname: (_) => '',
+            hasPrefix: (_) => '',
+            decodeJson: (_) => '',
+          }
 
-        const go = new Go()
-        const source = fetch('/main.wasm')
-        const wasminit = await WebAssembly.instantiateStreaming(source, go.importObject)
-        go.run(wasminit.instance)
-        const isValidJson = goWasmRoutes.decodeJson({ text: '{}' })
-        console.log(isValidJson)
-      }} />
+          const go = new Go()
+          const source = fetch('/main.wasm')
+          const wasminit = await WebAssembly.instantiateStreaming(source, go.importObject)
+          go.run(wasminit.instance)
+          const isValidJson = goWasmRoutes.decodeJson({ text: '{}' })
+          console.log(isValidJson)
+        }}
+      />
     </>
   )
 }
