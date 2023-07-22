@@ -1,8 +1,6 @@
 declare global {
   var wasmTinygoRegisterFn: (name: string, callback: (arg: any) => any) => void;
   var goWasmRoutes: {
-    callname: (arg: { name: string }) => string;
-    hasPrefix: (arg: { text: string; prefix: string; }) => string;
     decodeJson: (arg: { text: string }) => string;
   }
 }

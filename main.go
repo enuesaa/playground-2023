@@ -1,8 +1,6 @@
 package main
 
 import (
-	// "fmt"
-	// "os"
 	"flag"
 	"fmt"
 
@@ -13,40 +11,54 @@ import (
 )
 
 func main() {
-    watcher, err := fsnotify.NewWatcher()
-    if err != nil {
-        fmt.Println(err)
-    }
-    defer watcher.Close()
-	watcher.Add("README.md")
-
-    str := flag.String("dev", "dev", "dev")
+	devflag := flag.String("dev", "dev", "dev")
     flag.Parse()
-	fmt.Println(*str)
 
-	// engine, err := runner.NewEngine(".air.toml", true)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	os.Exit(1)
-	// }
-	// engine.Run()
+	if *devflag == "dev" {
+		watcher, err := fsnotify.NewWatcher()
+		if err != nil {
+			fmt.Println(err)
+		}
+		defer watcher.Close()
+		watcher.Add("README.md")
 
-	// TODO watch mode
-	esbuild.Build(esbuild.BuildOptions{
-		EntryPoints: []string{"web/app.tsx"},
-		Outfile:     "web/public/app.js",
-		Bundle:      true,
-		Write:       true,
-		LogLevel:    esbuild.LogLevelInfo,
-	})
+		// todo catch events
 
+		esbuild.Build(esbuild.BuildOptions{
+			EntryPoints: []string{"web/app.tsx"},
+			Outfile:     "web/public/app.js",
+			Bundle:      true,
+			Write:       true,
+			LogLevel:    esbuild.LogLevelInfo,
+		})
+
+		app := createApp()
+		app.Listen("3000")
+	} else {
+		esbuild.Build(esbuild.BuildOptions{
+			EntryPoints: []string{"web/app.tsx"},
+			Outfile:     "web/public/app.js", // できればapi経由で配信できないかな
+			Bundle:      true,
+			Write:       true,
+			LogLevel:    esbuild.LogLevelInfo,
+		})
+
+		app := createApp()
+		app.Listen("3000")
+	}
+}
+
+func createApp() *fiber.App {
 	// nextjs で言う api routes みたいな. SSGされる対象
 	// - GET /api/contents ... list contents
 	// - GET /api/contents/{id} ... get content with id
 	// - GET /api/contents/{id}/actions ... list content actions
 	// - GET /api/contents/{id}/actions/{id}/wasm ... get wasm binary
+
+	// wasm ファイルもapi経由で配信できないか
 	app := fiber.New()
 	app.Get("/api", handler.ListContents)
 	app.Static("/", "./public")
-    app.Listen(":3001")
+
+	return app
 }
