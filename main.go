@@ -1,12 +1,24 @@
 package main
 
 import (
+	// "fmt"
+	// "os"
+
 	"github.com/enuesaa/kakkofn/handler"
 	esbuild "github.com/evanw/esbuild/pkg/api"
 	"github.com/gofiber/fiber/v2"
+
+	// "github.com/cosmtrek/air/runner"
 )
 
 func main() {
+	// engine, err := runner.NewEngine(".air.toml", true)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	os.Exit(1)
+	// }
+	// engine.Run()
+
 	// TODO watch mode
 	esbuild.Build(esbuild.BuildOptions{
 		EntryPoints: []string{"web/app.tsx"},
