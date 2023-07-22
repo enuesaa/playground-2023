@@ -14,14 +14,19 @@ func main() {
 
 func CreateApp() *fiber.App {
 	// nextjs で言う api routes みたいな. SSGされる対象
-	// - GET /api/contents ... list contents
-	// - GET /api/contents/{id} ... get content with id
-	// - GET /api/contents/{id}/actions ... list content actions
-	// - GET /api/contents/{id}/actions/{id}/wasm ... get wasm binary
+	// - GET /api/fns ... list fns
+	// - GET /api/fns/{id} ... get fn with id
+		// - GET /api/fns/{id}/actions ... list content actions
+		// - GET /api/fns/{id}/actions/{id}/wasm ... get wasm binary
+	
+	// - GET /assets/codego/wasm ... get wasm binary
+	// - GET /assets/codego/wasm_exec.js ... golang wasm_exec.js
 
-	// wasm ファイルもapi経由で配信できないか
+	// 入力値は現実的にどのようなパターンがありそうか考える必要がある
+
 	app := fiber.New()
 	app.Get("/api", handler.ListContents)
+	app.Get("/codego/wasm", handler.GetCodegoWasm)
 	app.Static("/", "./public")
 
 	return app

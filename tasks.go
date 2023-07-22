@@ -74,14 +74,6 @@ func main() {
 		runCmd(cmd)
 		<-make(chan struct{})
 
-    case "build:codego":
-		// - GOOS=js GOARCH=wasm go build -C ../codego -o main.wasm main.go && mv ../codego/main.wasm public/main.wasm && cat $(go env GOROOT)/misc/wasm/wasm_exec.js > public/wasm_exec.js
-		// see https://blog.lufia.org/entry/2019/12/03/140005
-		ctx, cancel := context.WithCancel(context.Background())
-		defer cancel()
-		cmd := exec.CommandContext(ctx, "go", "build", "-C", "apps/codego", "-o", "main.wasm")
-		cmd.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm")
-		runCmd(cmd)
     case "build:web":
 		esbuild.Build(esbuild.BuildOptions{
 			EntryPoints: []string{"web/app.tsx"},
