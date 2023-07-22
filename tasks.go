@@ -3,6 +3,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"os/exec"
@@ -22,15 +23,6 @@ func main() {
 	mode := os.Args[1]
 	switch mode {
     case "dev":
-		watcher, err := fsnotify.NewWatcher()
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-		defer watcher.Close()
-		watcher.Add("README.md")
-
-		// todo catch events
 		esbuild.Build(esbuild.BuildOptions{
 			EntryPoints: []string{"web/app.tsx"},
 			Outfile:     "web/public/app.js",
@@ -38,9 +30,47 @@ func main() {
 			Write:       true,
 			LogLevel:    esbuild.LogLevelInfo,
 		})
+		// see https://blog.lufia.org/entry/2019/12/03/140005
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		cmd := exec.CommandContext(ctx, "go", "run", ".")
+
+		watcher, err := fsnotify.NewWatcher()
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+		defer watcher.Close()
+		watcher.Add("README.md")		
+
+		go func() {
+			for {
+				select {
+				case event, ok := <-watcher.Events:
+					if !ok {
+						return
+					}
+					fmt.Println("event:", event)
+					cancel()
+					if err := cmd.Cancel(); err != nil {
+						fmt.Println(err)
+					}
+				case err, ok := <-watcher.Errors:
+					if !ok {
+						return
+					}
+					fmt.Println(err)
+				}
+			}
+		}()
+		runCmd(cmd)
+
     case "build:codego":
 		// - GOOS=js GOARCH=wasm go build -C ../codego -o main.wasm main.go && mv ../codego/main.wasm public/main.wasm && cat $(go env GOROOT)/misc/wasm/wasm_exec.js > public/wasm_exec.js
-		cmd := exec.Command("go", "build", "-C", "apps/codego", "-o", "main.wasm")
+		// see https://blog.lufia.org/entry/2019/12/03/140005
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		cmd := exec.CommandContext(ctx, "go", "build", "-C", "apps/codego", "-o", "main.wasm")
 		cmd.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm")
 		runCmd(cmd)
     case "build:web":

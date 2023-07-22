@@ -3,12 +3,13 @@ package main
 import (
 	"github.com/enuesaa/kakkofn/handler"
 	"github.com/gofiber/fiber/v2"
+	_ "github.com/evanw/esbuild/pkg/api"
+	_ "github.com/fsnotify/fsnotify"
 )
-
 
 func main() {
 	app := CreateApp()
-	app.Listen("3000")
+	app.Listen(":3000")
 }
 
 func CreateApp() *fiber.App {

@@ -3,8 +3,8 @@ module github.com/enuesaa/kakkofn
 go 1.20
 
 require (
-	github.com/evanw/esbuild v0.18.14
-	github.com/fsnotify/fsnotify v1.6.0
+	github.com/evanw/esbuild v0.18.15
+	github.com/fsnotify/fsnotify v1.6.1-0.20230713180834-9342b6df5779
 	github.com/gofiber/fiber/v2 v2.48.0
 )
 
