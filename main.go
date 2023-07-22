@@ -3,15 +3,27 @@ package main
 import (
 	// "fmt"
 	// "os"
+	"flag"
+	"fmt"
 
 	"github.com/enuesaa/kakkofn/handler"
 	esbuild "github.com/evanw/esbuild/pkg/api"
 	"github.com/gofiber/fiber/v2"
-
-	// "github.com/cosmtrek/air/runner"
+	"github.com/fsnotify/fsnotify"
 )
 
 func main() {
+    watcher, err := fsnotify.NewWatcher()
+    if err != nil {
+        fmt.Println(err)
+    }
+    defer watcher.Close()
+	watcher.Add("README.md")
+
+    str := flag.String("dev", "dev", "dev")
+    flag.Parse()
+	fmt.Println(*str)
+
 	// engine, err := runner.NewEngine(".air.toml", true)
 	// if err != nil {
 	// 	fmt.Println(err)
@@ -36,5 +48,5 @@ func main() {
 	app := fiber.New()
 	app.Get("/api", handler.ListContents)
 	app.Static("/", "./public")
-    app.Listen(":3000")
+    app.Listen(":3001")
 }
