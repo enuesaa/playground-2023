@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - echo b
+  
+  # build codego app and put wasm file under /web
+  build:codego:
+    cmds:
+      - GOOS=js GOARCH=wasm go build -C ../codego -o main.wasm main.go && mv ../codego/main.wasm public/main.wasm && cat $(go env GOROOT)/misc/wasm/wasm_exec.js > public/wasm_exec.js
+
+  # build frontend app
+  build:web:
+    cmds:
+      - echo a
