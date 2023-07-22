@@ -5,9 +5,9 @@ import (
 	"os"
 
 	"github.com/enuesaa/kakkofn/handler"
-	// esbuild "github.com/evanw/esbuild/pkg/api"
+	esbuild "github.com/evanw/esbuild/pkg/api"
 	"github.com/gofiber/fiber/v2"
-	// "github.com/fsnotify/fsnotify"
+	"github.com/fsnotify/fsnotify"
 )
 
 func getHelpMessage() string {
@@ -32,37 +32,36 @@ func main() {
 	mode := os.Args[1]
 	switch mode {
     case "dev":
-		// 	watcher, err := fsnotify.NewWatcher()
-		// 	if err != nil {
-		// 		fmt.Println(err)
-		// 	}
-		// 	defer watcher.Close()
-		// 	watcher.Add("README.md")
+		watcher, err := fsnotify.NewWatcher()
+		if err != nil {
+			fmt.Println(err)
+		}
+		defer watcher.Close()
+		watcher.Add("README.md")
 
-		// 	// todo catch events
-
-		// 	esbuild.Build(esbuild.BuildOptions{
-		// 		EntryPoints: []string{"web/app.tsx"},
-		// 		Outfile:     "web/public/app.js",
-		// 		Bundle:      true,
-		// 		Write:       true,
-		// 		LogLevel:    esbuild.LogLevelInfo,
-		// 	})
-		// 	app := createApp()
-		// 	app.Listen("3000")
+		// todo catch events
+		esbuild.Build(esbuild.BuildOptions{
+			EntryPoints: []string{"web/app.tsx"},
+			Outfile:     "web/public/app.js",
+			Bundle:      true,
+			Write:       true,
+			LogLevel:    esbuild.LogLevelInfo,
+		})
+		app := createApp()
+		app.Listen("3000")
     case "start":
-		// 	app := createApp()
-		// 	app.Listen("3000")
+		app := createApp()
+		app.Listen("3000")
     case "build:codego":
 		// - GOOS=js GOARCH=wasm go build -C ../codego -o main.wasm main.go && mv ../codego/main.wasm public/main.wasm && cat $(go env GOROOT)/misc/wasm/wasm_exec.js > public/wasm_exec.js
     case "build:web":
-		// 	esbuild.Build(esbuild.BuildOptions{
-		// 		EntryPoints: []string{"web/app.tsx"},
-		// 		Outfile:     "web/public/app.js", // できればapi経由で配信できないかな
-		// 		Bundle:      true,
-		// 		Write:       true,
-		// 		LogLevel:    esbuild.LogLevelInfo,
-		// 	})
+		esbuild.Build(esbuild.BuildOptions{
+			EntryPoints: []string{"web/app.tsx"},
+			Outfile:     "web/public/app.js", // できればapi経由で配信できないかな
+			Bundle:      true,
+			Write:       true,
+			LogLevel:    esbuild.LogLevelInfo,
+		})
     default:
 		fmt.Println("Error: Invalid subcommand.")
 		fmt.Println(getHelpMessage())
