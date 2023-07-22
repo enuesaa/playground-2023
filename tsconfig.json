@@ -21,7 +21,7 @@
     }
   },
   "include": [
-    "app.d.ts",
+    "web/app.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

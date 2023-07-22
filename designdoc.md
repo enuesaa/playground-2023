@@ -4,8 +4,7 @@ My experimental website.
 ## Apps
 | name | purpose | stacks |
 | - | - | - |
-| main | Web API | Go, Gin, wasmer-go |
-| web | Web Application | NextJS |
+| main | Web API | Go, fiber, react |
 | toolkit | Tools | Rust |
 | codego | Golang Demo (Wasm) | Go |
 
