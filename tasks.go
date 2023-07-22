@@ -32,8 +32,8 @@ func main() {
 		})
 		// see https://blog.lufia.org/entry/2019/12/03/140005
 		ctx, cancel := context.WithCancel(context.Background())
-		defer cancel()
 		cmd := exec.CommandContext(ctx, "go", "run", ".")
+		defer cmd.Cancel()
 
 		watcher, err := fsnotify.NewWatcher()
 		if err != nil {
@@ -51,10 +51,17 @@ func main() {
 						return
 					}
 					fmt.Println("event:", event)
+					fmt.Println(cmd.Args)
 					cancel()
-					if err := cmd.Cancel(); err != nil {
+					process, err := os.FindProcess(cmd.Process.Pid)
+					if err != nil {
 						fmt.Println(err)
 					}
+					if err := process.Kill(); err != nil {
+						fmt.Println(err)
+					}
+					code := cmd.ProcessState.ExitCode()
+					fmt.Printf("Command finished with exit code %d\n", code)
 				case err, ok := <-watcher.Errors:
 					if !ok {
 						return
@@ -63,7 +70,9 @@ func main() {
 				}
 			}
 		}()
+
 		runCmd(cmd)
+		<-make(chan struct{})
 
     case "build:codego":
 		// - GOOS=js GOARCH=wasm go build -C ../codego -o main.wasm main.go && mv ../codego/main.wasm public/main.wasm && cat $(go env GOROOT)/misc/wasm/wasm_exec.js > public/wasm_exec.js
@@ -122,7 +131,7 @@ func runCmd(cmd *exec.Cmd) {
 		}
 		buff = make([]byte, 1024)
 	}
-	cmd.Wait()
-	code := cmd.ProcessState.ExitCode()
-	fmt.Printf("Command finished with exit code %d\n", code)
+	// cmd.Wait()
+	// code := cmd.ProcessState.ExitCode()
+	// fmt.Printf("Command finished with exit code %d\n", code)
 }
