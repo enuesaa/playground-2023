@@ -15,7 +15,7 @@ func JsonDecode() content.Content {
 	content.AddKv("docUrl", "https://example.com")
 	content.AddKv("usage", "JSON.Marahsll()")
 
-	content.AddDemo("main", "codego/jsonDecode")
+	content.AddDemo("main", "codego/decodeJson")
 
 	return content
 }

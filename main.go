@@ -10,7 +10,7 @@ func main() {
 	// TODO watch mode
 	esbuild.Build(esbuild.BuildOptions{
 		EntryPoints: []string{"web/app.tsx"},
-		Outfile:     "public/app.js",
+		Outfile:     "web/public/app.js",
 		Bundle:      true,
 		Write:       true,
 		LogLevel:    esbuild.LogLevelInfo,

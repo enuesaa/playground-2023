@@ -21,4 +21,4 @@ yarn-error.log*
 .vscode
 
 # app
-web/public/dist.js
+web/public/app.js
