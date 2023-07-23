@@ -23,13 +23,22 @@ func main() {
 	mode := os.Args[1]
 	switch mode {
     case "dev":
+		// esbuild.Build(esbuild.BuildOptions{
+		// 	EntryPoints: []string{"web/app.tsx"},
+		// 	Outfile:     "web/public/app.js",
+		// 	Bundle:      true,
+		// 	Write:       true,
+		// 	LogLevel:    esbuild.LogLevelInfo,
+		// })
 		esbuild.Build(esbuild.BuildOptions{
-			EntryPoints: []string{"web/app.tsx"},
-			Outfile:     "web/public/app.js",
 			Bundle:      true,
+			EntryPoints: []string{"web/app.tsx"},
+			Outdir:     "./web/public",
 			Write:       true,
-			LogLevel:    esbuild.LogLevelInfo,
+			Platform:    esbuild.PlatformNode,
+			Format:      esbuild.FormatESModule,
 		})
+
 		// see https://blog.lufia.org/entry/2019/12/03/140005
 		ctx, cancel := context.WithCancel(context.Background())
 		cmd := exec.CommandContext(ctx, "go", "run", ".")
