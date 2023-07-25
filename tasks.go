@@ -23,13 +23,6 @@ func main() {
 	mode := os.Args[1]
 	switch mode {
     case "dev":
-		// esbuild.Build(esbuild.BuildOptions{
-		// 	EntryPoints: []string{"web/app.tsx"},
-		// 	Outfile:     "web/public/app.js",
-		// 	Bundle:      true,
-		// 	Write:       true,
-		// 	LogLevel:    esbuild.LogLevelInfo,
-		// })
 		esbuild.Build(esbuild.BuildOptions{
 			Bundle:      true,
 			EntryPoints: []string{"web/app.tsx"},

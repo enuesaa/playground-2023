@@ -4,7 +4,7 @@ My experimental website.
 ## Apps
 | name | purpose | stacks |
 | - | - | - |
-| main | Web API | Go, fiber, react |
+| main | Web API | Go, React (esbuild) |
 | toolkit | Tools | Rust |
 | codego | Golang Demo (Wasm) | Go |
 
