@@ -37,6 +37,7 @@ func main() {
 		cmd := exec.CommandContext(ctx, "go", "run", ".")
 		defer cmd.Cancel()
 
+		// hot reload
 		watcher, err := fsnotify.NewWatcher()
 		if err != nil {
 			fmt.Println(err)
@@ -76,7 +77,7 @@ func main() {
 		runCmd(cmd)
 		<-make(chan struct{})
 
-    case "build:web":
+    case "build":
 		esbuild.Build(esbuild.BuildOptions{
 			EntryPoints: []string{"web/app.tsx"},
 			Outfile:     "web/public/app.js", // できればapi経由で配信できないかな
@@ -94,9 +95,8 @@ func main() {
 func getHelpMessage() string {
 	message := `
 Subcommands:
-  dev          start app with dev mode
-  build:codego build codego app
-  build:web    build web app
+  dev   start app with dev mode
+  build build web app
 `
 
 	return message

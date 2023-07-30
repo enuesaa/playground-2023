@@ -1,10 +1,8 @@
-# kakkofn
-My experimental website.
-
+# designdoc
 ## Apps
 | name | purpose | stacks |
 | - | - | - |
-| main | Web API | Go, React (esbuild) |
+| main | Web | Go, React |
 | toolkit | Tools | Rust |
 | codego | Golang Demo (Wasm) | Go |
 
