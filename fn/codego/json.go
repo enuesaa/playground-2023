@@ -1,11 +1,11 @@
-package golang
+package codego
 
 import (
-	"github.com/enuesaa/kakkofn/content"
+	"github.com/enuesaa/kakkofn/fn"
 )
 
-func JsonDecode() content.Content {
-	content := content.NewContent("golang:json:decode")
+func JsonDecode() fn.Content {
+	content := fn.NewContent("golang:json:decode")
 	content.Name = "JSONのデコード"
 	content.Description = "GoでJSONのデコードをします"
 

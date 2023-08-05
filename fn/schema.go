@@ -1,4 +1,4 @@
-package content
+package fn
 
 type ContentDemo struct {
 	Name string

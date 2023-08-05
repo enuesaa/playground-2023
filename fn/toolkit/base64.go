@@ -1,11 +1,11 @@
-package tool
+package toolkit
 
 import (
-	"github.com/enuesaa/kakkofn/content"
+	"github.com/enuesaa/kakkofn/fn"
 )
 
-func Base64Decode() content.Content {
-	content := content.NewContent("tool:base64:decode")
+func Base64Decode() fn.Content {
+	content := fn.NewContent("tool:base64:decode")
 	content.Name = "base64でデコード"
 	content.Description = "base64でデコードします"
 

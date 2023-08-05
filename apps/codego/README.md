@@ -1,6 +1,4 @@
 # codego
-wasm app of golang.
-
 ## Links
 - https://future-architect.github.io/articles/20221024a/
 - https://betterprogramming.pub/error-handling-with-tinygo-wasm-883533bb8b77
