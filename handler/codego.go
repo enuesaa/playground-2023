@@ -9,7 +9,6 @@ import (
 )
 
 func GetCodegoWasm(c *fiber.Ctx) error {
-	// 一時領域が必要
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	cmd := exec.CommandContext(ctx, "go", "build", "-C", "apps/codego", "-o", "main.wasm")

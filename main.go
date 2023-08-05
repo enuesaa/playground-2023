@@ -7,25 +7,24 @@ import (
 	_ "github.com/fsnotify/fsnotify"
 )
 
-func main() {
-	app := CreateApp()
-	app.Listen(":3000")
-}
-
 func CreateApp() *fiber.App {
-	// nextjs で言う api routes みたいな. SSGされる対象
-	// - GET /api/fns ... list fns
-	// - GET /api/fns/{id} ... get fn with id
-	// - GET /api/fns/{id}/demos/{id}/spec ... 入力値の定義(JSON Schema)
-	// wasm のコードの転送量を抑えたいためAPIで返す
-	
-	// - GET /assets/codego/wasm ... get wasm binary
-	// - GET /assets/codego/wasm_exec.js ... golang wasm_exec.js
-
 	app := fiber.New()
-	app.Get("/api", handler.ListContents)
+	app.Get("/api/fns", handler.ListFns)
+	// app.Get("/api/fns/{id}", handler.ListFns)
+	// app.Get("/api/fns/{id}/demos", handler.ListFns)
+
+	// wasm のコードの転送量を抑えたいためAPIで返す
+	// app.Get("/api/fns/{id}/demos/{id}", handler.ListFns) // 入力値の定義(JSON Schema)
 	app.Get("/codego/wasm", handler.GetCodegoWasm)
 	app.Static("/", "./public")
 
+	// - GET /assets/codego/wasm ... get wasm binary
+	// - GET /assets/codego/wasm_exec.js ... golang wasm_exec.js
+
 	return app
+}
+
+func main() {
+	app := CreateApp()
+	app.Listen(":3000")
 }
