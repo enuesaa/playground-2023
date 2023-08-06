@@ -22,4 +22,4 @@ yarn-error.log*
 
 # app
 web/public/app.js
-tmp
+/tmp

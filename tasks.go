@@ -10,99 +10,35 @@ import (
 	"strings"
 
 	esbuild "github.com/evanw/esbuild/pkg/api"
-	"github.com/fsnotify/fsnotify"
 )
 
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Error: Please specify subcommand.")
-		fmt.Println(getHelpMessage())
 		os.Exit(1)
 	}
 
 	mode := os.Args[1]
 	switch mode {
-    case "dev":
-		esbuild.Build(esbuild.BuildOptions{
-			Bundle:      true,
-			EntryPoints: []string{"web/app.tsx"},
-			Outdir:     "./web/public",
-			Write:       true,
-			Platform:    esbuild.PlatformNode,
-			Format:      esbuild.FormatESModule,
-		})
-
-		// see https://blog.lufia.org/entry/2019/12/03/140005
-		ctx, cancel := context.WithCancel(context.Background())
-		cmd := exec.CommandContext(ctx, "go", "run", ".")
-		defer cmd.Cancel()
-
-		// hot reload
-		watcher, err := fsnotify.NewWatcher()
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-		defer watcher.Close()
-		watcher.Add("README.md")		
-
-		go func() {
-			for {
-				select {
-				case event, ok := <-watcher.Events:
-					if !ok {
-						return
-					}
-					fmt.Println("event:", event)
-					fmt.Println(cmd.Args)
-					cancel()
-					process, err := os.FindProcess(cmd.Process.Pid)
-					if err != nil {
-						fmt.Println(err)
-					}
-					if err := process.Kill(); err != nil {
-						fmt.Println(err)
-					}
-					code := cmd.ProcessState.ExitCode()
-					fmt.Printf("Command finished with exit code %d\n", code)
-				case err, ok := <-watcher.Errors:
-					if !ok {
-						return
-					}
-					fmt.Println(err)
-				}
-			}
-		}()
-
-		runCmd(cmd)
-		<-make(chan struct{})
-
     case "build":
+		ctx, cancel := context.WithCancel(context.Background())
+		cmd := exec.CommandContext(ctx, "go", "build", "-o", "tmp/main", ".")
+		defer cancel()
+		runCmd(cmd)
+
 		esbuild.Build(esbuild.BuildOptions{
 			EntryPoints: []string{"web/app.tsx"},
-			Outfile:     "web/public/app.js", // できればapi経由で配信できないかな
-			Bundle:      true,
-			Write:       true,
-			LogLevel:    esbuild.LogLevelInfo,
+			Outdir:   "tmp/dist",
+			Bundle:   true,
+			Write:    true,
+			LogLevel: esbuild.LogLevelInfo,
 		})
     default:
 		fmt.Println("Error: Invalid subcommand.")
-		fmt.Println(getHelpMessage())
 		os.Exit(1)
 	}
 }
 
-func getHelpMessage() string {
-	message := `
-Subcommands:
-  dev   start app with dev mode
-  build build web app
-`
-
-	return message
-}
-
-// see https://stackoverflow.com/questions/1877045/how-do-you-get-the-output-of-a-system-command-in-go
 func runCmd(cmd *exec.Cmd) {
 	fmt.Printf("Running command `%s`\n", strings.Join(cmd.Args, " "))
 
@@ -125,7 +61,7 @@ func runCmd(cmd *exec.Cmd) {
 		}
 		buff = make([]byte, 1024)
 	}
-	// cmd.Wait()
-	// code := cmd.ProcessState.ExitCode()
-	// fmt.Printf("Command finished with exit code %d\n", code)
+	cmd.Wait()
+	code := cmd.ProcessState.ExitCode()
+	fmt.Printf("Command finished with exit code %d\n", code)
 }

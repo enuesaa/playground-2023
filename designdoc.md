@@ -4,7 +4,7 @@
 | - | - | - |
 | main | Web | Go, React |
 | toolkit | Tools | Rust |
-| codego | Golang Demo (Wasm) | Go |
+| codego | Golang Action (Wasm) | Go |
 
 ## philosophy
 - 何でも可視化できればベスト

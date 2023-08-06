@@ -1,8 +1,11 @@
 FROM golang:1.20 AS production
 
 WORKDIR /app
+RUN apt update
+
 COPY . .
 RUN go build -o main
+
 ENTRYPOINT ["/app/main"]
 
 

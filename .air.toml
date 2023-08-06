@@ -1,9 +1,9 @@
 root = "."
 tmp_dir = "tmp"
 [build]
-  cmd = "go build -o ./tmp/main ."
+  cmd = "go run tasks.go build"
   bin = "./tmp/main"
-  delay = 1000 # ms
+  delay = 1000
   exclude_dir = ["tmp", "apps", "node_modules"]
   include_ext = ["go", "tpl", "tmpl", "html"]
   exclude_regex = ["_test\\.go"]
