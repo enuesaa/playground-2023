@@ -24,3 +24,4 @@ go.work.sum
 /tmp
 /main
 /web/styled-system
+/.cache
