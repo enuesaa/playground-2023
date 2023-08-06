@@ -17,6 +17,7 @@ func CreateApp() *fiber.App {
 
 	app.Static("/", "./tmp/dist")
 
+	
 	return app
 }
 

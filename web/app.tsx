@@ -1,23 +1,20 @@
 import { StrictMode } from 'react'
 import * as ReactDOM from 'react-dom/client'
-import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './styles/global.css'
+import TopPage from '@/pages/index'
+import FramePage from '@/pages/frame'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <div>
-        <h1>Hello Woarld</h1>
-        <Link to="/about">About Us</Link>
-      </div>
-    ),
+    element: <TopPage />,
   },
   {
-    path: '/about',
-    element: <div>About</div>,
+    path: '/frame',
+    element: <FramePage />,
   },
-]);
+])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
