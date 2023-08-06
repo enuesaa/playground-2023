@@ -13,10 +13,9 @@ func CreateApp() *fiber.App {
 
 	app.Get("/assets/codego/app.wasm", handler.GetCodegoWasm) // get wasm binary
 	// app.Get("/assets/codego/wasm_exec.js", handler.GetCodegoWasm) // golang wasm_exec.js
-
 	// app.Get("/assets/toolkit/app.wasm", handler.GetCodegoWasm)
 
-	app.Static("/", "./public")
+	app.Static("/", "./tmp/dist")
 
 	return app
 }

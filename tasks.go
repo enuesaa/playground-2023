@@ -22,10 +22,10 @@ func main() {
 	switch mode {
     case "build":
 		ctx, cancel := context.WithCancel(context.Background())
-		cmd := exec.CommandContext(ctx, "go", "build", "-o", "tmp/main", ".")
 		defer cancel()
-		runCmd(cmd)
+		runCmd(exec.CommandContext(ctx, "go", "build", "-o", "tmp/main", "."))
 
+		runCmd(exec.CommandContext(ctx, "cp", "-RT", "web/public", "tmp/dist"))
 		esbuild.Build(esbuild.BuildOptions{
 			EntryPoints: []string{"web/app.tsx"},
 			Outdir:   "tmp/dist",
