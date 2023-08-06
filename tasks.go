@@ -32,6 +32,7 @@ func main() {
 			Bundle:   true,
 			Write:    true,
 			LogLevel: esbuild.LogLevelInfo,
+			JSX: esbuild.JSXAutomatic,
 		})
     default:
 		fmt.Println("Error: Invalid subcommand.")
