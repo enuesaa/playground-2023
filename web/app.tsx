@@ -1,10 +1,11 @@
 import { StrictMode } from 'react'
-import * as ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './styles/global.css'
 import TopPage from '@/pages/index'
 import FramePage from '@/pages/frame'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: '/',
@@ -16,8 +17,14 @@ const router = createBrowserRouter([
   },
 ])
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-)
+export const App = () => {
+  return (
+    <>
+      <StrictMode>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </StrictMode>
+    </>
+  )
+}

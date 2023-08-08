@@ -27,7 +27,7 @@ func main() {
 
 		runCmd(exec.CommandContext(ctx, "cp", "-RT", "web/public", "tmp/dist"))
 		esbuild.Build(esbuild.BuildOptions{
-			EntryPoints: []string{"web/app.tsx"},
+			EntryPoints: []string{"web/main.tsx"},
 			Outdir:   "tmp/dist",
 			Bundle:   true,
 			Write:    true,
