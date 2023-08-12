@@ -5,11 +5,13 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func CreateApp() *fiber.App {
+func main() {
 	app := fiber.New()
 
-	app.Get("/api/fns", handler.ListFns)
-	app.Get("/api/fns/:id", handler.DescribeFn)
+	api := app.Group("/api")
+	api.Post("/api/rebuild", handler.Rebuild)
+	api.Get("/api/fns", handler.ListFns)
+	api.Get("/api/fns/:id", handler.DescribeFn)
 
 	app.Get("/assets/codego/app.wasm", handler.GetCodegoWasm) // get wasm binary
 	// app.Get("/assets/codego/wasm_exec.js", handler.GetCodegoWasm) // golang wasm_exec.js
@@ -17,11 +19,5 @@ func CreateApp() *fiber.App {
 
 	app.Static("/", "./tmp/dist")
 
-	
-	return app
-}
-
-func main() {
-	app := CreateApp()
 	app.Listen(":3000")
 }
