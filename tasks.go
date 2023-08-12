@@ -25,7 +25,7 @@ func main() {
 		defer cancel()
 		runCmd(exec.CommandContext(ctx, "go", "build", "-o", "tmp/main", "."))
 
-		runCmd(exec.CommandContext(ctx, "cp", "-RT", "web/public", "tmp/dist"))
+		runCmd(exec.CommandContext(ctx, "cp", "-RT", "web/public", "dist"))
 		esbuild.Build(esbuild.BuildOptions{
 			EntryPoints: []string{"web/main.tsx"},
 			Outdir:   "tmp/dist",

@@ -5,5 +5,7 @@ import (
 )
 
 func Rebuild(c *fiber.Ctx) error {
+	// rebuild codego here
+
 	return c.JSON("")
 }

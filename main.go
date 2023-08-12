@@ -17,7 +17,7 @@ func main() {
 	// app.Get("/assets/codego/wasm_exec.js", handler.GetCodegoWasm) // golang wasm_exec.js
 	// app.Get("/assets/toolkit/app.wasm", handler.GetCodegoWasm)
 
-	app.Static("/", "./tmp/dist")
+	app.Static("/", "./dist")
 
 	app.Listen(":3000")
 }

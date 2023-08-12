@@ -22,5 +22,6 @@ go.work.sum
 
 # app
 /tmp
+/dist
 /main
 /web/styled-system

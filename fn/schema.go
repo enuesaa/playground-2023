@@ -1,6 +1,6 @@
 package fn
 
-type ContentDemo struct {
+type ContentAction struct {
 	Name string
 	Path string // wasm action path
 	// input like textarea
@@ -17,7 +17,7 @@ type Content struct {
 	Name string
 	Description string
 	Kvs []ContentKv
-	Demos []ContentDemo
+	Demos []ContentAction
 }
 func NewContent(id string) Content {
 	return Content {
@@ -30,4 +30,4 @@ func (content *Content) AddKv(key string, value string) {
 	content.Kvs = append(content.Kvs, ContentKv{ Key: key, Value: value })
 }
 // todo
-func (content *Content) AddDemo(name string, path string) {}
+func (content *Content) AddAction(name string, path string) {}
