@@ -12,7 +12,7 @@ func Base64Decode() fn.Content {
 	content.AddKv("created", "2023-07-17T00:00:00+09:00")
 	content.AddKv("modified", "2023-07-17T00:00:00+09:00")
 
-	content.AddDemo("main", "toolkit/base64_docode")
+	content.AddAction("main", "toolkit/base64_docode")
 
 	return content
 }
