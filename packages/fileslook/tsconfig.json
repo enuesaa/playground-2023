@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.json",
+  "target": "es2022",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "noEmit": false,
+    "incremental": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "outDir": "dist"
+  }
+}

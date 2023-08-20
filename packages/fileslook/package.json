@@ -1,0 +1,21 @@
+{
+  "name": "@enuesaa/fileslook",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "prettier": "^3.0.0",
+    "react": "^18.2.0",
+    "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.17"
+  }
+}
