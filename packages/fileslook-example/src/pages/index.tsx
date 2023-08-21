@@ -1,4 +1,5 @@
 import { Files, type FileInfo } from '@enuesaa/fileslook'
+import Link from 'next/link'
 
 export default function Page() {
   const files: FileInfo[] = [
@@ -21,8 +22,11 @@ func main() {
   ]
 
   return (
-    <section style={{width: '900px', margin: '10px auto'}}>
-      <Files files={files} opened={'main.go'} hideSidebar={true} />
-    </section>
+    <>
+      <Link href={'markdown'} style={{ color: '#fafafa' }}>markdown</Link>
+      <section style={{width: '900px', margin: '10px auto'}}>
+        <Files files={files} opened={'main.go'} hideSidebar={true} />
+      </section>
+    </>
   )
 }
