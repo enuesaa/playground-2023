@@ -23,7 +23,7 @@ export default function Page() {
   ]
 
   return (
-    <section>
+    <section style={{width: '900px', margin: '10px auto'}}>
       <Files files={files} opened={'main.go'} hideSidebar={true} />
     </section>
   )
