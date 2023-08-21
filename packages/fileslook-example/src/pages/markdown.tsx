@@ -1,7 +1,8 @@
-import { MarkdownHighlight } from '@/components/MarkdownHighlight'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import Link from 'next/link'
 import { useState } from 'react'
+import { CodeBlock } from '@enuesaa/fileslook'
 
 export default function Page() {
   const markdown= `
@@ -26,18 +27,20 @@ func main() {
   })()
 
   return (
-    <section style={{width: '900px', margin: '10px auto', color: '#fafafa'}}>
-      { compiledSource === null ? (<></>) : (
-        <MDXRemote
-          compiledSource={compiledSource}
-          scope={{}}
-          frontmatter={{}}
-          components={{
-            // @ts-ignore
-            code: MarkdownHighlight,
-          }}
-        />
-      )}
-    </section>
+    <>
+      <Link href={'/'} style={{ color: '#fafafa' }}>top</Link>
+      <section style={{width: '900px', margin: '10px auto', color: '#fafafa'}}>
+        { compiledSource === null ? (<></>) : (
+          <MDXRemote
+            compiledSource={compiledSource}
+            scope={{}}
+            frontmatter={{}}
+            components={{
+              code: CodeBlock,
+            }}
+          />
+        )}
+      </section>
+    </>
   )
 }
