@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { cb } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 type Props = JSX.IntrinsicElements['code']
 export const CodeBlock = ({ className, children }: Props) => {
@@ -10,7 +10,7 @@ export const CodeBlock = ({ className, children }: Props) => {
   }
 
   return (
-    <SyntaxHighlighter style={cb} {...(language !== '' && {language})}>
+    <SyntaxHighlighter style={a11yDark} {...(language !== '' && {language})}>
       {children}
     </SyntaxHighlighter>
   )
