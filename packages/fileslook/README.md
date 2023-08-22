@@ -6,3 +6,15 @@ React Component to share code snippets.
 - syntax highlight
 - change background color to express how important this line is.
 - tabs. also hide tabs.
+
+```go:main.go
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  fmt.Println("a")
+}
+```
