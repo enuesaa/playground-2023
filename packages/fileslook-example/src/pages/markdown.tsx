@@ -7,7 +7,7 @@ import { CodeBlock } from '@enuesaa/fileslook'
 export default function Page() {
   const markdown= `
 # タイトル
-~~~go
+~~~go:main.go
 package main
 
 import (
