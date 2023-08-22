@@ -12,9 +12,10 @@ export default function Page() {
       path: 'main.go',
       language: 'go',
       content: `package main
-
+// import fmt
 import ("fmt")
 
+// ここでなんかやる
 func main() {
   fmt.Println("aa")
 }`
