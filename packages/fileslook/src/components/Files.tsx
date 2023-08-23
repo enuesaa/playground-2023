@@ -1,4 +1,4 @@
-import { FileContent } from './FileContent'
+import { CodeBlock } from './CodeBlock'
 import { Sidebar } from './Sidebar'
 import { Tab } from './Tab'
 import { type FileInfo } from '../type'
@@ -30,7 +30,7 @@ export const Files = ({ files, opened, hideSidebar }: Props) => {
       )}
       <div style={{ flex: '1 0 auto' }}>
         <Tab file={openedFile} />
-        <FileContent file={openedFile} />
+        <CodeBlock className={`language-${openedFile?.language}:${openedFile?.path}`}>{openedFile?.content}</CodeBlock>
       </div>
     </section>
   )
