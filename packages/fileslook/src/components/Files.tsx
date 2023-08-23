@@ -1,6 +1,5 @@
 import { CodeBlock } from './CodeBlock'
 import { Sidebar } from './Sidebar'
-import { Tab } from './Tab'
 import { type FileInfo } from '../type'
 import { useState } from 'react'
 
@@ -29,7 +28,6 @@ export const Files = ({ files, opened, hideSidebar }: Props) => {
         </div>
       )}
       <div style={{ flex: '1 0 auto' }}>
-        <Tab file={openedFile} />
         <CodeBlock className={`language-${openedFile?.language}:${openedFile?.path}`}>{openedFile?.content}</CodeBlock>
       </div>
     </section>
