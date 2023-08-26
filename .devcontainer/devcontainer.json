@@ -15,7 +15,12 @@
       },
       "extensions": [
         "golang.go"
-      ]
+      ],
+      "gopls": {
+        "build.directoryFilters": [
+          "-/apps"
+        ]
+      }
     }
   },
   "shutdownAction": "none"

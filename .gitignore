@@ -16,10 +16,6 @@ yarn-error.log*
 # editor
 .vscode
 
-# see https://poyo.hatenablog.jp/entry/2022/12/05/090000
-go.work
-go.work.sum
-
 # app
 /tmp
 /dist
