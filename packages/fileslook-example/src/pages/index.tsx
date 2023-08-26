@@ -1,4 +1,4 @@
-import { Files, File } from '@enuesaa/fileslook'
+// import { Files, File } from '@enuesaa/fileslook'
 import Link from 'next/link'
 
 export default function Page() {
@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <Link href={'markdown'} style={{ color: '#fafafa' }}>markdown</Link>
       <section style={{width: '900px', margin: '10px auto'}}>
-        <Files hideSidebar={false}>
+        {/* <Files hideSidebar={false}>
           <File path='index.ts' language='ts' code={`
             import a from 'b'
           `} />
@@ -20,7 +20,7 @@ export default function Page() {
               fmt.Println("aa")
             }
           `} />
-        </Files>
+        </Files> */}
       </section>
     </>
   )
