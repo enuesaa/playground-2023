@@ -9,6 +9,8 @@ type Props = {
   hideSidebar: boolean
 }
 export const Files = ({ children, hideSidebar }: Props) => {
+  // see https://stackoverflow.com/questions/65078600
+  if (!Array.isArray(children)) return children
   return (
     <section style={{ borderRadius: '5px', boxShadow: '0 2px 2px #000', color: '#fafafa', display: 'flex', width: '100%', fontSize: '16px' }}>
       <div style={{ flex: '1 0 auto' }}>
