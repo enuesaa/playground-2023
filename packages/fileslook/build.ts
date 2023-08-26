@@ -5,7 +5,7 @@ await esbuild.build({
   entryPoints: [
     './src/index.ts',
   ],
-  external: ['react', 'react-dom'],
+  external: ['react'],
   outdir: './dist',
   format: 'esm',
 })
