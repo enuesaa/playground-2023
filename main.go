@@ -9,8 +9,6 @@ func main() {
 	app := fiber.New()
 
 	api := app.Group("/api")
-	api.Post("/api/rebuild", handler.Rebuild)
-
 	api.Get("/api/fns", handler.ListFns)
 	api.Get("/api/fns/:id", handler.DescribeFn)
 
