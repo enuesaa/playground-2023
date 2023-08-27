@@ -1,3 +1,5 @@
 .next
 next-env.d.ts
 *.wasm
+
+src/lib/wasm/*

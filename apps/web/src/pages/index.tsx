@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import * as wasm from '../lib/wasm/toolkit.js'
 
 export default function Page() {
 
@@ -10,11 +11,12 @@ export default function Page() {
     //     console.log(results)
     //   });
 
-    WebAssembly.instantiateStreaming(fetch('protowasi.wasm'), {}).then(
-      (results) => {
-        console.log(results)
-      },
-    );
+    // WebAssembly.instantiateStreaming(fetch('toolkit_bg.wasm'), {}).then(
+    //   (results) => {
+    //     console.log(results)
+    //   },
+    // );
+    console.log(wasm.main('a'))
   }, [])
 
   return (<></>)
