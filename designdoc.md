@@ -2,8 +2,9 @@
 ## Apps
 | name | purpose | stacks |
 | - | - | - |
-| main | Web | Go, React |
-| toolkit | Tools | Rust |
+| main | Tools | Go |
+| toolkit | Wasm App | Rust |
+| web | Web | React, Next.js |
 
 ## philosophy
 - 何でも可視化できればベスト

@@ -7,10 +7,9 @@ import (
 	"strings"
 
 	esbuild "github.com/evanw/esbuild/pkg/api"
-	"github.com/gofiber/fiber/v2"
 )
 
-func Rebuild(c *fiber.Ctx) error {
+func Rebuild() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	runCmd(exec.CommandContext(ctx, "go", "build", "-o", "tmp/main", "."))
@@ -24,8 +23,6 @@ func Rebuild(c *fiber.Ctx) error {
 		LogLevel: esbuild.LogLevelInfo,
 		JSX: esbuild.JSXAutomatic,
 	})
-
-	return c.JSON("")
 }
 
 func runCmd(cmd *exec.Cmd) {
