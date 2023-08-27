@@ -20,14 +20,15 @@
   - タイルの追加などもでき、svg化も出来る
 
 ## memo
-出来るだけ不要なファイルを作らない。httpでデータをやり取りする
+go app をツールにする。go で cargo build や pnpm build するイメージ
 
 - go
+  - tools
   - define schema
   - write contents
+  - write json schema to rust wasm
+  - build rust app
+  - write contents to frontend app
 - rust wasm
-  - fetch json schema from go app
   - write wasm app.
 - frontend
-  - build rust app and include wasm codes.
-  - fetch contents from go app(ssg)
