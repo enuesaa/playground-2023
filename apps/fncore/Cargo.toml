@@ -2,7 +2,7 @@
 crate-type = ["cdylib", "rlib"]
 
 [package]
-name = "toolkit"
+name = "fncore"
 version = "0.1.0"
 edition = "2021"
 

@@ -13,9 +13,12 @@ func main() {
 		Name:    "kakkofn",
 		Usage:   "kakkofn",
 		Version: "0.0.1",
+		HideHelpCommand: true,
 		Commands: []*cli.Command{
 			command.ListFns(),
-			command.InjectSchema(),
+			command.InjectFncore(),
+			command.InjectWeb(),
+			command.BuildFncore(),
 		},
 	}
 
