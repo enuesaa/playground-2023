@@ -20,11 +20,14 @@
   - タイルの追加などもでき、svg化も出来る
 
 ## memo
+出来るだけ不要なファイルを作らない。httpでデータをやり取りする
+
 - go
   - define schema
-  - ツール
+  - write contents
 - rust wasm
-  - read schema
-- ssg 
-  - wasm は別パッケージにしたいなあ
-  - go でパッケージを吐き出すイメージ
+  - fetch json schema from go app
+  - write wasm app.
+- frontend
+  - build rust app and include wasm codes.
+  - fetch contents from go app(ssg)
