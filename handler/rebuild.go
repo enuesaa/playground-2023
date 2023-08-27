@@ -17,11 +17,11 @@ func Rebuild() {
 	runCmd(exec.CommandContext(ctx, "cp", "-RT", "web/public", "dist"))
 	esbuild.Build(esbuild.BuildOptions{
 		EntryPoints: []string{"web/main.tsx"},
-		Outdir:   "tmp/dist",
-		Bundle:   true,
-		Write:    true,
-		LogLevel: esbuild.LogLevelInfo,
-		JSX: esbuild.JSXAutomatic,
+		Outdir:      "tmp/dist",
+		Bundle:      true,
+		Write:       true,
+		LogLevel:    esbuild.LogLevelInfo,
+		JSX:         esbuild.JSXAutomatic,
 	})
 }
 
@@ -39,11 +39,11 @@ func runCmd(cmd *exec.Cmd) {
 	for {
 		s, err := stdout.Read(buff)
 		if err != nil {
-			break;
+			break
 		}
 		fmt.Println(string(buff))
 		if s == 0 {
-			break;
+			break
 		}
 		buff = make([]byte, 1024)
 	}
