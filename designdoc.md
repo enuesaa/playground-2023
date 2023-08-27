@@ -4,7 +4,6 @@
 | - | - | - |
 | main | Web | Go, React |
 | toolkit | Tools | Rust |
-| codego | Golang Action (Wasm) | Go |
 
 ## philosophy
 - 何でも可視化できればベスト
@@ -19,3 +18,12 @@
 - タイルの値をまた fn で加工していくイメージ
   - タイルの非表示度かもでき
   - タイルの追加などもでき、svg化も出来る
+
+## memo
+- rust wasm
+  - output schema as json
+- go cli
+  - embed wasm app and json
+  - read json and parse dynamically
+- include dist
+  - ssg react app
