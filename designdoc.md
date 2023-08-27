@@ -20,10 +20,11 @@
   - タイルの追加などもでき、svg化も出来る
 
 ## memo
+- go
+  - define schema
+  - ツール
 - rust wasm
-  - output schema as json
-- go cli
-  - embed wasm app and json
-  - read json and parse dynamically
-- include dist
-  - ssg react app
+  - read schema
+- ssg 
+  - wasm は別パッケージにしたいなあ
+  - go でパッケージを吐き出すイメージ
