@@ -1,30 +1,39 @@
 package command
 
 import (
+	"encoding/json"
 	"fmt"
 
+	"github.com/invopop/jsonschema"
 	"github.com/urfave/cli/v2"
-
-	"github.com/santhosh-tekuri/jsonschema/v5"
 )
+
+type InjectSchema struct {
+	ID  int `json:"id"`
+	Name string `json:"name" jsonschema:"description=name"`
+}
 
 func InjectFncore() *cli.Command {
 	command := cli.Command{
 		Name:  "inject-fncore",
 		Usage: "inject schema to fncore",
 		Action: func(cCtx *cli.Context) error {
-			compiler := jsonschema.NewCompiler()
-			fmt.Println(compiler)
+			schema := jsonschema.Reflect(&InjectSchema{})
+			ret, _ := json.Marshal(schema)
+			fmt.Println(string(ret))
 
-			schema := jsonschema.Schema {
-				Types: []string{"string"},
-				// Properties: map[string]*jsonschema.Schema {
-				// 	"aa": {
-				// 		Types: []string{"string"},
-				// 	},
-				// },
-			}
-			fmt.Printf("%s", schema.String())
+			// compiler := jsonschema.NewCompiler()
+			// fmt.Println(compiler)
+
+			// schema := jsonschema.Schema {
+			// 	Types: []string{"string"},
+			// 	// Properties: map[string]*jsonschema.Schema {
+			// 	// 	"aa": {
+			// 	// 		Types: []string{"string"},
+			// 	// 	},
+			// 	// },
+			// }
+			// fmt.Printf("%s", schema.String())
 
 			// fmt.Println("new task template: ", cCtx.Args().First())
 			return nil
