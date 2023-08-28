@@ -1,7 +1,11 @@
 package command
 
 import (
+	"fmt"
+
 	"github.com/urfave/cli/v2"
+
+	"github.com/santhosh-tekuri/jsonschema/v5"
 )
 
 func InjectFncore() *cli.Command {
@@ -9,6 +13,19 @@ func InjectFncore() *cli.Command {
 		Name:  "inject-fncore",
 		Usage: "inject schema to fncore",
 		Action: func(cCtx *cli.Context) error {
+			compiler := jsonschema.NewCompiler()
+			fmt.Println(compiler)
+
+			schema := jsonschema.Schema {
+				Types: []string{"string"},
+				// Properties: map[string]*jsonschema.Schema {
+				// 	"aa": {
+				// 		Types: []string{"string"},
+				// 	},
+				// },
+			}
+			fmt.Printf("%s", schema.String())
+
 			// fmt.Println("new task template: ", cCtx.Args().First())
 			return nil
 		},
