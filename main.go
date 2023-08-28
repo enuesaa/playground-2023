@@ -10,10 +10,10 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name:    "kakkofn",
-		Usage:   "kakkofn [subcommand]",
-		Version: "0.0.1",
-		HideHelpCommand: true,
+		Name:                  "kakkofn",
+		Usage:                 "kakkofn [subcommand]",
+		Version:               "0.0.1",
+		HideHelpCommand:       true,
 		CustomAppHelpTemplate: command.HelpMessage,
 		Commands: []*cli.Command{
 			command.ListFns(),

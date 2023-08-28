@@ -1,4 +1,4 @@
-package fn
+package fndef
 
 type ContentAction struct {
 	Name string
