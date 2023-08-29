@@ -22,20 +22,6 @@ func InjectFncore() *cli.Command {
 			ret, _ := json.Marshal(schema)
 			fmt.Println(string(ret))
 
-			// compiler := jsonschema.NewCompiler()
-			// fmt.Println(compiler)
-
-			// schema := jsonschema.Schema {
-			// 	Types: []string{"string"},
-			// 	// Properties: map[string]*jsonschema.Schema {
-			// 	// 	"aa": {
-			// 	// 		Types: []string{"string"},
-			// 	// 	},
-			// 	// },
-			// }
-			// fmt.Printf("%s", schema.String())
-
-			// fmt.Println("new task template: ", cCtx.Args().First())
 			return nil
 		},
 	}

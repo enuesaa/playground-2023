@@ -1,35 +1,29 @@
 package fndef
 
-type ContentAction struct {
-	Name string
-	Path string // wasm action path
-	// input like textarea
-	// output
+type FnResourceName struct {
+	Service string // like `toolkit`
+	Group string // like `json`
+	Name string // like `decode`
 }
 
-type ContentKv struct {
+type FnInputSchema struct {} // json schema
+type FnOutputSchema struct {} // json schema
+
+type FnContent struct {
+	Type string // note, table, link ...
+	Value string
+}
+
+type FnKv struct {
 	Key   string
 	Value string
 }
 
-type Content struct {
-	Id          string
-	Name        string
-	Description string
-	Kvs         []ContentKv
-	Demos       []ContentAction
+type Fn struct {
+	ResourceName FnResourceName // like `toolkit:json:decode`
+	InputSchema FnInputSchema
+	OutputSchema FnOutputSchema
+	Kvs []FnKv
+	Examples interface{}
+	Contents []FnContent
 }
-
-func NewContent(id string) Content {
-	return Content{
-		Id:          id,
-		Name:        "",
-		Description: "",
-	}
-}
-func (content *Content) AddKv(key string, value string) {
-	content.Kvs = append(content.Kvs, ContentKv{Key: key, Value: value})
-}
-
-// todo
-func (content *Content) AddAction(name string, path string) {}
