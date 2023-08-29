@@ -14,9 +14,9 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --manifest-path=apps/toolkit/Cargo.toml
+          args: --manifest-path=apps/fncore/Cargo.toml
 
       - uses: actions-rs/cargo@v1
         with:
           command: test
-          args: --manifest-path=apps/toolkit/Cargo.toml
+          args: --manifest-path=apps/fncore/Cargo.toml
