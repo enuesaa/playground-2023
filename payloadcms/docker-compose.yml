@@ -21,13 +21,21 @@ services:
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - 27017:27017
     command:
       - --storageEngine=wiredTiger
     volumes:
       - data:/data/db
     logging:
       driver: none
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    restart: always
 
 volumes:
   data:

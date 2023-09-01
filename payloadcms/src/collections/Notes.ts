@@ -15,6 +15,10 @@ const Tags: CollectionConfig = {
       type: 'text',
     },
     {
+      name: 'description',
+      type: 'text',
+    },
+    {
       name: 'author',
       type: 'relationship',
       relationTo: 'users',
