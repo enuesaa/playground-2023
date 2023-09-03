@@ -1,3 +1,4 @@
+import { TextUpdateNode } from '@/components/flow/TextUpdateNode';
 import { useCallback } from 'react'
 import ReactFlow, { MiniMap, Controls, Background, useNodesState, useEdgesState, addEdge, OnConnect, Panel} from 'reactflow'
 import 'reactflow/dist/style.css'
@@ -27,20 +28,23 @@ const initialNodes = [
     id: '4',
     data: { label: 'child node 3' },
     position: { x: 110, y: 10 },
-    style: { width: 100, height: 50 },
+    style: { width: 100, height: 50, fontSize: '40px', backgroundColor: '#ff6633', },
     parentNode: '2',
+    draggable: false,
   },
   {
     id: '5',
+    type: 'textUpdate',
     data: { label: 'child node 3' },
     position: { x: 10, y: 60 },
-    style: { width: 100, height: 500 },
+    style: { width: 100, height: 100 },
     parentNode: '2',
   },
 ];
 // つなぐもの
 // see https://reactflow.dev/docs/examples/edges/custom-connectionline/
 const initialEdges = [{ id: '1to2', source: '1', target: '2' }];
+const nodeTypes = { textUpdate: TextUpdateNode }
 
 export default function Page() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -57,6 +61,7 @@ export default function Page() {
         initialNodes.push({id: '6', position: {x:200, y:300},data:{label:'aaa'}})
         setNodes(initialNodes)
       }}>a</button>
+
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -64,6 +69,7 @@ export default function Page() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView={true}
+        nodeTypes={nodeTypes}
       >
         <Controls />
         <MiniMap />
