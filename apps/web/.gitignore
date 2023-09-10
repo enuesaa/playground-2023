@@ -3,3 +3,6 @@ next-env.d.ts
 *.wasm
 
 src/lib/wasm/*
+
+# pandacss
+src/styled-system
