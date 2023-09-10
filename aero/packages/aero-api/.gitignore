@@ -1,2 +1,0 @@
-# Ignore lock file because workspace-managed lock file exists.
-Cargo.lock
