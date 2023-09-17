@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 
-// pub mod fns;
+pub mod fns;
 // use crate::fns::replacefn::replacefn;
 // use crate::fns::countfn::countfn;
 // use crate::fns::base64decodefn::base64decodefn;

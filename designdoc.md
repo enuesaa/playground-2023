@@ -33,3 +33,13 @@ go app をツールにする。go で cargo build や pnpm build するイメー
 - rust wasm
   - write wasm app.
 - frontend
+
+## VS Code Settings
+To analyze rust code, please create ./vscode/settings.json and write below.
+```json
+{
+  "rust-analyzer.linkedProjects": [
+    "./apps/fncore/Cargo.toml"
+  ]
+}
+```
