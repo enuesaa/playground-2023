@@ -55,9 +55,10 @@ export default function Page() {
   }, [setEdges])
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ width: '500px', height: '500px' }}>
       <button onClick={(e) => {
         e.preventDefault();
+        // @ts-ignore
         initialNodes.push({id: '6', position: {x:200, y:300},data:{label:'aaa'}})
         setNodes(initialNodes)
       }}>a</button>
@@ -70,9 +71,14 @@ export default function Page() {
         onConnect={onConnect}
         fitView={true}
         nodeTypes={nodeTypes}
+        zoomOnPinch={false}
+        zoomOnScroll={false}
+        zoomOnDoubleClick={false}
+        preventScrolling={false}
+        panOnDrag={false}
       >
         <Controls />
-        <MiniMap />
+        {/* <MiniMap /> */}
         <Background gap={12} size={1} />
         <Panel position='top-right' style={{color: '#fafafa'}}>panel</Panel>
       </ReactFlow>
