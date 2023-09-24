@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    image: harness/gitness
+    ports:
+      - 3000:3000
+    volumes:
+      - ./tmp:/data
+    tty: true
