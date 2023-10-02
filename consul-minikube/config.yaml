@@ -1,8 +1,10 @@
 global:
+  enabled: true
   domain: consul
   datacenter: dc1
 
 server:
+  enabled: true
   replicas: 1
   bootstrapExpect: 1
 
@@ -10,6 +12,7 @@ client:
   enabled: true
   grpc: true
 
+# consul の dashboard
 ui:
   enabled: true
 

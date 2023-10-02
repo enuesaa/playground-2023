@@ -5,13 +5,17 @@ hashicorp consul を minikube 上で動かしてみる
 サービスメッシュらしい。kv store があるらしいが用途はなんなのだろう。
 
 ## helm
-kubenetes のパッケージマネージャらしい。yum でいう repository に近そう
+kubernetes のパッケージマネージャらしい。yum でいう repository に近そう
 
 ## Links
 - https://zenn.dev/amtkxa/articles/16f44f0a9d711171dc3a
 
 ## Commands
-### ダッシュボードを起動
+### Install 2 Kubernetes Cluster
+```bash
+helm install -f config.yaml hashicorp hashicorp/consul
 ```
+### ダッシュボードを起動
+```bash
 minikube dashboard
 ```
