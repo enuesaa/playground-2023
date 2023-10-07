@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbt
+    ports:
+      - 5432:5432
+
+  dbt:
+    image: xemuliam/dbt
+    environment:
+      POSTGRES_HOST: database
+    command: dbt run
+    depends_on:
+      - database
+    tty: true
+  
+  # see https://github.com/lightdash/lightdash/blob/main/docker-compose.yml
+  lightdash:
+    image: lightdash/lightdash:latest
+    depends_on:
+      - database
+    environment:
+      - PGHOST=database
+      - PGPORT=5432
+      - PGUSER=user
+      - PGPASSWORD=password
+      - PGDATABASE=dbt
+      - LIGHTDASH_SECRET=a
+    volumes:
+      - ./lightdash:/usr/app/dbt
+    ports:
+      - ${PORT:-8080}:${PORT:-8080}
