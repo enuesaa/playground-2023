@@ -1,0 +1,9 @@
+{
+  "dockerComposeFile": ["./docker-compose.yaml"],
+  "service": "payload" ,
+  "workspaceFolder": "/home/node/app/",
+  "containerEnv": {
+    "TZ": "Asia/Tokyo"
+  },
+  "shutdownAction": "none"
+}

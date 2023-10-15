@@ -18,11 +18,11 @@ const Tags: CollectionConfig = {
       name: 'description',
       type: 'text',
     },
-    {
-      name: 'author',
-      type: 'relationship',
-      relationTo: 'users',
-    },
+    // {
+    //   name: 'author',
+    //   type: 'relationship',
+    //   relationTo: 'users',
+    // },
   ],
   timestamps: false,
 }
