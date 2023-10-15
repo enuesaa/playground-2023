@@ -4,7 +4,7 @@ services:
   payload:
     image: node:18-alpine
     ports:
-      - "3000:3000"
+      - 3000:3000
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
@@ -13,10 +13,10 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGODB_URI: mongodb://mongo:27017/payload
-      PORT: 3000
-      NODE_ENV: development
-      PAYLOAD_SECRET: TESTING
+      - MONGODB_URI=mongodb://mongo:27017/payload
+      - PORT=3000
+      - NODE_ENV=development
+      - PAYLOAD_SECRET=TESTING
 
   mongo:
     image: mongo:latest
@@ -33,6 +33,9 @@ services:
     image: mongo-express
     ports:
       - 8081:8081
+    environment:
+      - ME_CONFIG_BASICAUTH_USERNAME=
+      - ME_CONFIG_BASICAUTH=false
     depends_on:
       - mongo
     restart: always
