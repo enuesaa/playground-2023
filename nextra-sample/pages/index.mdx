@@ -1,0 +1,26 @@
+---
+title: Introduction
+---
+
+import { useData } from 'nextra/data'
+ 
+export const getStaticProps = ({ params }) => {
+  return {
+    props: {
+      ssg: {
+        hey: 'hello',
+      }
+    },
+    revalidate: 60
+  }
+}
+export const Hey = () => {
+  const { hey } = useData()
+  return <strong>{hey}</strong>
+}
+
+# Welcome to Nextra
+ 
+Hello, world!
+
+<Hey />
