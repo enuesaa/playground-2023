@@ -16,11 +16,10 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["web/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": [
-    "web/app.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],
