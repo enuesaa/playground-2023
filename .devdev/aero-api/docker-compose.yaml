@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ./packages/aero-api
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./packages/aero-api:/app
+    tty: true
+    depends_on:
+      - couch
+
+  # Admin console url is http://localhost:5984/_utils
+  # see https://stackoverflow.com/questions/69542519/why-is-couchdb-looking-for-users-database
+  couch:
+    image: couchdb:latest
+    ports:
+      - 5984:5984
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=admin
+    volumes:
+      - couch:/opt/couchdb/data
+
+volumes:
+  couch:
