@@ -1,2 +1,2 @@
 # devdev
-Sample application for prototyping.
+This directory contains my prototyping apps. 
