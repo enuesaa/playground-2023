@@ -1,0 +1,33 @@
+{
+  "name": "@enuesaa/kakkofn",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "rm -rf .next && next dev",
+    "build": "next build",
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@radix-ui/themes": "^2.0.2",
+    "@vanilla-extract/css": "^1.14.0",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-query": "^3.39.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.10.4",
+    "@types/react": "18.2.43",
+    "@types/react-dom": "18.2.17",
+    "@vanilla-extract/next-plugin": "^2.3.2",
+    "eslint": "8.55.0",
+    "eslint-config-next": "^14.0.4",
+    "prettier": "^3.1.1",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "typescript": "5.3.3"
+  }
+}
