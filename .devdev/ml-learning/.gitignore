@@ -1,0 +1,15 @@
+__pycache__
+
+# misc
+.DS_Store
+
+# editor
+.vscode
+
+# tensorboardX
+runs
+
+# jupyter
+.ipynb_checkpoints
+
+venv*
